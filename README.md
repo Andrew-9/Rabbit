@@ -4,15 +4,16 @@ Rabbit -A darling Discord bot with fun commands, Memes, Images, Giveaway, Anime,
 [![Discord Banner](https://media.discordapp.net/attachments/711910361133219903/880873445951430686/banner.jpg?width=851&height=613)](https://rabbit.fumigram.com/)
 
 ### Features
-👻 Fun
-🎵 Music
-🧰 Utility
-🏖 Images
-📶 Leveling
-💸 Economy
-🔨 Moderation
-⚙️ Configuration
-🔖 Application System
+
+ * `👻 Fun`
+ * `🎶 Music`
+ * `🧰 Utility`
+ * `🏖  Images`
+ * `📶 Leveling`
+ * `💸 Economy`
+ * `🔨 Moderation`
+ * `⚙️ Configuration`
+ * `🔖 Application System`
 
 ### Invite
 
