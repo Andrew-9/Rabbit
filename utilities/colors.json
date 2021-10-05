@@ -1,0 +1,8 @@
+{
+	"color": {
+		"Alert": "#d80707",
+		"Warning": "#ff8800",
+		"Pass": "#0cc90f",
+		"Cool": "#0d4bd1"
+	}
+}

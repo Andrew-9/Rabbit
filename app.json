@@ -1,0 +1,70 @@
+{
+   "name": "rabbit",
+   "description": "A darling rabbit bot",
+   "logo": "https://media.discordapp.net/attachments/711910361133219903/872461614404743218/avatar.png",
+   "stack": "Rabbit#1895",
+   "buildpacks": [{
+      "url": ""
+   }],
+   "env": {
+      "TOKEN": {
+         "description": "The bot token (Remember! The TOKEN is super secret)",
+         "required": true
+      },
+      "PREFIX": {
+         "description": "The default bot prefix (eg. r!)",
+         "required": true
+      },
+      "AMEAPI": {
+         "description": "Your Amethyste api token",
+         "required": true
+      },
+      "COOKIES": {
+         "description": "Your Youtube cookies",
+         "required": false
+      },
+      "BRAINID": {
+         "description": "Your Brainshop AI Brain ID",
+         "required": true
+      },
+      "BRAINKEY": {
+         "description": "Your Brainshop AI Brain Key",
+         "required": true
+      },
+      
+      "ID": {
+         "description": "Your Discord Bot ID",
+         "required": true
+      },
+      "STATUS_WEBHOOK_TOKEN": {
+         "description": "Your status webhook token",
+         "required": false
+      },
+      "STATUS_WEBHOOK_ID": {
+         "description": "Your status webhook id",
+         "required": false
+      },
+      "GENIUS": {
+         "description": "Your Genius API key",
+         "required": true
+      },
+      "MYSQL_DATABASE": {
+         "description": "Your MYSQL Database name",
+         "required": true
+      },
+      "MYSQL_HOST": {
+         "description": "Your MYSQL Host Name",
+         "required": true
+      },
+      "MYSQL_PASSWORD": {
+         "description": "Your MYSQL user password",
+         "required": true
+      },
+      "MYSQL_USER": {
+         "description": "Your MYSQL User name who can acces to the database",
+         "required": true
+      }
+   },
+
+   "keywords": ["discord", "discord-bot", "node-js", "bot", "rabbit"]
+}
