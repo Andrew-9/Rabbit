@@ -21,7 +21,7 @@ NOTE for the bot to fully function without errors you'll need to grand him the `
 Or let's make things far easier, visit our [website](https://rabbit.fumigram.com/)
 
 ## Support Server
-Are you facing issues with setting up? then drop by at our [server](https://discord.com/invite/8ygztKCHgS) 
+Are you facing issues with setting up? then drop by at our [server](https://discord.com/invite/ghdvMDVFse) 
 
 ### Self-Hosting
 
