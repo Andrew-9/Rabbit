@@ -1,5 +1,5 @@
 # Rabbit
-Rabbit -A darling Discord bot with fun commands, Memes, Images, Giveaway, Anime, Economy, and NSFW! Rabbit serve over 180+ commands!
+Rabbit - An adorable rabbit bot with over 260+ commands He is very obedient and can help you setup your server.
 
 [![Discord Banner](https://media.discordapp.net/attachments/711910361133219903/880873445951430686/banner.jpg?width=851&height=613)](https://rabbit.fumigram.com/)
 
