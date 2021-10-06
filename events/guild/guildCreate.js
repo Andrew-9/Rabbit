@@ -14,10 +14,10 @@ module.exports = async (client, guild) => {
     const sql3 = "INSERT INTO `logs` (`guildId`, `enabled`) VALUES (" + guild.id + ", '0');";
     sql.query(sql3, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql4 = "INSERT INTO `welcome` (`guildId`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
+    const sql4 = "INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
     sql.query(sql4, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql5 = "INSERT INTO `leave` (`guildId`, `message`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
+    const sql5 = "INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
     sql.query(sql5, function (error, results, fields) {if (error) console.log(error);});
 
     const sql7 = "INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES (" + guild.id + ", '0');";
