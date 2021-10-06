@@ -39,7 +39,7 @@ sql.query("CREATE TABLE IF NOT EXISTS `economy_ward` (`guildId` VARCHAR(100) NOT
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Economy ward`! Status: Success"));
 });
 /* = Create guild = */
-sql.query("CREATE TABLE IF NOT EXISTS `guilds` (`guildId` VARCHAR(100) NOT NULL, `guild_prefix` VARCHAR(10) NOT NULL, `guild_second_prefix` VARCHAR(10) NOT NULL, `guild_third_prefix` VARCHAR(10) NOT NULL, `guild_fourth_prefix` VARCHAR(10) NOT NULL, `jointocreate` VARCHAR(10) NOT NULL, `JoincreateChannel` VARCHAR(50) NOT NULL, UNIQUE(`guildid`));", function(error) {
+sql.query("CREATE TABLE IF NOT EXISTS `guilds` (`guildId` VARCHAR(100) NOT NULL, `guild_prefix` VARCHAR(10) NOT NULL, VARCHAR(50) NOT NULL, UNIQUE(`guildid`));", function(error) {
     if (error) throw new Error(error);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Guilds`! Status: Success"));
 });
