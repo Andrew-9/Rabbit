@@ -122,7 +122,7 @@ sql.query("SELECT `guildId`, `enabled`, `channelid` FROM logs WHERE `guildId` = 
 });
 sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM welcome WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `welcome` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
@@ -132,7 +132,7 @@ sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomM
 });
 sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM leave WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `leave` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
