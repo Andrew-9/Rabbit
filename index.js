@@ -78,11 +78,6 @@ sql.query("CREATE TABLE IF NOT EXISTS `global_market` (`product_id` INT(20) NOT 
     if (error) throw new Error(error);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Global Market`! Status: Success"));
 });
-/* = Ticket System = */
-sql.query("CREATE TABLE IF NOT EXISTS `ticketsystem` (`guildId` VARCHAR(100) NOT NULL, `userId` VARCHAR(100) NOT NULL, `enabled` VARCHAR(100) NOT NULL, `messageId` VARCHAR(100) NOT NULL, `channelId` VARCHAR(32) NOT NULL, `parentId` VARCHAR(100) NOT NULL, `message` VARCHAR(100) NOT NULL, `adminroles` VARCHAR(100) NOT NULL, UNIQUE(`guildid`));", function(error) {
-    if (error) throw new Error(error);
-    console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Ticketsystem`! Status: Success"));
-});
 /* = Ranking = */
 sql.query("CREATE TABLE IF NOT EXISTS `ranking` (`guildId` VARCHAR(100) NOT NULL, `enabled` VARCHAR(100) NOT NULL, `embedEnable` VARCHAR(32) NOT NULL, `cardtype` VARCHAR(20) NOT NULL, `backgroundimage` VARCHAR(3000) NOT NULL, UNIQUE(`guildid`));", function(error) {
     if (error) throw new Error(error);
@@ -97,7 +92,7 @@ sql.query("CREATE TABLE IF NOT EXISTS `giveaways` (`id` INT(1) NOT NULL AUTO_INC
 /* Insert into database */ //This way we would prevent the bot from carshing everytime there's no entry in the database. Kinda Anoying Yeap
 sql.query("SELECT guildId, guild_prefix FROM guilds WHERE `guildId` = 0;", function (err, result, fields){
   if(result == 0) {
-    sql.query("INSERT INTO `guilds` (`guildId`, `guild_prefix`) VALUES ('0', '0',);", (err) => {
+    sql.query("INSERT INTO `guilds` (`guildId`, `guild_prefix`) VALUES ('0', '0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Guilds`! Status: Success"));
     });
@@ -145,16 +140,7 @@ sql.query("SELECT `guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnab
     return;
   }
 });
-sql.query("SELECT `guildId`, `message`, `enabled` FROM ticketsystem WHERE `guildId` = 0;", function (err, result, fields){
-    if(result == 0) {
-    sql.query("INSERT INTO `ticketsystem` (`guildId`, `message`, `enabled`) VALUES ('0', '0','0');", (err) => {
-    if (err) throw new Error(err);
-    console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Ticketsystem`! Status: Success"));
-    });
-  } else {
-    return;
-  }
-});
+
 sql.query("SELECT `guildId`, `enabled` FROM economy_ward WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
     sql.query("INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES ('0','0');", (err) => {
