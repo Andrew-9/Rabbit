@@ -39,7 +39,7 @@ sql.query("CREATE TABLE IF NOT EXISTS `economy_ward` (`guildId` VARCHAR(100) NOT
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Economy ward`! Status: Success"));
 });
 /* = Create guild = */
-sql.query("CREATE TABLE IF NOT EXISTS `guilds` (`guildId` VARCHAR(100) NOT NULL, `guild_prefix` VARCHAR(10) NOT NULL, VARCHAR(50) NOT NULL, UNIQUE(`guildid`));", function(error) {
+sql.query("CREATE TABLE IF NOT EXISTS `guilds` (`guildId` VARCHAR(100) NOT NULL, `guild_prefix` VARCHAR(10) NOT NULL, `rules` VARCHAR(100) NOT NULL, `embed_channel` VARCHAR(100) NOT NULL, `embed_color` VARCHAR(100) NOT NULL, UNIQUE(`guildid`));", function(error) {
     if (error) throw new Error(error);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Guilds`! Status: Success"));
 });
@@ -95,9 +95,9 @@ sql.query("CREATE TABLE IF NOT EXISTS `giveaways` (`id` INT(1) NOT NULL AUTO_INC
 });
 
 /* Insert into database */ //This way we would prevent the bot from carshing everytime there's no entry in the database. Kinda Anoying Yeap
-sql.query("SELECT guildId, guild_prefix, jointocreate FROM guilds WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT guildId, guild_prefix FROM guilds WHERE `guildId` = 0;", function (err, result, fields){
   if(result == 0) {
-    sql.query("INSERT INTO `guilds` (`guildId`, `guild_prefix`, `jointocreate`) VALUES ('0', '0', '0');", (err) => {
+    sql.query("INSERT INTO `guilds` (`guildId`, `guild_prefix`) VALUES ('0', '0',);", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Guilds`! Status: Success"));
     });
