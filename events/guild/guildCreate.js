@@ -5,13 +5,13 @@ const sql = require("../../utilities/database");
 
 module.exports = async (client, guild) => {
  try {
-    const sql1 = "INSERT INTO `guilds` (`guildId`, `guild_prefix`) VALUES (" + guild.id + ", 'r!');";
+    const sql1 = "INSERT INTO `guilds` (`guildId`, `guild_prefix`, `rules`, `embed_channel`, `embed_color`) VALUES (" + guild.id + ", 'r!', '0', '0', '0');";
     sql.query(sql1, function (error, results, fields) {if (error) console.log(error);});
 
     const sql2 = "INSERT INTO `ranking` (`guildId`, `enabled`, `embedEnable`, `cardtype`, `backgroundimage`) VALUES (" + guild.id + ", '0', '1', '0', 'lib/img/rank.jpg');";
     sql.query(sql2, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql3 = "INSERT INTO `logs` (`guildId`, `enabled`) VALUES (" + guild.id + ", '0');";
+    const sql3 = "INSERT INTO `logs` (`guildId`, `channelid`, `enabled`) VALUES (" + guild.id + ", '0', '12345678');";
     sql.query(sql3, function (error, results, fields) {if (error) console.log(error);});
 
     const sql4 = "INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
@@ -20,10 +20,10 @@ module.exports = async (client, guild) => {
     const sql5 = "INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
     sql.query(sql5, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql7 = "INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES (" + guild.id + ", '0');";
+    const sql7 = "INSERT INTO `economy_ward` (`guildId`, `channelid`, `enabled`) VALUES (" + guild.id + ", '0', '12345678');";
     sql.query(sql7, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql8 = "INSERT INTO `boosters` (`guildId`, `enabled`) VALUES (" + guild.id + ", '0');";
+    const sql8 = "INSERT INTO `boosters` (`guildId`, `channelid`, `enabled`) VALUES (" + guild.id + ", '0', '12345678');";
     sql.query(sql8, function (error, results, fields) {if (error) console.log(error);});
 
     client.custom.ensure(guild.id, { playlists: [] });
