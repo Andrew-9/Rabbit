@@ -110,9 +110,9 @@ sql.query("SELECT `guildId`, `enabled`, `embedEnable`, `cardtype`, `backgroundim
     return;
   }
 });
-sql.query("SELECT `guildId`, `enabled` FROM logs WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `enabled`, `channelid` FROM logs WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `logs` (`guildId`, `enabled`) VALUES ('0', '0');", (err) => {
+    sql.query("INSERT INTO `logs` (`guildId`, `enabled`, `channelid`) VALUES ('0', '0', '0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Logs`! Status: Success"));
     });
@@ -120,9 +120,9 @@ sql.query("SELECT `guildId`, `enabled` FROM logs WHERE `guildId` = 0;", function
     return;
   }
 });
-sql.query("SELECT `guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM welcome WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM welcome WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `welcome` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0', '0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `welcome` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
@@ -130,9 +130,9 @@ sql.query("SELECT `guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnab
     return;
   }
 });
-sql.query("SELECT `guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM leave WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM leave WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `leave` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0', '0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `leave` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
@@ -141,9 +141,9 @@ sql.query("SELECT `guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnab
   }
 });
 
-sql.query("SELECT `guildId`, `enabled` FROM economy_ward WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `enabled` FROM economy_ward WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES ('0','0');", (err) => {
+    sql.query("INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES ('0','0', '0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Economy Ward`! Status: Success"));
     });
@@ -151,9 +151,9 @@ sql.query("SELECT `guildId`, `enabled` FROM economy_ward WHERE `guildId` = 0;", 
     return;
   }
 });
-sql.query("SELECT `guildId`, `enabled` FROM boosters WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `enabled` FROM boosters WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `boosters` (`guildId`, `enabled`) VALUES ('0','0');", (err) => {
+    sql.query("INSERT INTO `boosters` (`guildId`, `enabled`) VALUES ('0','0', '0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Boosters Ward`! Status: Success"));
     });
