@@ -143,7 +143,7 @@ sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomM
 
 sql.query("SELECT `guildId`, `channelid`, `enabled` FROM economy_ward WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `economy_ward` (`guildId`, `enabled`) VALUES ('0','0', '0');", (err) => {
+    sql.query("INSERT INTO `economy_ward` (`guildId`, `channelid`, `enabled`) VALUES ('0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Economy Ward`! Status: Success"));
     });
@@ -153,7 +153,7 @@ sql.query("SELECT `guildId`, `channelid`, `enabled` FROM economy_ward WHERE `gui
 });
 sql.query("SELECT `guildId`, `channelid`, `enabled` FROM boosters WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `boosters` (`guildId`, `enabled`) VALUES ('0','0', '0');", (err) => {
+    sql.query("INSERT INTO `boosters` (`guildId`, `channelid`, `enabled`) VALUES ('0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Boosters Ward`! Status: Success"));
     });
