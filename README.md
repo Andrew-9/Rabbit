@@ -1,5 +1,6 @@
 # Rabbit
 Rabbit - An adorable rabbit bot with over 260+ commands He is very obedient and can help you setup your server.
+The bot has a lot of functionalities with an advance server setup settings which includes a bunch of commands that are package into one grand command. this source code will be constantly updated with new features and functions. you can support the development of this project [Here](https://donatebot.io/checkout/696724967907393537)
 
 [![Discord Banner](https://media.discordapp.net/attachments/711910361133219903/880873445951430686/banner.jpg?width=851&height=613)](https://rabbit.fumigram.com/)
 
@@ -23,6 +24,13 @@ Or let's make things far easier, visit our [website](https://rabbit.fumigram.com
 
 ## Support Server
 Are you facing issues with setting up? then drop by at our [server](https://discord.com/invite/ghdvMDVFse) 
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Also please make sure all contributions you add uses the following database and language
+* `MYSQL` - Rabbit Main Database
+* `ENMAP` - Rabbit Sub Database
+* `JAVASCRIPT` - Rabbit Programing Language
 
 ### Self-Hosting
 
