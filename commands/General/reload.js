@@ -14,7 +14,7 @@ module.exports = {
         const Nopermission8 = new Discord.MessageEmbed()
         .setColor("#f04949")
         .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-        .setDescription(`**Oops sorry. (Only my owner can run this)**`)
+        .setDescription(`Oops sorry. (Only my owner can run this)`)
         .setFooter("Requested by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
         .setTimestamp();
         return await message.channel.send(Nopermission8);
@@ -39,10 +39,8 @@ module.exports = {
         });
         const reloaded = new Discord.MessageEmbed()
         .setColor("#ff8100")
-        .setTitle("CMD RELOADED!")
-        .setDescription(`<:winkingface_01:869178842957381734> **Commands Reloaded Successfully!**`)
-        .setFooter("Reloaded by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
-        .setTimestamp();
+        .setTitle("RELOADED SUCCESS!")
+        .setDescription(`Commands Reloaded Successfully!`)
          message.channel.send(reloaded);
     }
   } catch (err) {

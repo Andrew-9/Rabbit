@@ -13,7 +13,11 @@ module.exports = {
     const fumigram = new Discord.MessageEmbed()
     .setTitle("<:fumigram:885984580660772934> FUMIGRAM IMAGE SHARING COMMUNITY")
     .setDescription(`
-    Fumigram has provided a place mainly for animation activities. we believe that anime fans deserve to have their very own social community and it would be able to help bring all of the fans out there closer. We have made a image sharing community which would be the start of this endeavor and with time more ideas will be implemented to make the world of animation more interesting for others. the **fumigram** community will be accepting **partnership** and team **members** to help grow and advance the world of anime throughout the internet world. to **pathner** up applicant much join the discord server and message the admin **Kotlin#0427**
+    Fumigram has provided a place mainly for animation activities.
+    We believe that anime fans deserve to have their very own social community
+    And it would be able to help bring all of the fans out there closer.
+    We have made a image sharing community which would be the start of this endeavor
+    And with time more ideas will be implemented to make the world of animation more interesting for others.
     `)
     .setImage("https://media.discordapp.net/attachments/711910361133219903/885985719292686386/banner-bg.jpg?width=1089&height=612")
     .setColor("FF006F")

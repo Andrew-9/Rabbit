@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const moment = require("moment");
 require("moment-duration-format");
+const config = require("../../config");
 
 module.exports = {
  name: "uptime",
@@ -16,11 +17,11 @@ module.exports = {
    const embed = new Discord.MessageEmbed()
     .setAuthor("RABBIT BOT UPTIME", client.user.displayAvatarURL())
     .setDescription(`
-    <:bluebullet:887635391866372106> **Uptime** - \`${duration}\`
-    <:bluebullet:887635391866372106> **Date Launched** - \`${moment(timestamp).format("LLLL")}\`
+    <:bluepointer:897839647034601492> **Uptime** - \`${duration}\`
+    <:bluepointer:897839647034601492> **Date Restarted ** - \`${moment(timestamp).format("LLLL")}\`
     `)
     .setTimestamp()
-    .setFooter(client.user.username + ` - by Kotlin#0427`, "https://media.discordapp.net/attachments/711910361133219903/883835296062513272/avatar.jpg")
+    .setFooter(client.user.username + ` - by Kotlin#0427`, config.Kotlin)
     .setColor("00efff");
    message.channel.send(embed);
   } catch (err) {

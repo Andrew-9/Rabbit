@@ -20,7 +20,7 @@ module.exports = {
     message.channel.startTyping();
     const response = await fetch("https://nekos.life/api/v2/img/tickle");
     const body = await response.json();
-    const embed = await new Discord.MessageEmbed()
+    const embed = new Discord.MessageEmbed()
      .setColor("RANDOM")
      .setTitle(member.username + " just got tickled by " + message.author.username)
      .setFooter(
@@ -36,7 +36,13 @@ module.exports = {
     message.lineReply(embed);
    })();
   } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
   }
  },
 };

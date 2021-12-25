@@ -1,13 +1,14 @@
 {
  "name": "rabbit",
- "version": "3.5.5",
+ "version": "3.5.6",
  "description": "Rabbit have almost everything - Fun, Memes, Images, Moderation, Giveaway, Economy, Anime and NSFW. This bot serve over 210++ commands!",
  "author": "Kotlin#0427",
  "main": "node Rabbit/index.js",
  "scripts": {
-  "start": "node index.js",
-  "develop": "node index.js",
+  "start": "node index.js && node dashboard-run.js",
+  "develop": "node index.js && node dashboard-run.js",
   "bot": "node index.js",
+  "dashboard": "node dashboard-run.js",
   "format": "prettier --write . --ignore-unknown",
   "format:check": "prettier --check .",
   "test": "node index.js"

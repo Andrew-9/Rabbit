@@ -120,7 +120,7 @@ module.exports = {
                 const Nopermission8 = new Discord.MessageEmbed()
                 .setColor("#f04949")
                 .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-                .setDescription(`You don't have permission to use this command!`)
+                .setDescription(`*You don't have permission to use this command!*`)
                 .setFooter("Requested by " + `${message.author.username}`, message.author.displayAvatarURL({ dynamic: true, format: "png", size: 2048, }))
                 .setTimestamp();
                 return await message.channel.send(Nopermission8);

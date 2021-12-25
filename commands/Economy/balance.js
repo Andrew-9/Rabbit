@@ -12,7 +12,7 @@ module.exports = {
     try {
       let b = sql.query("SELECT balance, bank, sales_balance, gold, bal_color FROM economy WHERE userId = ?;", message.author.id, function (err, result, fields) {
         if (Object.keys(result).length === 0) {
-          let register = "INSERT INTO economy (userId, balance, bank, sales_balance, username, cardtype) VALUES ('" + message.author.id + "', '0', '0', '0',' " + message.author.username + "', '1');";
+          let register = "INSERT INTO economy (userId, balance, bank, sales_balance, username, cardtype, buyer, shop_reward) VALUES ('" + message.author.id + "', '0', '0', '0',' " + message.author.username + "', '1', '0', '0');";
           sql.query(register)
           let NoAccount = new Discord.MessageEmbed()
           .setColor('#e53637')

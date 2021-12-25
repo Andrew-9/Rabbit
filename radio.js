@@ -78,8 +78,6 @@ const guildPrefix = new Map();
           args2 = radios.EU.Ukraine[Number(args[0]) - 150 - 1].split(` `);
       else if (Number([args[0]]) > 170 && Number(args[0]) <= (170 + 46))
           args2 = radios.OTHERS.request[Number(args[0]) - 160 - 1].split(` `);
-      else if (Number([args[0]]) > 180 && Number(args[0]) <= (180 + 50))
-      args2 = radios.AFRICA.Nigeria[Number(args[0]) - 180 - 1].split(` `);
       else {
         const noradio = new Discord.MessageEmbed()
         .setColor(config.colors.playmode)
@@ -250,12 +248,6 @@ const guildPrefix = new Map();
           Ukraine += `<:bluebullet:887635391866372106> ...**${i+1+10*amount}** [${radios.EU.Ukraine[i].split(" ")[0].replace("-"," ")}](${radios.EU.Ukraine[i].split(" ")[1]})\n`
       }
 
-      amount++;
-      let Nigeria = "";
-      for (let i = 0; i < radios.AFRICA.Nigeria.length; i++) {
-        Nigeria += `<:bluebullet:887635391866372106> ...**${i+1+10*amount}** [${radios.AFRICA.Nigeria[i].split(" ")[0].replace("-"," ")}](${radios.AFRICA.Nigeria[i].split(" ")[1]})\n`
-      }
-
         const infoembed = new Discord.MessageEmbed()
         .setColor(config.colors.playmode)
         .setTitle("<:musicblues:888396777202520124> 130 RADIO STATION")
@@ -281,7 +273,6 @@ const guildPrefix = new Map();
         <:bluebullet:887635391866372106> ... **15** \`Sweden\`
         <:bluebullet:887635391866372106> ... **16** \`Turkey\`
         <:bluebullet:887635391866372106> ... **17** \`Ukraine\`
-        <:bluebullet:887635391866372106> ... **18** \`Nigeria\`
         If you want to play a radio station. then use\n\`${prefix}radio <station number> <volume>\`
         For example: \`${prefix}radio 2 80\` \nThis will play a radio station: with the volume \`80\`
         `)
@@ -388,12 +379,6 @@ const guildPrefix = new Map();
         .setThumbnail("https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/twitter/259/flag-ukraine_1f1fa-1f1e6.png")
         .setFooter(`${client.user.username} with love by kotlin#0427 `, client.user.displayAvatarURL())
         .setDescription(Ukraine)
-        const Nigeriaembed = new Discord.MessageEmbed()
-        .setColor(config.colors.playmode)
-        .setTitle("<:musicblues:888396777202520124> NIGERIA - RADIO STATION")
-        .setThumbnail("https://thumbs.dreamstime.com/b/nigeria-logo-map-country-name-flag-artistic-vector-illustration-171028979.jpg")
-        .setFooter(`${client.user.username} with love by kotlin#0427 `, client.user.displayAvatarURL())
-        .setDescription(Nigeria)
 
     var radioarray = [
           United_Kingdomembed,
@@ -412,8 +397,7 @@ const guildPrefix = new Map();
           Spainembed,
           Swedenembed,
           TURKEYembed,
-          Ukraineembed,
-          Nigeriaembed
+          Ukraineembed
       ];
 
       let Rkingdom = new MessageButton().setStyle("blurple").setID("Kingdom").setLabel("Kingdom")
@@ -434,13 +418,12 @@ const guildPrefix = new Map();
       let RSweden = new MessageButton().setStyle("blurple").setID("Sweden").setLabel("Sweden");
       let RTurkey = new MessageButton().setStyle("blurple").setID("Turkey").setLabel("Turkey");
       let RUkraine = new MessageButton().setStyle("blurple").setID("Ukraine").setLabel("Ukraine");
-      let RNigeria = new MessageButton().setStyle("blurple").setID("Nigeria").setLabel("Nigeria");
-      let Home = new MessageButton().setStyle("red").setID("Home").setLabel("🏡 Home");
+      let Home = new MessageButton().setStyle("green").setID("Home").setLabel("🏡 Home");
 
       let Rvote = new MessageButton().setStyle("url").setLabel("SERVER").setURL("https://discord.com/invite/ghdvMDVFse")
       let Rserver = new MessageButton().setStyle("url").setLabel("VOTE").setURL("https://discord.boats/bot/734522699228905585")
 
-      let radiobutton = await message.channel.send({ embed: infoembed, radioarray, components: [ { type: 1, components: [Rkingdom, Raustria, RBelgium, RBosnia, RCzech] }, { type: 2, components: [RDenmark, Rgermany, RHungary, RIreland, RItaly] }, { type: 3, components: [RLuxembourg, RRomania, RSerbia, RSpain, RSweden] }, { type: 4, components: [RTurkey, RUkraine, Home, Rvote, Rserver] }, { type: 5, components: [RNigeria] } ] })
+      let radiobutton = await message.channel.send({ embed: infoembed, radioarray, components: [ { type: 1, components: [Rkingdom, Raustria, RBelgium, RBosnia, RCzech] }, { type: 2, components: [RDenmark, Rgermany, RHungary, RIreland, RItaly] }, { type: 3, components: [RLuxembourg, RRomania, RSerbia, RSpain, RSweden] }, { type: 4, components: [RTurkey, RUkraine, Home, Rvote, Rserver] } ] })
 
       const collector = radiobutton.createButtonCollector((button) => button.clicker.user.id === message.author.id, {time: 900000});
       collector.on("collect", (b) => {
@@ -481,8 +464,6 @@ const guildPrefix = new Map();
                 radiobutton.edit({ embed: TURKEYembed, components: [ { type: 1, components: [Rkingdom, Raustria, RBelgium, RBosnia, RCzech] }, { type: 2, components: [RDenmark, Rgermany, RHungary, RIreland, RItaly] }, { type: 3, components: [RLuxembourg, RRomania, RSerbia, RSpain, RSweden] }, { type: 4, components: [RTurkey, RUkraine, Home, Rvote, Rserver] } ] });
             } else if(b.id == "Ukraine"){
                 radiobutton.edit({ embed: Ukraineembed, components: [ { type: 1, components: [Rkingdom, Raustria, RBelgium, RBosnia, RCzech] }, { type: 2, components: [RDenmark, Rgermany, RHungary, RIreland, RItaly] }, { type: 3, components: [RLuxembourg, RRomania, RSerbia, RSpain, RSweden] }, { type: 4, components: [RTurkey, RUkraine, Home, Rvote, Rserver] } ] });
-            } else if(b.id == "Nigeria"){
-                radiobutton.edit({ embed: Nigeriaembed, components: [ { type: 1, components: [Rkingdom, Raustria, RBelgium, RBosnia, RCzech] }, { type: 2, components: [RDenmark, Rgermany, RHungary, RIreland, RItaly] }, { type: 3, components: [RLuxembourg, RRomania, RSerbia, RSpain, RSweden] }, { type: 4, components: [RTurkey, RUkraine, Home, Rvote, Rserver] } ] });
             }
       })
   }

@@ -11,7 +11,7 @@ const guildPrefix = new Map();
 module.exports = {
  name: "info",
  aliases: ["botinfo", "clientinfo", "stats"],
- description: "Shows informations of the about the bot.",
+ description: "Shows informations of the about rabbit",
  category: "General",
  usage: "info",
  run: async (client, message, args) => {
@@ -23,24 +23,24 @@ module.exports = {
    .setColor("#ff9900")
    .setAuthor(`GENERIC INFORMATION`, message.guild.iconURL({dynamic: true, format: "png"}))
    .setDescription(`
-   <:rabbitbullet:887617523925778443> **Prefix** - \`${prefix}\`
-   <:rabbitbullet:887617523925778443> **Version** - \`3.5.5\`
-   <:rabbitbullet:887617523925778443> **Count** - \`${client.guilds.cache.size}\` guilds
-   <:rabbitbullet:887617523925778443> **Uptime** - \`${Math.round(client.ws.ping)}\` ms
-   <:rabbitbullet:887617523925778443> **Node** - \`${process.version}\`
-   <:rabbitbullet:887617523925778443> **Platform** - \`${capitalizeFirstLetter(osutils.platform())}\`
-   <:rabbitbullet:887617523925778443> **Discord.js** - \`${dependencies["discord.js"].replace("^", "v")}\`
-   <:rabbitbullet:887617523925778443> **Ping** - \`${duration}\`
-   <:rabbitbullet:887617523925778443> **User Count** - \`${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}\` members
-   <:rabbitbullet:887617523925778443> **Channel Count** - \`${client.channels.cache.size}\` channels
-   <:rabbitbullet:887617523925778443> **Rabbit Developer** - <@${config.ownerid}> | [[Website](${config.authorwebsite})\]
-   <:rabbitbullet:887617523925778443> **CPU** - \`${(os.cpus()[0].model.substring(0, os.cpus()[0].model.indexOf("CPU")) || "Intel Xeon (" + osutils.cpuCount() + " cores)")}\`
-   <:rabbitbullet:887617523925778443> **Total Memory** - \`${osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1]}\` MB
-   <:rabbitbullet:887617523925778443> **RAM Usage (VPS)** - \`${(osutils.totalmem() - osutils.freemem()).toString().split(".")[0] + "." + (osutils.totalmem() - osutils.freemem()).toString().split(".")[1].split(" ")[0] + (osutils.totalmem() - osutils.freemem()).toString().split(".")[1].split("")[1]}/${osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1]}MB (${(100 - osutils.freememPercentage() * 100).toString().split(".")[0] + "." + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split("")[0] + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split("")[1]}%)\`
-   <:rabbitbullet:887617523925778443> **RAM Usage (BOT)** - \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + "MB/" + osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1] + "MB " + `(${((100 * (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)) / osutils.totalmem().toString().split(".")[0]).toFixed(2)}%)`}\`
-   <:rabbitbullet:887617523925778443> **Amount Of Song Played** - \`${client.infos.get("global", "songs")}\`
-   <:rabbitbullet:887617523925778443> **Amount Of Filter Added** - \`${client.infos.get("global", "filters")}\`
-   <:rabbitbullet:887617523925778443> **Useful Links** - [Support server](${config.server}) | [Website](https://rabbit.fumigram.com) | [Invite me](https://discord.com/oauth2/authorize/?permissions=${config.permissions}&scope=bot&client_id=${client.user.id})
+   <:rabbitpoint:897844154258841620> **Prefix** - \`${prefix}\`
+   <:rabbitpoint:897844154258841620> **Version** - \`${config.version}\`
+   <:rabbitpoint:897844154258841620> **Count** - \`${client.guilds.cache.size}\` guilds
+   <:rabbitpoint:897844154258841620> **Uptime** - \`${Math.round(client.ws.ping)}\` ms
+   <:rabbitpoint:897844154258841620> **Node** - \`${process.version}\`
+   <:rabbitpoint:897844154258841620> **Platform** - \`${capitalizeFirstLetter(osutils.platform())}\`
+   <:rabbitpoint:897844154258841620> **Discord.js** - \`${dependencies["discord.js"].replace("^", "v")}\`
+   <:rabbitpoint:897844154258841620> **Ping** - \`${duration}\`
+   <:rabbitpoint:897844154258841620> **User Count** - \`${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}\` members
+   <:rabbitpoint:897844154258841620> **Channel Count** - \`${client.channels.cache.size}\` channels
+   <:rabbitpoint:897844154258841620> **Rabbit Developer** - <@${config.ownerid}> | [[Website](${config.authorwebsite})\]
+   <:rabbitpoint:897844154258841620> **CPU** - \`${(os.cpus()[0].model.substring(0, os.cpus()[0].model.indexOf("CPU")) || "Intel Xeon (" + osutils.cpuCount() + " cores)")}\`
+   <:rabbitpoint:897844154258841620> **Total Memory** - \`${osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1]}\` MB
+   <:rabbitpoint:897844154258841620> **RAM Usage (VPS)** - \`${(osutils.totalmem() - osutils.freemem()).toString().split(".")[0] + "." + (osutils.totalmem() - osutils.freemem()).toString().split(".")[1].split(" ")[0] + (osutils.totalmem() - osutils.freemem()).toString().split(".")[1].split("")[1]}/${osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1]}MB (${(100 - osutils.freememPercentage() * 100).toString().split(".")[0] + "." + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split("")[0] + (100 - osutils.freememPercentage() * 100).toString().split(".")[1].split("")[1]}%)\`
+   <:rabbitpoint:897844154258841620> **RAM Usage (BOT)** - \`${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2) + "MB/" + osutils.totalmem().toString().split(".")[0] + "." + osutils.totalmem().toString().split(".")[1].split("")[0] + osutils.totalmem().toString().split(".")[1].split("")[1] + "MB " + `(${((100 * (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)) / osutils.totalmem().toString().split(".")[0]).toFixed(2)}%)`}\`
+   <:rabbitpoint:897844154258841620> **Amount Of Song Played** - \`${client.infos.get("global", "songs")}\`
+   <:rabbitpoint:897844154258841620> **Amount Of Filter Added** - \`${client.infos.get("global", "filters")}\`
+   <:rabbitpoint:897844154258841620> **Useful Links** - [Support server](${config.server}) | [Website](https://rabbit.fumigram.com) | [Invite me](https://discord.com/oauth2/authorize?client_id=734522699228905585&permissions=158913785591&scope=bot%20applications.commands)
    `)
    .setThumbnail(client.user.displayAvatarURL({dynamic: true, format: "png", size: 2048})) 
    .setFooter("Rabbit by Kotlin#0427", config.Kotlin)

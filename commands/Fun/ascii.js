@@ -12,12 +12,18 @@ module.exports = {
   try {
    var max = 1000;
    if (args.join(" ").length > max)
-    return message.lineReply("<:xvector:869193619318382602> | **The max length for ascii is " + `${max}` + "!**");
+    return message.lineReply("<:xvector2:869193716575911966> The max length for ascii is " + `${max}` + "!");
    if (!args[0])
-   return message.lineReply("<:xvector:869193619318382602> | **Please enter a text to convert!**");
+   return message.lineReply("<:xvector2:869193716575911966> Please enter a text to convert!");
    figlet(`${args.join(" ")}`, function (err, data) {
     if (err) {
-     return message.lineReply("<:errorcode:868245243357712384> | **Oops Something went wrong...**");
+      const Anerror = new Discord.MessageEmbed()
+      .setColor("#e63064")
+      .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+      .setDescription(`\`\`\`${err}\`\`\``)
+      .setFooter("Error in code: Report this error to kotlin0427")
+      .setTimestamp();
+      return message.lineReply(Anerror);
     }
     hastebin
      .createPaste(
@@ -33,12 +39,12 @@ module.exports = {
       message.channel.startTyping();
       const embed = new Discord.MessageEmbed()
        .setColor("RANDOM")
-       .setDescription("<:successful:868563013614043146> **| Ascii code generated successfully!** \n:link: **| Link to ascii code paste:** " + urlToPaste)
+       .setDescription("<:successful:868563013614043146> Ascii code generated successfully!\n:link: Link to ascii code paste: " + urlToPaste)
        message.channel.stopTyping();
       message.lineReply(embed);
      })
      .catch(function (requestError) {
-      message.lineReply("<:xvector:869193619318382602> **| Something went wrong while uploading ascii code to server**");
+      message.lineReply("<:xvector2:869193716575911966> Something went wrong while\nUploading ascii code to server");
      });
    });
   } catch (err) {

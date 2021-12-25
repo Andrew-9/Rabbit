@@ -22,14 +22,14 @@ module.exports = {
    const mehh = new Discord.MessageEmbed()
     .setTitle(":twisted_rightwards_arrows: This isn't a match")
     .setThumbnail("https://cdn.discordapp.com/emojis/853644938867769454.gif?v=1")
-    .setDescription(`**I shipped \`${user1}\` with \`${user2}\` and it is \`${ship}\`%**\n\`${bar}\``)
+    .setDescription(`I shipped \`${user1}\` with \`${user2}\` and it is \`${ship}\`%\n\`${bar}\``)
     .setColor("RED");
    const love = new Discord.MessageEmbed()
     .setTitle(
      ":twisted_rightwards_arrows: They are born for each others!",
     )
     .setThumbnail("https://cdn.discordapp.com/emojis/797365365595439104.gif?v=1")
-    .setDescription(`**I shipped **${user1}** **with** **${user2}** *and it's** **${ship}%**\n${bar}`)
+    .setDescription(`I shipped **${user1}** with **${user2}** and it's **${ship}%**\n${bar}`)
     .setColor("GREEN");
    if (ship > 50) {
     message.lineReply(love);
@@ -37,7 +37,13 @@ module.exports = {
     message.lineReply(mehh);
    }
   } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
   }
  },
 };

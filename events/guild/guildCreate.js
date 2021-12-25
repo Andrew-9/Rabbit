@@ -5,7 +5,7 @@ const sql = require("../../utilities/database");
 
 module.exports = async (client, guild) => {
  try {
-    const sql1 = "INSERT INTO `guilds` (`guildId`, `guild_prefix`, `rules`, `embed_channel`, `embed_color`) VALUES (" + guild.id + ", 'r!', '0', '0', '0');";
+    const sql1 = "INSERT INTO `guilds` (`guildId`, `guild_prefix`, `rules`, `embed_channel`, `embed_color`, `proverbs`) VALUES (" + guild.id + ", 'r!', '0', '0', '0', '12345678');";
     sql.query(sql1, function (error, results, fields) {if (error) console.log(error);});
 
     const sql2 = "INSERT INTO `ranking` (`guildId`, `enabled`, `embedEnable`, `cardtype`, `backgroundimage`) VALUES (" + guild.id + ", '0', '1', '0', 'lib/img/rank.jpg');";
@@ -14,7 +14,7 @@ module.exports = async (client, guild) => {
     const sql3 = "INSERT INTO `logs` (`guildId`, `channelid`, `enabled`) VALUES (" + guild.id + ", '0', '12345678');";
     sql.query(sql3, function (error, results, fields) {if (error) console.log(error);});
 
-    const sql4 = "INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
+    const sql4 = "INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`, `DMWelcome`, `w_embed_welcome`, `DMEmbed`, `DMImage`, `DMBackground`, `w_embed_channel`, `w_embed_thumb`, `w_embed_Image`, `w_embed_Image_on`, `w_embed_thumb_on`) VALUES (" + guild.id + ", '123456789', '123456789', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');";
     sql.query(sql4, function (error, results, fields) {if (error) console.log(error);});
 
     const sql5 = "INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + guild.id + ", '123456789', '123456789', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
@@ -37,9 +37,9 @@ module.exports = async (client, guild) => {
     .setTitle(":inbox_tray: NEW GUILD JOINED!!")
     .setThumbnail(guild.iconURL())
     .setDescription(`
-    <:rabbitbullet:887617523925778443> **Guild ID** - \`${guild.id}\`
-    <:rabbitbullet:887617523925778443> **Guild Name** - ${guild.name}
-    <:rabbitbullet:887617523925778443> **Guild Members** - ${guild.memberCount}
+    <:rabbitpoint:897844154258841620> **Guild ID** - \`${guild.id}\`
+    <:rabbitpoint:897844154258841620> **Guild Name** - ${guild.name}
+    <:rabbitpoint:897844154258841620> **Guild Members** - ${guild.memberCount}
     `)
     Gchannel.send(joined);
     } else {
@@ -54,7 +54,7 @@ module.exports = async (client, guild) => {
     .setFooter("Rabbit by Kotlin#0427", guild.iconURL())
     .setTimestamp();
     channel.send(Thanks);
-    console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(` New guild joined: `) + chalk.blue.bold.underline(guild.name) + chalk.cyan.bold(" (ID: ") + chalk.blue.bold.underline(guild.id) + chalk.cyan.bold(") This guild has ") + chalk.blue.bold.underline(guild.memberCount) + chalk.cyan.bold(" members!"));
+    console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(`New guild joined: `) + chalk.blue.bold.underline(guild.name) + chalk.cyan.bold(" (ID: ") + chalk.blue.bold.underline(guild.id) + chalk.cyan.bold(") This guild has ") + chalk.blue.bold.underline(guild.memberCount) + chalk.cyan.bold(" members!"));
  } catch (err) {
   console.log(err);
  }

@@ -316,10 +316,5 @@
     "powertürkcover http://powerturkcover.listenpowerapp.com/powerturkcover/mpeg/icecast.audio",
     "showradyo http://windows.showradyo.com.tr/;"
     ]  
-  },
-  "AFRICA": {
-    "Nigeria":[
-      "99.3 Lagos https://mytuner-radio.com/radio/nigeria-info-fm-993-lagos-419808"
-    ]
-  }
+  }  
 }

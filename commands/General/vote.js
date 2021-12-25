@@ -13,7 +13,7 @@ module.exports = {
     const vote = new Discord.MessageEmbed()
     .setTitle("<:happyrabbit:868230223961919548> RABBIT")
     .setDescription(`
-    **You can vote for rabbit with this links he'd love that (✿◠‿◠)**
+    You can vote for rabbit with this links he'd love that **(✿◠‿◠)**
     `)
     .setImage("https://media.discordapp.net/attachments/711910361133219903/890541307913728000/1606743425111.jpg?width=851&height=613")
     .setColor("ff6900")

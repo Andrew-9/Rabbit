@@ -11,15 +11,15 @@ module.exports = {
  usage: "info",
  run: async (client, message, args) => {
   try {
-   if (message.author.id !== config.ownerid) {
-    const Nopermission8 = new Discord.MessageEmbed()
-    .setColor("#f04949")
-    .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-    .setDescription(`**Oops sorry. (Only my owner can run this)**`)
-    .setFooter("Requested by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
-    .setTimestamp();
-    return await message.channel.send(Nopermission8);
-   }
+  //  if (message.author.id !== config.ownerid) {
+  //   const Nopermission8 = new Discord.MessageEmbed()
+  //   .setColor("#f04949")
+  //   .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
+  //   .setDescription(`**Oops sorry. (Only my owner can run this)**`)
+  //   .setFooter("Requested by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
+  //   .setTimestamp();
+  //   return await message.channel.send(Nopermission8);
+  //  }
    const command = args.join(" ");
    if (!command) {
     return message.lineReply("<:xvector:869193619318382602> **| Please input some string!**");

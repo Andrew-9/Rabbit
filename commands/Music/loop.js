@@ -48,10 +48,10 @@ module.exports = {
         .setColor(config.colors.playmode)
         .setTitle("<:musicblues:888396777202520124> ADD A LOOP STYLE OPTION!")
         .setDescription(`
-        <:bluebullet:887635391866372106> **Options Off** \`0\` loop is off
-        <:bluebullet:887635391866372106> **Options Song** \`1\` loop the song.
-        <:bluebullet:887635391866372106> **Options Queue** \`2\` loop the queue
-        <:bluebullet:887635391866372106> You can also use **song**, **queue** or disable
+        <:bluepointer:897839647034601492> **Options Off** \`0\` loop is off
+        <:bluepointer:897839647034601492> **Options Song** \`1\` loop the song.
+        <:bluepointer:897839647034601492> **Options Queue** \`2\` loop the queue
+        <:bluepointer:897839647034601492> You can also use **song**, **queue** or disable
         `)
         return message.channel.send(Usage);
         }

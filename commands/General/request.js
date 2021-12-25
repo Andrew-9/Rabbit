@@ -20,33 +20,25 @@ module.exports = {
    if (channel) {
     const embed = new Discord.MessageEmbed()
      .setAuthor(message.guild.name, message.guild.iconURL())
-     .setTitle(`${message.author.username} requested for a feature.`)
+     .setTitle(`${message.author.username.toUpperCase()} REQUESTED FOR A FEATURE`)
      .setColor("#ff5a02")
-     .setDescription(`**${request}**`)
+     .setDescription(`${request}`)
      .setTimestamp()
      .addField("Requested By:", `<@${message.author.id}> (ID: ${message.author.id})`)
      .addField("User guild:", `**${message.guild.name} (ID: ${message.guild.id})**`)
-     .setFooter(`feature requested by ${message.author.username}`,
-      message.author.displayAvatarURL({ dynamic: true, format: "png", size: 2048 }))
+     .setFooter(`feature requested by ${message.author.username}`, message.author.displayAvatarURL({ dynamic: true, format: "png", size: 2048 }))
      .setThumbnail(message.author.displayAvatarURL());
      channel.send(embed);
      const success = new Discord.MessageEmbed()
      .setAuthor("RABBIT FEATURE REQUEST", message.guild.iconURL())
      .setColor("#ff5a02")
      .setDescription(`
-     **${message.author} Your request was sent
-     You can view it at the support server in <#${config.featurerequest}> channel.**`)
-     .setFooter(
-      "Feature request for rabbit",
-      message.author.displayAvatarURL({
-       dynamic: true,
-       format: "png",
-       size: 2048,
-      })
-     );
+     ${message.author} Your request was sent
+     You can view it at the support server in <#${config.featurerequest}> channel.`)
+     .setFooter("Feature request for rabbit", message.author.displayAvatarURL({dynamic: true, format: "png", size: 2048}));
     message.lineReply(success);
    } else {
-    return message.lineReply("<:thinkingface:867897965380108288> **| Hmm I can't find the feature request channel.**");
+    return message.lineReply("<:xvector2:869193716575911966> Hmm I can't find the\nFeature request channel.");
    }
   } catch (err) {
     const Anerror = new Discord.MessageEmbed()

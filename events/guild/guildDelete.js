@@ -31,8 +31,8 @@ module.exports = async (client, guild) => {
     .setTitle(":outbox_tray: GUILD DATA DELETED!!")
     .setThumbnail(guild.iconURL())
     .setDescription(`
-    <:rabbitbullet:887617523925778443> **Guild ID** - \`${guild.id}\`
-    <:rabbitbullet:887617523925778443> **Guild Name** - ${guild.name}
+    <:rabbitpoint:897844154258841620> **Guild ID** - \`${guild.id}\`
+    <:rabbitpoint:897844154258841620> **Guild Name** - ${guild.name}
     `)
     channel.send(leave);
    } else {

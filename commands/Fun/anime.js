@@ -15,38 +15,27 @@ module.exports = {
     .getInfoFromName(search)
     .then((data) => {
      const embed = new Discord.MessageEmbed()
-      .setAuthor(
-       `🔍 My Anime List search result for ${args}`.split(",").join(" "),
-       message.guild.iconURL({
-        dynamic: true,
-        format: "png",
-       })
-      )
+      .setTitle(`MY ANIME LIST SEARCH RESULTS FOR ${args}`.split(",").join(" "))
       .setImage(data.picture)
       .setColor("RANDOM")
-      .addField(":flag_gb: English Title", data.englishTitle)
-      .addField(":flag_jp: Japanese Title", data.japaneseTitle)
-      .addField(":book: Type", data.type)
-      .addField(":1234: Episodes", data.episodes)
-      .addField(":star2: Rating", data.rating)
-      .addField(":calendar_spiral: Aired", data.aired)
-      .addField(":star: Score", data.score)
-      .addField(":bar_chart: Score Stats", data.scoreStats)
-      .addField(":link: Link", data.url)
-      .setFooter(
-       "Requested by " + `${message.author.username}`,
-       message.author.displayAvatarURL({
-        dynamic: true,
-        format: "png",
-        size: 2048,
-       })
-      )
+      .setDescription(`
+      :flag_gb: ... **English Title** - ${data.englishTitle}
+      :flag_jp: ... **Japanese Title** - ${data.japaneseTitle}
+      :book: ... **Type** - ${data.type}
+      :1234: ... **Episodes** - ${data.episodes}
+      :star2: ... **Rating** - ${data.rating}
+      :calendar_spiral: ... **Aired** - ${data.aired}
+      :star: ... **Score** - ${data.score}
+      :bar_chart: ... **Score Stats** - ${data.scoreStats}
+      :link: ... **Link** - ${data.url}
+      `)
+      .setFooter("Requested by " + `${message.author.username}`, message.author.displayAvatarURL({ dynamic: true, format: "png",size: 2048 }))
       .setTimestamp();
       message.channel.stopTyping();
-     message.lineReply(embed);
+      message.lineReply(embed);
     })
     .catch((err) =>
-     message.lineReply("<:xvector:869193619318382602> | **Please enter a vaild name!**")
+     message.lineReply("<:xvector2:869193716575911966> Please enter a vaild name!")
     );
   } catch (err) {
     console.log(err);

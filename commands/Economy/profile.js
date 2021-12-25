@@ -156,25 +156,25 @@ module.exports = {
             .setAuthor(`${message.author.username.toUpperCase()}'S PROFILE`, message.author.displayAvatarURL())
             .setThumbnail(message.author.displayAvatarURL())
             .setDescription(`
-            <:bluebullet:887635391866372106> **PROGRESS**
-            <:bluebullet:887635391866372106> **RANK:** ${Number(i)}
-            <:bluebullet:887635391866372106> **LEVEL:** ${Number(client.points.get(key, `level`))}
-            <:bluebullet:887635391866372106> **CURRENT XP:** ${Number(curpoints.toFixed(2))}
-            <:bluebullet:887635391866372106> **REQUIRED XP:** ${Number(curnextlevel.toFixed(2))}
+            **PROGRESS**
+            **RANK:** ${Number(i)}
+            **LEVEL:** ${Number(client.points.get(key, `level`))}
+            **CURRENT XP:** ${Number(curpoints.toFixed(2))}
+            **REQUIRED XP:** ${Number(curnextlevel.toFixed(2))}
 
-            <:bluebullet:887635391866372106>  **STATS**
-            <:bluebullet:887635391866372106> **BANK:** ${formattedBankBalance}:bank:
-            <:bluebullet:887635391866372106> **BALANCE:** ${formattedBalance}<:dollars:881559643820793917>
-            <:bluebullet:887635391866372106> **IS JAILED:** ${IsJailed}:no_pedestrians:
+            **STATS**
+            **BANK:** ${formattedBankBalance}:bank:
+            **BALANCE:** ${formattedBalance}<:dollars:881559643820793917>
+            **IS JAILED:** ${IsJailed}:no_pedestrians:
 
-            <:bluebullet:887635391866372106> **SALES BALANCE:** ${formattedSalesBalance}:money_with_wings:
-            <:bluebullet:887635391866372106> **SHOP OWNER OF:** ${UserHasShop}
+            **SALES BALANCE:** ${formattedSalesBalance}:money_with_wings:
+            **SHOP OWNER OF:** ${UserHasShop}
             
-            <:bluebullet:887635391866372106> **DISCORD STATS**
-            <:bluebullet:887635391866372106> **BADGES:** ${newbadges.join(", ").toUpperCase() || "None"}
-            <:bluebullet:887635391866372106> **JOINED AT:** ${moment(rankuser.user.joinedAt).format("LLLL")}
-            <:bluebullet:887635391866372106> **DISCRIMINATOR:** #${rankuser.user.discriminator}
-            <:bluebullet:887635391866372106> **ACCOUNT CREATED AT:** ${moment(rankuser.user.createdAt).format("LLLL")}
+            **DISCORD STATS**
+            **BADGES:** ${newbadges.join(", ").toUpperCase() || "None"}
+            **JOINED AT:** ${moment(rankuser.user.joinedAt).format("LLLL")}
+            **DISCRIMINATOR:** #${rankuser.user.discriminator}
+            **ACCOUNT CREATED AT:** ${moment(rankuser.user.createdAt).format("LLLL")}
             `)
             .setFooter(`AVAILABLE BALANCE: ${formattedBalance}`, config.avatarUrl)
             .setTimestamp();
@@ -311,24 +311,24 @@ module.exports = {
             .setAuthor(`${rankuser.username.toUpperCase()}'S PROFILE`, rankuser.displayAvatarURL())
             .setThumbnail(rankuser.displayAvatarURL())
             .setDescription(`
-            <:bluebullet:887635391866372106> **PROGRESS**
-            <:bluebullet:887635391866372106> **RANK:** ${Number(i)}
-            <:bluebullet:887635391866372106> **LEVEL:** ${Number(client.points.get(key, `level`))}
-            <:bluebullet:887635391866372106> **CURRENT XP:** ${Number(curpoints.toFixed(2))}
-            <:bluebullet:887635391866372106> **REQUIRED XP:** ${Number(curnextlevel.toFixed(2))}
+            **PROGRESS**
+            **RANK:** ${Number(i)}
+            **LEVEL:** ${Number(client.points.get(key, `level`))}
+            **CURRENT XP:** ${Number(curpoints.toFixed(2))}
+            **REQUIRED XP:** ${Number(curnextlevel.toFixed(2))}
 
-            <:bluebullet:887635391866372106> **STATS**
-            <:bluebullet:887635391866372106> **BANK:** ${formattedBankBalance}:bank:
-            <:bluebullet:887635391866372106> **BALANCE:** ${formattedBalance}<:dollars:881559643820793917>
-            <:bluebullet:887635391866372106> **IS JAILED:** ${IsJailed}:no_pedestrians:
-            <:bluebullet:887635391866372106> **SALES BALANCE:** ${formattedSalesBalance}:money_with_wings:
-            <:bluebullet:887635391866372106> **SHOP OWNER OF:** ${UserHasShop}
+            **STATS**
+            **BANK:** ${formattedBankBalance}:bank:
+            **BALANCE:** ${formattedBalance}<:dollars:881559643820793917>
+            **IS JAILED:** ${IsJailed}:no_pedestrians:
+            **SALES BALANCE:** ${formattedSalesBalance}:money_with_wings:
+            **SHOP OWNER OF:** ${UserHasShop}
             
-            <:bluebullet:887635391866372106> **DISCORD STATS**
-            <:bluebullet:887635391866372106> **BADGES:** ${newbadges.join(", ").toUpperCase() || "None"}
-            <:bluebullet:887635391866372106> **JOINED AT:** ${moment(rankuser.joinedAt).format("LLLL")}
-            <:bluebullet:887635391866372106> **DISCRIMINATOR:** #${rankuser.discriminator}
-            <:bluebullet:887635391866372106> **ACCOUNT CREATED AT:** ${moment(rankuser.createdAt).format("LLLL")}
+            **DISCORD STATS**
+            **BADGES:** ${newbadges.join(", ").toUpperCase() || "None"}
+            **JOINED AT:** ${moment(rankuser.joinedAt).format("LLLL")}
+            **DISCRIMINATOR:** #${rankuser.discriminator}
+            **ACCOUNT CREATED AT:** ${moment(rankuser.createdAt).format("LLLL")}
             `)
             .setFooter(`AVAILABLE BALANCE: ${formattedBalance}`, config.avatarUrl)
             .setTimestamp();

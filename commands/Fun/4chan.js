@@ -1,6 +1,7 @@
 const Discord = require("discord.js");
 const https = require("https");
-const prefix = process.env.PREFIX;
+const StateManager = require("../../utilities/state_manager");
+const guildPrefix = new Map();
 
 module.exports = {
  name: "4chan",
@@ -11,22 +12,18 @@ module.exports = {
  usage: "4chan <board/boards>",
  run: async (client, message, args) => {
   try {
+   const prefix = guildPrefix.get(message.guild.id);
    if (!message.channel.nsfw) {
     const nsfwembed = new Discord.MessageEmbed()
      .setColor("#FF5757")
-     .setDescription("<:What:868050544151900170> **| You can only use this command in an NSFW Channel!**")
+     .setDescription("You can only use this command in an **NSFW** Channel")
      .setFooter("Requested by " + message.author.username, message.author.displayAvatarURL())
      .setImage("https://media.discordapp.net/attachments/721019707607482409/855827123616481300/nsfw.gif");
     return message.lineReply(nsfwembed);
    }
    let chanargs = args.slice(0).join(" ");
    if (!chanargs) {
-    return message.lineReply({
-     embed: {
-      color: 16734039,
-      description: "<:xvector:869193619318382602> **| Please enter a board! To see all boards check** `" + `${prefix}` + " 4chan boards`",
-     },
-    });
+    return message.lineReply("<:xvector2:869193716575911966> Please enter a board!\nTo see all boards check `" + `${prefix}` + " 4chan boards`");
    }
    if (chanargs === "boards") {
     message.channel.startTyping();
@@ -39,11 +36,7 @@ module.exports = {
    const boards = ["a", "b", "c", "d", "e", "f", "g", "gif", "h", "hr", "k", "m", "o", "p", "r", "s", "t", "u", "v", "vg", "vr", "w", "wg", "i", "ic", "r9k", "s4s", "vip", "qa", "cm", "hm", "lgbt", "y", "3", "aco", "adv", "an", "asp", "bant", "biz", "cgl", "ck", "co", "diy", "fa", "fit", "gd", "hc", "his", "int", "jp", "lit", "mlp", "mu", "n", "news", "out", "po", "pol", "qst", "sci", "soc", "sp", "tg", "toy", "trv", "tv", "vp", "wsg", "wsr"];
    var board = chanargs;
    if (boards.indexOf(board) == -1) {
-    let vb = new Discord.MessageEmbed() // Prettier()
-     .setColor(16734039)
-     .setDescription("💢 | **Please enter a vaild board! To see all boards check** `" + `${prefix}` + "4chan boards`");
-     message.channel.stopTyping();
-    return message.lineReply(vb);
+    return message.lineReply("<:xvector2:869193716575911966> Please enter a vaild board!\nTo see all boards check `" + `${prefix}` + " 4chan boards`");
    }
    var board = args;
    var page = Math.floor(Math.random() * 10 + 1);
@@ -84,25 +77,11 @@ module.exports = {
      message.channel.startTyping();
      let embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setAuthor(
-       "🍀 " + sub,
-       message.guild.iconURL({
-        dynamic: true,
-        format: "png",
-       }),
-       thread
-      )
+      .setAuthor("🍀 " + sub, message.guild.iconURL({dynamic: true,format: "png"}), thread)
       .setDescription(com)
       .setURL(thread)
       .setImage(imgUrl)
-      .setFooter(
-       "💬 " + replies + " | 🖼️ " + images + " • Image from 4chan boards",
-       message.author.displayAvatarURL({
-        dynamic: true,
-        format: "png",
-        size: 2048,
-       })
-      );
+      .setFooter("💬 " + replies + " | 🖼️ " + images + " • Image from 4chan boards", message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048}));
       message.channel.stopTyping();
      if (embed.description.length >= 2048) {
       embed.description = `${embed.description.substr(0, 2045)}...`;
@@ -112,7 +91,16 @@ module.exports = {
    });
   } catch (err) {
     console.log(err);
-    return message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
   }
  },
 };
+StateManager.on('PrefixFetched', (guildId, prefix) => {
+  guildPrefix.set(guildId, prefix);
+});

@@ -72,7 +72,7 @@ module.exports = {
         })
       })
     } else if (args[0] === "play" || args[0] === "p" || args[0] === "hear" || args[0] === "listen") {
-      client.distube.playCustomPlaylist(message, playlist, { name: message.author.username + "'s Playlist" });
+      client.distube.playCustomPlaylist(message, playlist, { name: message.guild.name + "'s Playlist" });
       message.react("<:musicblues:888396777202520124>");
       const playing = new Discord.MessageEmbed()
       .setColor(config.colors.playmode)
@@ -111,11 +111,11 @@ module.exports = {
       .setDescription(`
       This command includs the following categories you can use. Read it first
       **Note:** You'll have to add the \`serverplaylist\` tag. **Eg:** \`${prefix}serverplaylist add\` link
-      <:bluebullet:887635391866372106> ... **1** - \`add\` | \`set\` | \`use\` add songs to the server playlist
-      <:bluebullet:887635391866372106> ... **2** - \`reset\` | \`res\` | \`purge\` reset songs in the server playlist
-      <:bluebullet:887635391866372106> ... **3** - \`play\` | \`listen\` | \`hear\` play song that are in the server playlist
-      <:bluebullet:887635391866372106> ... **4** - \`remove\` | \`delete\` | \`del\` | \`rem\` delete song from the server playlist
-      <:bluebullet:887635391866372106> ... **Currently** there are **${playlist.length}** songs in the server playlist! **(¬‿¬)**
+      <:bluepointer:897839647034601492> ... **1** - \`add\` | \`set\` | \`use\` add songs to the server playlist
+      <:bluepointer:897839647034601492> ... **2** - \`reset\` | \`res\` | \`purge\` reset songs in the server playlist
+      <:bluepointer:897839647034601492> ... **3** - \`play\` | \`listen\` | \`hear\` play song that are in the server playlist
+      <:bluepointer:897839647034601492> ... **4** - \`remove\` | \`delete\` | \`del\` | \`rem\` delete song from the server playlist
+      <:bluepointer:897839647034601492> ... **Currently** there are **${playlist.length}** songs in the server playlist! **(¬‿¬)**
       `)
       return message.channel.send(plist);
     }

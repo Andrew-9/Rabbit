@@ -23,11 +23,11 @@ module.exports = {
    .setColor("#DB170D")
    .setAuthor("What system setup do u want?", `${message.guild.iconURL()}`)
    .setDescription(`
-    **1.** \`Action Log System\`
-    **2.** \`Welcome & Leave System\`
-    **3.** \`Economical Ward System\`
-    **4.** \`Advance Ranking System\`
-    **5.** \`Creative Application System\`
+    **1.** \`Action Log System\` - Setup Guild Logging
+    **2.** \`Welcome & Leave System\` - Setup Welcome & Leave System
+    **3.** \`Economical Ward System\` - Setup An Economical Ward Logging
+    **4.** \`Advance Ranking System\`  - Setup The Guild Ranking System
+    **5.** \`Creative Application System\` - Setup An Application System
     `)
    .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
    .setThumbnail(config.avatarUrl)
@@ -64,19 +64,19 @@ module.exports = {
  */
  function actionlog(){
   let rembed = new MessageEmbed()
-  .setColor(config.black)
+  .setColor(config.color)
   .setAuthor("What do u want to do?", `${message.guild.iconURL()}`)
   .setDescription(`
-  **0.** \`log System\` - *Creates ONE Log System.*
-  **1.** \`Set log\` - *Set a channel for logging members actions.*
-  **2.** \`Check log\` - *Check if the guild has a log channel.*
-  **3.** \`Set Boosters\` - *Set a boosters channel for the guild.*
-  **4.** \`Check Boosters\` - *Check if the guild has a boosters channel.*
-  **5.** \`Delete Log\` - *Delete the log channel \`[DISABLED]\`.*
-  **6.** \`Delete Boosters\` - *Delete the boosters channel \`[DISABLED]\`.*
-  **7.** \`Reset All\` - *Resets settings for all action log system*
-  **8.** \`Enable logging\` - *Enable the logging system for the guild*
-  **9.** \`Disable logging\` - *Disable the logging system for the guild*
+  **0.** \`log System\` - Creates ONE Log System.
+  **1.** \`Set log\` - Set a channel for logging members actions.
+  **2.** \`Check log\` - Check if the guild has a log channel.
+  **3.** \`Set Boosters\` - Set a boosters channel for the guild.
+  **4.** \`Check Boosters\` - Check if the guild has a boosters channel.
+  **5.** \`Delete Log\` - Delete the log channel \`[DISABLED]\`.
+  **6.** \`Delete Boosters\` - Delete the boosters channel \`[DISABLED]\`.
+  **7.** \`Reset All\` - Resets settings for all action log system.
+  **8.** \`Enable logging\` - Enable the logging system for the guild.
+  **9.** \`Disable logging\` - Disable the logging system for the guild.
   `)
   .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
   .setThumbnail(config.avatarUrl)
@@ -171,7 +171,7 @@ module.exports = {
                 .setDescription(`**Successfully updated logs channel, new logs channel is** ${channel}\n*Run \`${prefix}setup -> action-log -> delete-log\` to delete logging channel!*`)
                 message.channel.send(logsuccess);
                 const embed = new Discord.MessageEmbed()
-                 .setColor(config.black)
+                 .setColor(config.color)
                  .setTitle("<:xchannel:887869003412947024> NEW LOG CHANNEL!")
                  .setThumbnail(config.avatarUrl)
                  .setDescription(`**Hello people ${message.author} has set this channel for logging all events!**\nThis will log all members activities into this channel.`)
@@ -187,7 +187,7 @@ module.exports = {
                 .setDescription(`**Success! New channel for logging members activities is** ${channel}`)
                 message.channel.send(logsuccess1);
                 const logembed = new Discord.MessageEmbed()
-                .setColor(config.black)
+                .setColor(config.color)
                 .setTitle("<:xchannel:887869003412947024> NEW LOG CHANNEL!")
                 .setThumbnail(config.avatarUrl)
                 .setDescription(`**Hello people ${message.author} has set this channel for logging all events!**\n*This will log all members activities into this channel.*`)
@@ -255,7 +255,7 @@ module.exports = {
                 .setDescription(`**Successfully updated boosters channel, new boosters channel is** ${channel}\n*Run \`${prefix}setup -> action-log -> delete-boosters\` to delete boosters channel!*`)
                 message.channel.send(logsuccess2);
                 const embed1 = new Discord.MessageEmbed()
-                .setColor(config.black)
+                .setColor(config.color)
                 .setTitle("<:xchannel:887869003412947024> NEW BOOSTERS CHANNEL!")
                 .setThumbnail(config.avatarUrl)
                 .setDescription(`**Hello people ${message.author} has set this channel for logging all Boosters events!**\n*This will log members boosters activities into this channel.*`)
@@ -271,7 +271,7 @@ module.exports = {
                 .setDescription(`**Success! New channel for logging boosters is** ${channel}`)
                 message.channel.send(boostersuccess);
                 const boostembed1 = new Discord.MessageEmbed()
-                .setColor(config.black)
+                .setColor(config.color)
                 .setTitle("<:xchannel:887869003412947024>NEW BOOSTERS CHANNEL!")
                 .setThumbnail(config.avatarUrl)
                 .setDescription(`**Hello People ${message.author} has set this channel for logging all Boosters events!**\n*This will log members boosters activities into this channel.*`)
@@ -376,7 +376,7 @@ module.exports = {
         const logsuccess3 = new Discord.MessageEmbed()
         .setColor("#46c300")
         .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-        .setDescription(`**Successfully Resetted \`ALL ACTION LOG\` System**\n*You can set a new channel settings with \`${prefix}setup -> action-log.\`*`)
+        .setDescription(`**Successfully Rested \`ALL ACTION LOG\` System**\n*You can set a new channel settings with \`${prefix}setup -> action-log.\`*`)
         message.channel.send(logsuccess3);
         break;
         case "8":
@@ -417,16 +417,16 @@ module.exports = {
  */
  function economicalward(){
   let rembed = new MessageEmbed()
-  .setColor(config.black)
+  .setColor(config.color)
   .setAuthor("What do u want to do?", `${message.guild.iconURL()}`)
   .setDescription(`
-  **0.** \`Ward System\` - *Creates ONE Ward System*
-  **1.** \`Set Ward\` - *Set an economical ward channel for the guild.*
-  **2.** \`Check Ward\` - *Check if the guild already has a ward channel.*
-  **3.** \`Delete Ward\` - *Delete the current ward channel.*
-  **4.** \`Reset All\` - *Resets settings for economical system*
-  **5.** \`Enable Ward\` - *Enable the ward system logging for the guild*
-  **6.** \`Disable Ward\` - *Disable the ward system logging the guild*
+  **0.** \`Ward System\` - Creates ONE Ward System.
+  **1.** \`Set Ward\` - Set an economical ward channel for the guild.
+  **2.** \`Check Ward\` - Check if the guild already has a ward channel.
+  **3.** \`Delete Ward\` - Delete the current ward channel.
+  **4.** \`Reset All\` - Resets settings for economical system.
+  **5.** \`Enable Ward\` - Enable the ward system logging for the guild.
+  **6.** \`Disable Ward\` - Disable the ward system logging the guild.
   `)
   .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
   .setThumbnail(config.avatarUrl)
@@ -546,7 +546,7 @@ module.exports = {
               .setDescription(`**Successfully updated ward channel, new ward channel is** ${channel}\n*Run \`${prefix}setup -> economical ward\` to delete economical ward channel!*`)
               message.channel.send(logsuccess3);
               const ecoembed = new Discord.MessageEmbed()
-              .setColor(config.black)
+              .setColor(config.color)
               .setTitle("<:xchannel:887869003412947024> NEW WARD CHANNEL!")
               .setThumbnail(config.avatarUrl)
               .setDescription(`**News.** *${message.author} has set this channel for logging **economy** events!*\n*All members **economical** activities will be logged into this channel.*`)
@@ -660,7 +660,7 @@ module.exports = {
         const economyReset = new Discord.MessageEmbed()
         .setColor("#46c300")
         .setTitle("<:checkvector:869193650184269834> WARD RESERT SUCCESS!")
-        .setDescription(`**Successfully Resetted \`ECONOMY WARD\` System**\n*You can set a new channel settings with \`${prefix}setup -> economical ward.\`*`)
+        .setDescription(`**Successfully Rested \`ECONOMY WARD\` System**\n*You can set a new channel settings with \`${prefix}setup -> economical ward.\`*`)
         message.channel.send(economyReset);
       break;
       case "5":
@@ -698,13 +698,13 @@ module.exports = {
  */
  function rankingsystem(){
   let rembed = new MessageEmbed()
-  .setColor(config.black)
+  .setColor(config.color)
   .setTitle("What do u want to do?")
   .setDescription(`
-  **1.** \`Enable Ranking\` - *Enables the Ranking system for the guild*
-  **2.** \`Disable Ranking\` - *Disables the Ranking system for the guild*
-  **3.** \`Change Background\` - *Changes the Background of the Rankcard*
-  **4.** \`Reset Everything\` - *Resets all settings for the Ranking System*
+  **1.** \`Enable Ranking\` - Enables the Ranking system for the guild.
+  **2.** \`Disable Ranking\` - Disables the Ranking system for the guild.
+  **3.** \`Change Background\` - Changes the Background of the Rankcard.
+  **4.** \`Reset Everything\` - Resets all settings for the Ranking System.
   `)
   .setThumbnail(config.avatarUrl)
   .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
@@ -731,12 +731,12 @@ module.exports = {
         break;
         case "3":
           let rembed = new MessageEmbed()
-          .setColor(config.black)
+          .setColor(config.color)
           .setTitle("So tell me what you want to do?")
           .setDescription(`
-          **1.** \`Change Background\` - *Change the image background of rank card*
-          **2.** \`Disable Card Embed\` - *Disable the embed of the rank card*
-          **3.** \`Enable Card Embed\` - *Enable the embed of the rank card*
+          **1.** \`Change Background\` - Change the image background of rank card.
+          **2.** \`Disable Card Embed\` - Disable the embed of the rank card.
+          **3.** \`Enable Card Embed\` - Enable the embed of the rank card.
           `)
           .setThumbnail(config.avatarUrl)
           .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
@@ -848,8 +848,8 @@ module.exports = {
             }
             const rankResert = new Discord.MessageEmbed()
             .setColor("#46c300")
-            .setTitle("<:checkvector:869193650184269834> RANKING SYSTEM RESERTED!")
-            .setDescription(`**Successfully Resetted \`RANKING SYSTEM\`** for the guild\n*You can add new settings with \`${prefix}setup -> advance ranking system.\`*`)
+            .setTitle("<:checkvector:869193650184269834> RANKING SYSTEM RESTED!")
+            .setDescription(`**Successfully Rested \`RANKING SYSTEM\`** for the guild\n*You can add new settings with \`${prefix}setup -> advance ranking system.\`*`)
             message.lineReply(rankResert);
         break;
         default:
@@ -872,11 +872,11 @@ module.exports = {
   let rembed = new MessageEmbed()
     .setTitle("What do u want to do?")
     .setDescription(`
-    **1.** \`Create Application\` - *Create ONE application aystem*
-    **2.** \`Edit Application\` - *Edit already existing application aystem*
-    **3.** \`Reset Application\` - *Reset settings for the application system*
+    **1.** \`Create Application\` - Create ONE application aystem.
+    **2.** \`Edit Application\` - Edit already existing application aystem.
+    **3.** \`Reset Application\` - Reset settings for the application system.
     `)
-    .setColor(config.black)
+    .setColor(config.color)
     .setThumbnail(config.avatarUrl)
     .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
     message.reply(rembed).then(msg => {
@@ -1068,13 +1068,13 @@ module.exports = {
         let rrembed = new MessageEmbed()
         .setTitle("What do u want to do?")
         .setDescription(`
-        **1.** \`Accept Message\` - *Let's you edit the accept message!*
-        **2.** \`Deny Message\` - *You can edit the deny message!*
-        **3.** \`Question\` - *Edit one question out of all questions*
-        **4.** \`Edit Role\` - *Edit the application Role*
-        **5.** \`Add Question\` - *Add a question to the questions*
+        **1.** \`Accept Message\` - Let's you edit the accept message.
+        **2.** \`Deny Message\` - You can edit the deny message.
+        **3.** \`Question\` - Edit one question out of all questions.
+        **4.** \`Edit Role\` - Edit the application Role.
+        **5.** \`Add Question\` - Add a question to the questions.
         `)
-        .setColor(config.black)
+        .setColor(config.color)
         .setThumbnail(config.avatarUrl)
         .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
         message.reply(rrembed).then(msg => {
@@ -1084,7 +1084,7 @@ module.exports = {
                 message.channel.send(new Discord.MessageEmbed()
                 .setColor("#00f7ff")
                 .setTitle(":mailbox_with_mail: ENTER NEW ACCEPT MESSAGE")
-                .setDescription("*Enter the new accept message you want for the application*")
+                .setDescription("Enter the new accept message you want for the application")
                 ).then(msg=>{
                 msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected=>{
                 client.apply.set(message.guild.id, collected.first().content, "accept")
@@ -1104,7 +1104,7 @@ module.exports = {
                 message.channel.send(new Discord.MessageEmbed()
                 .setColor("#00fff7")
                 .setTitle(":mailbox_with_mail: ENTER NEW DENY MESSAGE")
-                .setDescription("*Enter the new deny message you want for the application*")
+                .setDescription("Enter the new deny message you want for the application")
                 ).then(msg=>{
                 msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected=>{
                 client.apply.set(message.guild.id, collected.first().content, "deny")
@@ -1112,7 +1112,7 @@ module.exports = {
                 .setFooter(message.guild.name, message.guild.iconURL({dynamic:true}))
                 .setColor("GREEN")
                 .setTitle(":mailbox_with_mail: CHANGED DENY MESSAGE!")
-                .setDescription(`*Successfully changed the application \`DENY MESSAGE\`\nYou can edit this settings with \`${prefix}setup -> creative application system\`*`)
+                .setDescription(`Successfully changed the application \`DENY MESSAGE\`\nYou can edit this settings with \`${prefix}setup -> creative application system\``)
                 )
                 }).catch(error=>{
                 console.log(error)
@@ -1140,7 +1140,7 @@ module.exports = {
                 message.channel.send(new Discord.MessageEmbed()
                 .setColor("#00ffd7")
                 .setTitle(":envelope_with_arrow: ENTER YOUR NEW QUESTION")
-                .setDescription("*What should be the new Question?*")
+                .setDescription("What should be the new Question?")
                 ).then(msg=>{
                 msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected => {
                 let index = Number(collected.first().content);
@@ -1194,7 +1194,7 @@ module.exports = {
                 message.lineReply(new Discord.MessageEmbed()
                 .setColor("RED")
                 .setTitle(":mailbox_with_mail: QUESTION DOES NOT EXIST")
-                .setDescription("*Hmmm, that Question does not exist! Here are all Questions*")
+                .setDescription("Hmmm, that Question does not exist! Here are all Questions")
                 )
                 return message.channel.send(embed);
                 }
@@ -1209,8 +1209,8 @@ module.exports = {
               .setColor("00f7ff")
               .setTitle(":pushpin: PING THE NEW ROLE!")
               .setDescription(`
-              *What should be the new role?
-              Just ping the new role you want*
+              What should be the new role?
+              Just ping the new role you want
               `)
                 message.channel.send(EditNewRole).then(msg=>{
                     msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected=>{
@@ -1223,7 +1223,7 @@ module.exports = {
                           .setColor("00f7ff")
                           .setTitle("<:xvector:869193619318382602> I CAN'T ACCESS THAT ROLE!")
                           .setDescription(`
-                          *That role is off a higher status so I'm not able to edit it*
+                          That role is off a higher status so I'm not able to edit it
                           You can place my role above other roles that you want me to manage.
                           `)
                           return message.channel.send(CanUseRoleDone);
@@ -1232,10 +1232,7 @@ module.exports = {
                         const CanUseRoleDone = new Discord.MessageEmbed()
                         .setColor("00f7ff")
                         .setTitle("<:checkvector:869193650184269834> TEMP ROLE HAS BEEN CHANGED")
-                        .setDescription(`
-                        *The temporary application role has been changed*\n*You can edit this settings with \`${prefix}setup -> creative application system\`*`)
-                        .setFooter("Changed by " + `${message.author.username}`, message.author.displayAvatarURL({ dynamic: true, format: "png", size: 2048, }))
-                        .setTimestamp();
+                        .setDescription(`The temporary application role has been changed\nYou can edit this settings with \`${prefix}setup -> creative application system\``)
                         return message.lineReply(CanUseRoleDone);
                     }).catch(error=>{
                         console.log(error)
@@ -1324,8 +1321,8 @@ module.exports = {
              const AppResert = new Discord.MessageEmbed()
              .setColor("#46c300")
              .setTitle("<:checkvector:869193650184269834> APPLICATION RESERT SUCCESS!")
-             .setDescription(`**Successfully Resetted \`APPLICATION SYSTEM\` System**\n*You can set new settings with \`${prefix}setup -> creative application system.\`*`)
-             .setFooter("Reseted by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
+             .setDescription(`**Successfully Rested \`APPLICATION SYSTEM\` System**\n*You can set new settings with \`${prefix}setup -> creative application system.\`*`)
+             .setFooter("Rested by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
              .setTimestamp();
              message.lineReply(AppResert);
              break;
@@ -1342,19 +1339,15 @@ module.exports = {
 function welcomesystem(){
 
     let rembed = new MessageEmbed()
-    .setColor(config.black)
+    .setColor(config.color)
     .setAuthor("What do you want to do?", `${message.guild.iconURL()}`)
     .setDescription(`
-    **1.** \`Welcome System\` - *Creates ONE Welcome System*
-    **2.** \`Leave System\` - *Creates ONE Leave System*
-    **3.** \`Set Welcome Channel\` - *Set a default welcome channel*
-    **4.** \`Set Leave Channel\` - *Set a default leave channel*
-    **5.** \`Reset-Both\` - *Resets settings for Default Welcome & Leave*
-    **6.** \`Enable Welcome/leave\` - *Enable default welcome/leave*
-    **7.** \`Disable Welcome/leave\` - *Disable default welcome/leave*
-    **8.** \`Check Welcome Channel\` - *Check default welcome channel.*
-    **9.** \`Check leave Channel\` - *Check default leave channel.*
-    **10.** \`Change welcome Message\` - *Change default welcome message.*
+    **1.** \`Welcome System\` - Creates ONE Welcome System.
+    **2.** \`Leave System\` - Creates ONE Leave System.
+    **3.** \`Default Welcome\` - Default welcome system.
+    **4.** \`Set Welcome DM\` - Set the welcome direct message.
+    **5.** \`Embed Welcome System\` - Embed only welcome system.
+    **6.** \`Add One Welcome Role\` - Give new members a role.
     `)
     .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
     .setThumbnail(config.avatarUrl)
@@ -1370,11 +1363,1613 @@ function welcomesystem(){
         _leave();
         break;
         case "3":
-          client.settings.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" })
+        _DefaultWelcome();
+        break;
+        case "4":
+        _welcomeDM();
+        break;
+        case "5":
+        _embedWelcome();
+        break;
+        case "6":
+        let NotCompleted2 = new Discord.MessageEmbed()
+        .setColor('#f862ff')
+        .setThumbnail(config.Kotlin)
+        .setTitle(`THIS FEATURE IS STILL UNDER CONSTRUCTION`)
+        .setDescription(`
+        **${message.author.username}** this feature is still being constructed by **Kotlin#0427**
+        You will have to wait for a while or join my [support](https://discord.com/invite/tyjhKE3VdB) server to know when it would be released
+        `)
+        message.channel.send(NotCompleted2);
+        break;
+        default:
+        message.lineReply(String("<:xvector:869193619318382602> **| SORRY, that Number does not exists... Your Input:** " + collected.first().content).substr(0,1999))
+        break;
+      }
+    }).catch(error=>{
+      //console.log(error)
+      return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+  });
+  });
+
+   /**
+ * @welcomeDM FINISHED
+ */
+    function _embedWelcome(){
+      let weembed = new MessageEmbed()
+      .setColor(config.color)
+      .setAuthor("What would you like to do?", `${message.guild.iconURL()}`)
+      .setDescription(`
+      **0.** \`Embed Setup\` - Creates one embed welcome setup.
+      **1.** \`Embed Author\` - Let's you edit the embed author.
+      **2.** \`Embed Title\` - Let's you edit the embed title.
+      **3.** \`Embed Color\` - Let's you edit the embed color.
+      **4.** \`Manage Image\` - Let's you change the embed Image.
+      **5.** \`Embed Footer\` - Let's you edit the embed footer.
+      **6.** \`Manage Message\` - Let's you change the embed message.
+      **7.** \`Enable Image\` - Enables the welcome embed Image.
+      **8.** \`Disable Image\` - Disables the welcome embed Image.
+      **9.** \`Manage Thumbnail\` - Let's you change the welcome thumbnail.
+      **10.** \`Enable Thumbnail\` - Enables the welcome embed thumbnail.
+      **11.** \`Disable Thumbnail\` - Disables the welcome embed thumbnail.
+      **12.** \`Embed Preview\` - Get a preview of the embed message.
+      **13.** \`Reset Settings\` - Resets all settings for embed welcome.
+      **14.** \`Enable Welcome\` - Enable welcome embed for new members.
+      **15.** \`Disable Welcome\` - Disable welcome embed for new members.
+      **16.** \`Manage Channel\` - Let's you change the embed channel.
+      `)
+      .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
+      .setThumbnail(config.avatarUrl)
+      message.lineReply(weembed).then(msg => {
+      msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time:80000,errors:['time']}).then(async collected=>{
+        switch(collected.first().content.toString()){
+          case "0":
+            client.wembed.ensure(message.guild.id, { "WEmbedAuthor": ""});
+            client.wembed.ensure(message.guild.id, { "WEmbedColor": "#FAAFAF"});
+            client.wembed.ensure(message.guild.id, { "WEmbedFooter": ""});
+            client.wembed.ensure(message.guild.id, { "WEmbedTitle": "GREETINGS"});
+            client.wembed.ensure(message.guild.id, { "WEmbedMessage": `🎑 Thank you for Joining **${message.guild.name}**\nWe're very excited that you joined us\nHope you have a fun time here **(>‿◠)**`});
+            let WEMBED = "https://media.discordapp.net/attachments/711910361133219903/899392123906961458/55.png?width=1089&height=612";
+            let WEMBEDTH = "https://media.discordapp.net/attachments/711910361133219903/899392847436980265/54.jpg";
+            let sqlwembed = "UPDATE welcome SET w_embed_Image = '" + WEMBED + "' WHERE guildId  = " + message.guild.id;
+            sql.query(sqlwembed);
+            let sqlwembedth = "UPDATE welcome SET w_embed_thumb = '" + WEMBEDTH + "' WHERE guildId  = " + message.guild.id;
+            sql.query(sqlwembedth);
+            let sqlwembed1 = "UPDATE welcome SET w_embed_welcome = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlwembed1);
+            let sqlwembed2 = "UPDATE welcome SET w_embed_Image_on = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlwembed2);
+            let sqlwembed3 = "UPDATE welcome SET w_embed_thumb_on = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlwembed3);
+            let SEmbedWel = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            let wembedimage = result[0].w_embed_Image;  
+            let wembedthumb = result[0].w_embed_thumb;         
+            message.guild.channels.create("🗳welcome", {
+              type: 'text',
+              topic: "Welcoming New Members With An Embed",
+              permissionOverwrites: [
+                {
+                  id: message.guild.id,
+                  allow: ['READ_MESSAGE_HISTORY'],
+                  deny: ['SEND_MESSAGES'],
+                },
+              ],
+            })
+          .then((channel) => {
+          let wembed = new MessageEmbed()
+          .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+          .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+          .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+          .setThumbnail(wembedthumb)
+          .setImage(wembedimage)
+          .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+          .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+          .setTimestamp()
+          channel.send(`<@${message.author.id}>`, wembed);
+          let sql27 = 'UPDATE welcome SET w_embed_channel = ' + channel.id + ' WHERE guildId = ' + message.guild.id + '';
+          sql.query(sql27);
+          const welembeds = new Discord.MessageEmbed()
+          .setColor("#006eee")
+          .setTitle("<:bxcheck:895478636046606346> EMBED SETUP COMPLETED!")
+          .setDescription(`Your Embed Welcome Setup is now completed!\nYou can run \`${prefix}setup -> welcome & leave\` to adjust the Welcome Message.`)
+          message.channel.send(welembeds);
+          });
+          });
+          break;
+          case "1":
+          let select1 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+              const noton = new Discord.MessageEmbed()
+              .setColor("#fc5d71")
+              .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+              .setDescription(`
+              The embed system has not been setup for this guild.
+              You have to run this setup command again and use the \`0 index\`
+              `)
+            message.channel.send(noton)
+            } else {
+              const EnterEmbedAuthor = new Discord.MessageEmbed()
+              .setColor("#0082ea")
+              .setTitle(":incoming_envelope: ENTER THE EMBED AUTHOR!")
+              .setDescription(`
+              You can change the message of the embed author
+              **Please make sure you've used the \`0 index\`
+              to create an embed setup before proceeding**
+              `)
+              message.channel.send(EnterEmbedAuthor).then(msg=>{
+              msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+              let EmbedAMessage = collected.first().content
+              client.wembed.set(message.guild.id, EmbedAMessage, "WEmbedAuthor"); 
+              let SEmWel = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              if (err) console.log(err);
+              let wembedimage = result[0].w_embed_Image;  
+              let wembedthumb = result[0].w_embed_thumb; 
+              const EmbedSetup = new Discord.MessageEmbed()
+              .setThumbnail(wembedthumb)
+              .setImage(wembedimage)
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setTimestamp()
+              message.channel.send("**EMBED AUTHOR SUCCESS**", EmbedSetup);
+              });
+              }).catch(error=>{
+              console.log(error)
+              return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+              });
+              });
+            }
+          })
+          break;
+          case "2":
+            let select2 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const EnterEmbedTitle = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":incoming_envelope: ENTER THE EMBED TITLE!")
+            .setDescription(`You can change the message of the embed title`)
+            message.channel.send(EnterEmbedTitle).then(msg=>{
+            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+            let EmbedAMessage = collected.first().content
+            client.wembed.set(message.guild.id, EmbedAMessage, "WEmbedTitle"); 
+            let SEmWel1 = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let wembedimage = result[0].w_embed_Image;  
+            let wembedthumb = result[0].w_embed_thumb; 
+            const EmbedSetup1 = new Discord.MessageEmbed()
+            .setThumbnail(wembedthumb)
+            .setImage(wembedimage)
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setTimestamp()
+            message.channel.send("**EMBED TITLE SUCCESS**", EmbedSetup1);
+            });
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+            });
+          break;
+          case "3":
+            let select3 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const EnterEmbedColor = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":art: ENTER THE EMBED COLOR!")
+            .setDescription(`
+            You can change the color of the embed
+            **Please make sure you've used the \`0\`
+            Settings to create an embed setup before proceeding**
+            `)
+            message.channel.send(EnterEmbedColor).then(msg=>{
+            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+            let content = collected.first().content
+            if(!content.startsWith("#") && content.length !== 7){
+            message.lineReply("<:xvector:869193619318382602> **| WRONG COLOR CODE**")
+            } else {
+            if(isValidColor(content)){
+            client.wembed.set(message.guild.id, content, `WEmbedColor`); 
+            let SEmWel1 = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let wembedimage = result[0].w_embed_Image;  
+            let wembedthumb = result[0].w_embed_thumb; 
+            const EMSetup = new Discord.MessageEmbed()
+            .setThumbnail(wembedthumb)
+            .setImage(wembedimage)
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setTimestamp()
+            message.channel.send("**EMBED COLOR SUCCESS**", EMSetup);
+            });
+            }
+            }
+            function isValidColor(str) {
+            return str.match(/^#[a-f0-9]{6}$/i) !== null;
+            }
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+            });
+          break;
+          case "4":
+            let select4 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const enterImage = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":park: ENTER THE EMBED IMAGE!")
+            .setDescription(`
+            You can enter any Image
+            From local system or url from the internet
+            **Please make sure you've used the \`0\`
+            Settings to create an embed setup before proceeding**
+            `)
+            message.lineReply(enterImage).then(msg => {
+            msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time:70000,errors:['time']}).then(collected=>{     
+            function attachIsImage(msgAttach) {
+            url = msgAttach.url;
+            return url.indexOf("png", url.length - "png".length /*or 3*/) !== -1 ||
+            url.indexOf("jpeg", url.length - "jpeg".length /*or 3*/) !== -1 ||
+            url.indexOf("jpg", url.length - "jpg".length /*or 3*/) !== -1;
+            }
+            if (collected.first().attachments.size > 0) {
+            if (collected.first().attachments.every(attachIsImage)){
+            function saveImageToDisk(url, path) {
+            var fullUrl = url
+            var localPath = fs.createWriteStream(path)
+            var request = https.get(fullUrl, function (response) {
+            response.pipe(localPath)
+            })
+            }
+            let sqlwembg = "UPDATE welcome SET w_embed_Image = '" + url + "' WHERE guildId  = " + message.guild.id;
+            var query = sql.query(sqlwembg, function(err, result) { 
+            if (err) console.log(err);
+            let DmWel = sql.query("SELECT w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembedBackground = result[0].w_embed_Image;
+            const WESetup = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(WembedBackground)
+            .setTimestamp();
+            message.channel.send("**EMBED BACKGROUND SUCCESS**", WESetup);
+            });
+            });
+            }
+            else{
+            message.lineReply("<:xvector2:869193716575911966> An error occured somewhere\nWhich makes me not able to set the image.")
+            }
+            }
+            else if (collected.first().content.includes("https")||collected.first().content.includes("http")){
+            let sqlDMWbg = "UPDATE welcome SET w_embed_Image = '" + collected.first().content + "' WHERE guildId  = " + message.guild.id;
+            var query = sql.query(sqlDMWbg, function(err, result) {
+            if (err) console.log(err);
+            let DmWel = sql.query("SELECT w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembedBackground = result[0].w_embed_Image;
+            const EmBag = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(WembedBackground)
+            .setTimestamp();
+            message.channel.send("**EMBED BACKGROUND SUCCESS**", EmBag);
+            });
+            });
+            }
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+            });
+          break;
+          case "5":
+            let select5 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const entereFooter = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":incoming_envelope: ENTER THE EMBED FOOTER!")
+            .setDescription(`You can enter the message of the embed footer`)
+            message.channel.send(entereFooter).then(msg=>{
+            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+            let EFooterMessage = collected.first().content
+            client.wembed.set(message.guild.id, EFooterMessage, `WEmbedFooter`); 
+            let DmWel = sql.query("SELECT w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembedBackground = result[0].w_embed_Image;
+            const wembedp = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(WembedBackground)
+            .setTimestamp();
+            message.channel.send("**EMBED FOOTER SUCCESS**", wembedp);
+            });
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+           });
+          break;
+          case "6":
+            let select6 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const entereMessage = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":incoming_envelope: ENTER THE EMBED MESSAGE!")
+            .setDescription(`
+            You can enter the message of the embed
+            **Please make sure you've used the \`0\`
+            Settings to create an embed setup before proceeding**
+            `)
+            message.channel.send(entereMessage).then(msg=>{
+            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 980000, errors: ["TIME"]}).then(collected=>{
+            let TEmbedMessage = collected.first().content
+            client.wembed.set(message.guild.id, TEmbedMessage, `WEmbedMessage`); 
+            let DmWel = sql.query("SELECT w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembedBackg = result[0].w_embed_Image;
+            const wembmsg = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(WembedBackg)
+            .setTimestamp();
+            message.channel.send("**EMBED MESSAGE SUCCESS**", wembmsg);
+            });
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+            });
+          break;
+          case "7":
+            let select7 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            let sqlemOn = "UPDATE welcome SET w_embed_Image_on = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlemOn);
+            let EmbImg = sql.query("SELECT w_embed_Image, w_embed_Image_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            if (result[0].w_embed_Image_on == 1) {
+            let wembg = result[0].w_embed_Image;
+            const wembImg = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(wembg)
+            .setTimestamp();
+            message.channel.send("**WELCOME EMBED IMAGE ENABLED**", wembImg); 
+            } else if (result[0].w_embed_Image_on == 0) {
+            const wembImgi = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setTimestamp();
+            message.channel.send("**WELCOME EMBED IMAGE IS DISABLED**", wembImgi);
+            }
+            });
+            }
+            });
+          break;
+          case "8":
+            let select8 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            let sqlemOf = "UPDATE welcome SET w_embed_Image_on = " + 0 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlemOf);
+            let EmbelEn = sql.query("SELECT w_embed_Image, w_embed_Image_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            if (result[0].w_embed_Image_on == 0) {
+            const wembImg = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setTimestamp();
+            message.channel.send("**WELCOME EMBED IMAGE DISABLED**", wembImg); 
+            } else if (result[0].w_embed_Image_on == 1) {
+            let wembg = result[0].w_embed_Image;
+            const wembImgi = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setImage(wembg)
+            .setTimestamp();
+            message.channel.send("**WELCOME EMBED IMAGE IS ENABLED**", wembImgi);
+            }
+            });
+            }
+            });
+          break;
+          case "9":
+            let select9 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            const enterThumb = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":park: ENTER THE EMBED THUMBNAIL!")
+            .setDescription(`
+            You can enter any Image
+            From local system or url from the internet
+            **Please make sure you've used the \`0\`
+            Settings to create an embed setup before proceeding**
+            `)
+            message.lineReply(enterThumb).then(msg => {
+            msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time: 90000,errors:['time']}).then(collected=>{     
+            function attachIsImage(msgAttach) {
+            url = msgAttach.url;
+            return url.indexOf("png", url.length - "png".length /*or 3*/) !== -1 ||
+            url.indexOf("jpeg", url.length - "jpeg".length /*or 3*/) !== -1 ||
+            url.indexOf("jpg", url.length - "jpg".length /*or 3*/) !== -1;
+            }
+            if (collected.first().attachments.size > 0) {
+            if (collected.first().attachments.every(attachIsImage)){
+            function saveImageToDisk(url, path) { // You can save the Image anywhere if you want
+            var fullUrl = url
+            var localPath = fs.createWriteStream(path)
+            var request = https.get(fullUrl, function (response) {
+            response.pipe(localPath)
+            })
+            }
+            let sqlwembg = "UPDATE welcome SET w_embed_thumb = '" + url + "' WHERE guildId  = " + message.guild.id;
+            var query = sql.query(sqlwembg, function(err, result) { 
+            if (err) console.log(err);
+            let EmbWel = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembThumb = result[0].w_embed_thumb;
+            let WembBackg = result[0].w_embed_Image;
+            const wethumb = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setThumbnail(WembThumb)
+            .setImage(WembBackg)
+            .setTimestamp();
+            message.channel.send("**EMBED THUMBNAIL SUCCESS**", wethumb);
+            });
+            });
+            }
+            else{
+            message.lineReply("<:xvector2:869193716575911966> An error occured somewhere\nWhich makes me not able to set the image.")
+            }
+            }
+            else if (collected.first().content.includes("https")||collected.first().content.includes("http")){
+            let sqleth = "UPDATE welcome SET w_embed_thumb = '" + collected.first().content + "' WHERE guildId  = " + message.guild.id;
+            var query = sql.query(sqleth, function(err, result) {
+            if (err) console.log(err);
+            let EmbWel = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if (err) console.log(err);
+            let WembThumb = result[0].w_embed_thumb;
+            let WembBackg = result[0].w_embed_Image;
+            const nwethumb = new Discord.MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setThumbnail(WembThumb)
+            .setImage(WembBackg)
+            .setTimestamp();
+            message.channel.send("**EMBED THUMBNAIL SUCCESS**", nwethumb);
+            });
+            });
+            }
+            }).catch(error=>{
+            console.log(error)
+            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+            });
+            });
+            }
+            });
+          break;
+          case "10":
+            let select10 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              if(result[0].w_embed_welcome == 0) {
+              const noton = new Discord.MessageEmbed()
+              .setColor("#fc5d71")
+              .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+              .setDescription(`
+              The embed system has not been setup for this guild.
+              You have to run this setup command again and use the \`0 index\`
+              `)
+              message.channel.send(noton)
+              } else {
+              let sqlemOn = "UPDATE welcome SET w_embed_thumb_on = " + 1 + " WHERE guildId = " + message.guild.id;
+              sql.query(sqlemOn);
+              let EmbImg = sql.query("SELECT w_embed_Image, w_embed_thumb, w_embed_thumb_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              if (err) console.log(err);
+              if (result[0].w_embed_thumb_on == 1) {
+              let wenbg = result[0].w_embed_Image;
+              let wemthunb = result[0].w_embed_thumb;
+              const wembthun = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setImage(wenbg)
+              .setThumbnail(wemthunb)
+              .setTimestamp();
+              message.channel.send("**WELCOME EMBED THUMBNAIL ENABLED**", wembthun); 
+              } else if (result[0].w_embed_thumb_on == 0) {
+              let wenbg = result[0].w_embed_Image;
+              const wembthub = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setImage(wenbg)
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setTimestamp();
+              message.channel.send("**WELCOME EMBED THUMBNAIL IS DISABLED**", wembthub);
+              }
+              });
+              }
+              });
+          break;
+          case "11":
+            let select11 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              if(result[0].w_embed_welcome == 0) {
+              const noton = new Discord.MessageEmbed()
+              .setColor("#fc5d71")
+              .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+              .setDescription(`
+              The embed system has not been setup for this guild.
+              You have to run this setup command again and use the \`0 index\`
+              `)
+              message.channel.send(noton)
+              } else {
+              let sqlemOn = "UPDATE welcome SET w_embed_thumb_on = " + 0 + " WHERE guildId = " + message.guild.id;
+              sql.query(sqlemOn);
+              let EmbImg = sql.query("SELECT w_embed_Image, w_embed_thumb, w_embed_thumb_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              if (err) console.log(err);
+              if (result[0].w_embed_thumb_on == 0) {
+              let wenbg = result[0].w_embed_Image;
+              const wembthun = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setImage(wenbg)
+              .setTimestamp();
+              message.channel.send("**WELCOME EMBED THUMBNAIL DISABLED**", wembthun); 
+              } else if (result[0].w_embed_thumb_on == 1) {
+              let wenbg = result[0].w_embed_Image;
+               let wemthunb = result[0].w_embed_thumb;
+              const wembthub = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setImage(wenbg)
+              .setThumbnail(wemthunb)
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setTimestamp();
+              message.channel.send("**WELCOME EMBED THUMBNAIL IS ENABLED**", wembthub);
+              }
+              });
+              }
+              });
+          break;
+          case "12":
+            let select12 = sql.query("SELECT w_embed_welcome, w_embed_Image, w_embed_thumb, w_embed_Image_on, w_embed_thumb_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              let EmImg = result[0].w_embed_Image;
+              let EmThm = result[0].w_embed_thumb;
+              if(result[0].w_embed_welcome == 0) {
+              const noton = new Discord.MessageEmbed()
+              .setColor("#fc5d71")
+              .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+              .setDescription(`
+              The embed system has not been setup for this guild.
+              You have to run this setup command again and use the \`0 index\`
+              `)
+              message.channel.send(noton)
+              } else if (result[0].w_embed_welcome == 1) {
+              if (result[0].w_embed_Image_on == 1) {
+              if (result[0].w_embed_thumb_on == 0) {
+              const ENSetup = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setImage(EmImg)
+              .setTimestamp();
+              message.channel.send("**PREVIEW OF \`EMBED\` WELCOME SETUP**", ENSetup);
+              } else {
+              const ENSetup1 = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setImage(EmImg)
+              .setThumbnail(EmThm)
+              .setTimestamp();
+              message.channel.send("**PREVIEW OF \`EMBED\` WELCOME SETUP**", ENSetup1);
+              }
+              } else if (result[0].w_embed_Image_on == 0) {
+              if (result[0].w_embed_thumb_on == 1) {
+              const ENSetup2 = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setThumbnail(EmThm)
+              .setTimestamp();
+              message.channel.send("**PREVIEW OF \`EMBED\` WELCOME SETUP**", ENSetup2);
+              } else {
+              const ENSetup3 = new Discord.MessageEmbed()
+              .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+              .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+              .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+              .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+              .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+              .setTimestamp();
+              message.channel.send("**PREVIEW OF \`EMBED\` WELCOME SETUP**", ENSetup3);
+              }
+              }
+              }
+              });
+          break;
+          case "13":
+            let select13 = sql.query("SELECT w_embed_welcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            if(result[0].w_embed_welcome == 0) {
+            const noton = new Discord.MessageEmbed()
+            .setColor("#fc5d71")
+            .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+            .setDescription(`
+            The embed system has not been setup for this guild.
+            You have to run this setup command again and use the \`0 index\`
+            `)
+            message.channel.send(noton)
+            } else {
+            client.wembed.set(message.guild.id, "GREETINGS", "WEmbedTitle");
+            client.wembed.set(message.guild.id, "", "WEmbedAuthor");
+            client.wembed.set(message.guild.id, "#FAAFAF", "WEmbedColor");
+            client.wembed.set(message.guild.id, `🎑 Thank you for Joining **${message.guild.name}**\nWe're very excited that you joined us\nHope you have a fun time here **(>‿◠)**`, "WEmbedMessage");
+            client.wembed.set(message.guild.id, "", "WEmbedFooter");
+            let ResetEm = "https://media.discordapp.net/attachments/711910361133219903/899392123906961458/55.png?width=1089&height=612";
+            let ResetTm = "https://media.discordapp.net/attachments/711910361133219903/899392847436980265/54.jpg";
+            let sqler = "UPDATE welcome SET w_embed_Image = '" + ResetEm + "' WHERE guildId  = " + message.guild.id;
+            sql.query(sqler);
+            let sqltr = "UPDATE welcome SET w_embed_thumb = '" + ResetTm + "' WHERE guildId  = " + message.guild.id;
+            sql.query(sqltr);
+            let sqlr0 = "UPDATE welcome SET w_embed_welcome = " + 0 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlr0);
+            let sqlr01 = "UPDATE welcome SET w_embed_Image_on = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlr01);
+            let sqlr02 = "UPDATE welcome SET w_embed_thumb_on = " + 1 + " WHERE guildId = " + message.guild.id;
+            sql.query(sqlr02);
+            /////////// Code By Kotlin#0427
+            let sqlnew = sql.query("SELECT w_embed_thumb, w_embed_Image FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+            let wembedimage = result[0].w_embed_Image;  
+            let wembedthumb = result[0].w_embed_thumb;         
+            let Resemb = new MessageEmbed()
+            .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+            .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+            .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+            .setThumbnail(wembedthumb)
+            .setImage(wembedimage)
+            .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+            .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+            .setTimestamp();
+            message.channel.send("**RESTED THE \`EMBED\` WELCOME SETUP**", Resemb);
+            });
+            }
+            });
+          break;
+          case "14":
+              let sqleone = "UPDATE welcome SET w_embed_welcome = " + 1 + " WHERE guildId = " + message.guild.id;
+              sql.query(sqleone);
+              const weison = new Discord.MessageEmbed()
+              .setTitle("<:bxcheck:895478636046606346> WELCOME EMBED ENABLED SUCCESS")
+              .setColor("#0066ff")
+              .setDescription(`Embed welcome setup has been enabled for **${message.guild.name}**`)
+              message.channel.send(weison);
+          break;
+          case "15":
+              let sqleofe = "UPDATE welcome SET w_embed_welcome = " + 0 + " WHERE guildId = " + message.guild.id;
+              sql.query(sqleofe);
+              const emdoff = new Discord.MessageEmbed()
+              .setTitle("<:bxcheck:895478636046606346> WELCOME EMBED DISABLED SUCCESS")
+              .setColor("#0066ff")
+              .setDescription(`Embed welcome setup has been disabled for **${message.guild.name}**`)
+              message.channel.send(emdoff);
+          break;
+          case "16":
+            const pinglog = new Discord.MessageEmbed()
+            .setColor("#0082ea")
+            .setTitle(":pushpin: ENTER EMBED CHANNEL!")
+            .setDescription("**You can ping your \`embed\` welcome channel now.**")
+            message.lineReply(pinglog).then(msg=>{
+              msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 80000, errors: ["TIME"]}).then(collected=>{
+                if (!message.member.hasPermission("MANAGE_CHANNELS")) {
+                  const Nopermission = new Discord.MessageEmbed()
+                  .setColor("#f04949")
+                  .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
+                  .setDescription(`You don't have permissions to set embed channel!`)
+                  message.channel.send(Nopermission);
+                 }
+                 let channel = collected.first().mentions.channels.first();
+                 if (!channel) {
+                  return message.lineReply("<:thinkingface:867897965380108288> **| Hmm, You have to enter a channel!**");
+                 }
+                 const sqlquery = "SELECT w_embed_channel AS res FROM welcome WHERE guildId = " + message.guild.id;
+                 sql.query(sqlquery, function (error, results, fields) {
+                  if (error) return console.log(error);
+                  if (results[0]) {
+                   const update = "UPDATE welcome SET w_embed_channel = " + channel.id + " WHERE guildId = " + message.guild.id;
+                   sql.query(update, function (error, results, fields) {
+                    if (error) console.log(error);
+                    const euccess = new Discord.MessageEmbed()
+                    .setColor("#46c300")
+                    .setTitle("<:checkvector:869193650184269834> CHANNEL SUCCESS!")
+                    .setDescription(`**Successfully updated \`embed\` welcome channel**\nNew welcome channel is ${channel}\nRun \`${prefix}setup -> Welcome & Leave System \` to reset settings!`)
+                    message.channel.send(euccess);
+                    let select16 = sql.query("SELECT w_embed_welcome, w_embed_Image, w_embed_thumb, w_embed_Image_on, w_embed_thumb_on FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+                      let EmImg = result[0].w_embed_Image;
+                      let EmThm = result[0].w_embed_thumb;
+                      if(result[0].w_embed_welcome == 0) {
+                      const noton = new Discord.MessageEmbed()
+                      .setColor("#fc5d71")
+                      .setTitle("<:xvector2:869193716575911966> EMBED SYSTEM NOT SETUP")
+                      .setDescription(`
+                      The embed system has not been setup for this guild.
+                      You have to run \`${prefix}setup -> Embed Welcome System\` and use the \`0 index\`
+                      `)
+                      channel.send(noton)
+                      } else if (result[0].w_embed_welcome == 1) {
+                      if (result[0].w_embed_Image_on == 1) {
+                      if (result[0].w_embed_thumb_on == 0) {
+                      const ENSetup = new Discord.MessageEmbed()
+                      .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+                      .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+                      .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+                      .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+                      .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+                      .setImage(EmImg)
+                      .setTimestamp();
+                      channel.send("**NEW \`EMBED\` WELCOME CHANNEL**", ENSetup);
+                      } else {
+                      const ENSetup1 = new Discord.MessageEmbed()
+                      .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+                      .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+                      .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+                      .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+                      .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+                      .setImage(EmImg)
+                      .setThumbnail(EmThm)
+                      .setTimestamp();
+                      channel.send("**NEW \`EMBED\` WELCOME CHANNEL**", ENSetup1);
+                      }
+                      } else if (result[0].w_embed_Image_on == 0) {
+                      if (result[0].w_embed_thumb_on == 1) {
+                      const ENSetup2 = new Discord.MessageEmbed()
+                      .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+                      .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+                      .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+                      .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+                      .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+                      .setThumbnail(EmThm)
+                      .setTimestamp();
+                      channel.send("**NEW \`EMBED\` WELCOME CHANNEL**", ENSetup2);
+                      } else {
+                      const ENSetup3 = new Discord.MessageEmbed()
+                      .setTitle(client.wembed.get(message.guild.id, "WEmbedTitle"))
+                      .setAuthor(client.wembed.get(message.guild.id, "WEmbedAuthor"), message.author.displayAvatarURL())
+                      .setColor(client.wembed.get(message.guild.id, "WEmbedColor"))
+                      .setDescription(client.wembed.get(message.guild.id, "WEmbedMessage"))
+                      .setFooter(client.wembed.get(message.guild.id, "WEmbedFooter"), message.guild.iconURL())
+                      .setTimestamp();
+                      channel.send("**NEW \`EMBED\` WELCOME CHANNEL**", ENSetup3);
+                      }
+                      }
+                      }
+                      });
+                   });
+                  }
+                 });
+              })
+            })
+          break;
+          default:
+            message.lineReply(String("<:xvector:869193619318382602> **| SORRY, that Number does not exists... Your Input:** " + collected.first().content).substr(0,1999))
+          break;
+        }
+      }).catch(error=>{
+        console.log(error)
+        return message.lineReply("<:thinkingface:867897965380108288> **| IT SEEMS YOUR TIME RAN OUT!**")
+    })
+    })
+    }
+
+  /**
+ * @welcomeDM FINISHED
+ */
+  function _welcomeDM(){
+    let rembed = new MessageEmbed()
+    .setColor(config.color)
+    .setAuthor("What would you like to do?", `${message.guild.iconURL()}`)
+    .setDescription(`
+    **0.** \`DM Setup\` - Creates one DM welcome setup.
+    **1.** \`Embed Author\` - Let's you edit the embed author.
+    **2.** \`Embed Title\` - Let's you edit the embed title.
+    **3.** \`Embed Color\` - Let's you edit the embed color.
+    **4.** \`Manage Image\` - Let's you change the embed Image.
+    **5.** \`Embed Footer\` - Let's you edit the embed footer.
+    **6.** \`Manage Message\` - Let's you change the embed message.
+    **7.** \`Enable DM Embed\` - Enables the Welcome DM embed.
+    **8.** \`Disable DM Embed\` - Disables the Welcome DM embed.
+    **9.** \`Enable Embed Image\` - Enables the Welcome DM Image.
+    **10.** \`Disable Embed Image\` - Disables the Welcome DM Image.
+    **11.** \`DM Preview\` - Get a preview of the DM message in your DM
+    **12.** \`Reset All\` - Resets all settings for DM Welcome setup.
+    **13.** \`Enable DM Welcome\` - Enables the Welcome DM message.
+    **14.** \`Disable DM Welcome\` - Disables the Welcome DM message.
+    `)
+    .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
+    .setThumbnail(config.avatarUrl)
+    message.lineReply(rembed).then(msg => {
+    msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time:50000,errors:['time']}).then(async collected=>{
+      switch(collected.first().content.toString()){
+        case "0":
+          client.wdm.ensure(message.guild.id, { "WelcomeDmAuthor": ""});
+          client.wdm.ensure(message.guild.id, { "WelcomeDmColor": "#F184B4"});
+          client.wdm.ensure(message.guild.id, { "WelcomeDmFooter": `Sent by Admins from ${message.guild.name}`});
+          client.wdm.ensure(message.guild.id, { "WelcomeDmTitle": `GREETINGS`});
+          client.wdm.ensure(message.guild.id, { "WelcomeDmMessage": `⛱ Thank you for Joining **${message.guild.name}**\nWe're very excited that you joined us\nHope you have a fun time here **^_^**`});
+          let MDMBG = "https://media.discordapp.net/attachments/711910361133219903/899370200246407208/2.jpg?width=1089&height=612";
+          let sqlMDMSetup = "UPDATE welcome SET DMBackground = '" + MDMBG + "' WHERE guildId  = " + message.guild.id;
+          sql.query(sqlMDMSetup);
+          let sqlDM = "UPDATE welcome SET DMWelcome = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlDM);
+          let sqlEDM = "UPDATE welcome SET DMEmbed = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlEDM);
+          let sqlIMDM = "UPDATE welcome SET DMImage = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlIMDM);
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**PREVIEW OF \`DM\` WELCOME SETUP**", DMSetup);
+          });
+        break;
+        case "1":
+          let dm1 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterAuthor = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":incoming_envelope: ENTER DM EMBED AUTHOR!")
+          .setDescription(`You can enter the message of the embed author`)
+          message.channel.send(enterAuthor).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+          let AuthorMessage = collected.first().content
+          client.wdm.set(message.guild.id, AuthorMessage, `WelcomeDmAuthor`); 
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED AUTHOR SUCCESS**", DMSetup);
+          });
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "2":
+          let dm2 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterTitle = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":incoming_envelope: ENTER DM EMBED TITLE!")
+          .setDescription(`You can enter the message of the embed title`)
+          message.channel.send(enterTitle).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+          let TitleMessage = collected.first().content
+          client.wdm.set(message.guild.id, TitleMessage, `WelcomeDmTitle`); 
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED TITLE SUCCESS**", DMSetup);
+          });
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "3":
+          let dm3 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterColor = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":art: ENTER DM EMBED COLOR!")
+          .setDescription(`You can enter the message of the embed title`)
+          message.channel.send(enterColor).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+          let content = collected.first().content
+          if(!content.startsWith("#") && content.length !== 7){
+          message.lineReply("<:xvector:869193619318382602> **| WRONG COLOR CODE**")
+          } else {
+          if(isValidColor(content)){
+          client.wdm.set(message.guild.id, content, `WelcomeDmColor`); 
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED COLOR SUCCESS**", DMSetup);
+          });
+          }
+          }
+          function isValidColor(str) {
+          return str.match(/^#[a-f0-9]{6}$/i) !== null;
+          }
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "4":
+          let dm4 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterImage = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":park: ENTER DM EMBED IMAGE!")
+          .setDescription(`You can enter any Image\nFrom local system or url from the internet`)
+          message.lineReply(enterImage).then(msg => {
+          msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time:70000,errors:['time']}).then(collected=>{     
+          function attachIsImage(msgAttach) {
+          url = msgAttach.url;
+          return url.indexOf("png", url.length - "png".length /*or 3*/) !== -1 ||
+          url.indexOf("jpeg", url.length - "jpeg".length /*or 3*/) !== -1 ||
+          url.indexOf("jpg", url.length - "jpg".length /*or 3*/) !== -1;
+          }
+          if (collected.first().attachments.size > 0) {
+          if (collected.first().attachments.every(attachIsImage)){
+          function saveImageToDisk(url, path) {
+          var fullUrl = url
+          var localPath = fs.createWriteStream(path)
+          var request = https.get(fullUrl, function (response) {
+          response.pipe(localPath)
+          })
+          }
+          // saveImageToDisk(" " + url + " ", "./lib/img/shop/" + Date.now() + ".png") //saves the image to local storage
+          let sqlDmbg = "UPDATE welcome SET DMBackground = '" + url + "' WHERE guildId  = " + message.guild.id;
+          var query = sql.query(sqlDmbg, function(err, result) { 
+          if (err) console.log(err);
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED BACKGROUND SUCCESS**", DMSetup);
+          });
+          });
+          }
+          else{
+          message.lineReply("<:xvector2:869193716575911966> An error occured somewhere\nWhich makes me not able to set the image.")
+          }
+          }
+          else if (collected.first().content.includes("https")||collected.first().content.includes("http")){
+          let sqlDMWbg = "UPDATE welcome SET DMBackground = '" + collected.first().content + "' WHERE guildId  = " + message.guild.id;
+          var query = sql.query(sqlDMWbg, function(err, result) {
+          if (err) console.log(err);
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED BACKGROUND SUCCESS**", DMSetup);
+          });
+          });
+          }
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "5":
+          let dm5 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterFooter = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":incoming_envelope: ENTER DM EMBED FOOTER!")
+          .setDescription(`You can enter the message of the embed footer`)
+          message.channel.send(enterFooter).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+          let FooterMessage = collected.first().content
+          client.wdm.set(message.guild.id, FooterMessage, `WelcomeDmFooter`); 
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED FOOTER SUCCESS**", DMSetup);
+          });
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "6":
+          let dm6 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          const enterMessage = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":incoming_envelope: ENTER DM EMBED MESSAGE!")
+          .setDescription(`You can enter the message of the embed`)
+          message.channel.send(enterMessage).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 880000, errors: ["TIME"]}).then(collected=>{
+          let FooterMessage = collected.first().content
+          client.wdm.set(message.guild.id, FooterMessage, `WelcomeDmMessage`); 
+          let DmWel = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**NEW \`DM\` EMBED MESSAGE**", DMSetup);
+          });
+          }).catch(error=>{
+          console.log(error)
+          return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+          });
+          });
+          }
+          });
+        break;
+        case "7":
+          let dm7 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          let sqldmEnable = "UPDATE welcome SET DMEmbed = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqldmEnable);
+          let DmWelEn = sql.query("SELECT DMEmbed, DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          if (result[0].DMEmbed == 1) {
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` WELCOME EMBED ENABLED**", DMSetup); 
+          } else if (result[0].DMEmbed == 0) {
+          message.channel.send("**\`DM\` WELCOME EMBED IS DISABLED**\n\n", client.wdm.get(message.guild.id, "WelcomeDmMessage"));
+          }
+          });
+          }
+          });
+        break;
+        case "8":
+          let dm8 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          let sqldmDisable = "UPDATE welcome SET DMEmbed = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqldmDisable);
+          let DmDisable = sql.query("SELECT DMEmbed, DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          if (result[0].DMEmbed == 0) {
+          message.channel.send(`**\`DM\` WELCOME EMBED DISABLED**\n\n${client.wdm.get(message.guild.id, "WelcomeDmMessage")}`);
+          } else if (result[0].DMEmbed == 1) {
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` WELCOME EMBED IS ENABLED**", DMSetup);  
+          }
+          });
+          }
+          });
+        break;
+        case "9":
+          let dm9 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          let sqlDmImageOn = "UPDATE welcome SET DMImage = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlDmImageOn);
+          let DmEnable = sql.query("SELECT DMImage, DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          if (result[0].DMImage == 0) {
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**DM** EMBED IMAGE IS DISABLED", DMSetup);  
+          } else if (result[0].DMImage == 1) {
+           let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED IMAGE ENABLED**", DMSetup);
+          }
+          });
+          }
+          });
+        break;
+        case "10":
+          let dm10 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          let sqlDmImageOff = "UPDATE welcome SET DMImage = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlDmImageOff);
+          let SqlDm = sql.query("SELECT DMImage, DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (err) console.log(err);
+          if (result[0].DMImage == 0) {
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED IMAGE DISABLED**", DMSetup);  
+          } else if (result[0].DMImage == 1) {
+           let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**\`DM\` EMBED IMAGE IS ENABLED**", DMSetup);
+          }
+          });
+          }
+          });
+        break;
+        case "11":
+          let WelDm = sql.query("SELECT DMWelcome, DMEmbed, DMImage, DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if (result[0].DMWelcome == 0) {
+          let DmDisable = new Discord.MessageEmbed()
+          .setColor('#ff7a1d')
+          .setTitle(`DM WELCOME IS DISABLED`)
+          .setDescription(`
+          The **DM** welcome for **${message.guild.name}** is Disabled
+          Contact your server admins to enable it for Preview
+          `)
+          message.channel.send(DmDisable);
+          } else if (result[0].DMWelcome == 1) {
+          if (result[0].DMEmbed == 1) {
+          if (result[0].DMImage == 1) {
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.author.send("**PREVIEW OF \`DM\` WELCOME SETUP**", DMSetup);
+          } else {
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.author.send("**PREVIEW OF \`DM\` WELCOME SETUP**", DMSetup);
+          }
+          } else if (result[0].DMEmbed == 0) {
+          message.author.send(`**PREVIEW OF \`DM\` WELCOME SETUP**\n\n${client.wdm.get(message.guild.id, "WelcomeDmMessage")}`);
+          } 
+          }
+          });
+          const sendt = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setTitle("CHECK YOUR DM")
+          .setDescription(`You should see the preview in your dm\nIf for some reason it you don't see it\nmake to you've allowed message **DMS** in your discord settings`)
+          message.channel.send(sendt, "**CHECK YOUR DM**")
+        break;
+        case "12":
+          let dm12 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          const dnoton = new Discord.MessageEmbed()
+          .setColor("#fc5d71")
+          .setTitle("<:xvector2:869193716575911966> DM SYSTEM NOT SETUP YET")
+          .setDescription(`
+          The dm system has not been setup for this guild.
+          You have to run this setup command again and use the \`0 index\`
+          `)
+          message.channel.send(dnoton)
+          } else {
+          client.wdm.set(message.guild.id, "", "WelcomeDmAuthor");
+          client.wdm.set(message.guild.id, "#F184B4", "WelcomeDmColor");
+          client.wdm.set(message.guild.id, `Sent by Admins from ${message.guild.name}`, "WelcomeDmFooter");
+          client.wdm.set(message.guild.id, `GREETINGS`, "WelcomeDmTitle");
+          client.wdm.set(message.guild.id, `⛱ Thank you for Joining **${message.guild.name}**\nWe're very excited that you joined us\nHope you have a fun time here **^_^**`, "WelcomeDmMessage");
+          let DMBG = "https://media.discordapp.net/attachments/711910361133219903/899370200246407208/2.jpg?width=1089&height=612";
+          let sqlDMR = "UPDATE welcome SET DMBackground = '" + DMBG + "' WHERE guildId  = " + message.guild.id;
+          sql.query(sqlDMR);
+          let sqlRDM = "UPDATE welcome SET DMWelcome = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlRDM);
+          let sqlREDM = "UPDATE welcome SET DMEmbed = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlREDM);
+          let sqlRIMDM = "UPDATE welcome SET DMImage = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlRIMDM);
+          let WelcoDm = sql.query("SELECT DMBackground FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          let DMBackground = result[0].DMBackground;
+          const DMSetup = new Discord.MessageEmbed()
+          .setColor(client.wdm.get(message.guild.id, "WelcomeDmColor"))
+          .setAuthor(`${client.wdm.get(message.guild.id, "WelcomeDmAuthor")}`, message.guild.iconURL())
+          .setTitle(client.wdm.get(message.guild.id, "WelcomeDmTitle"))
+          .setDescription(client.wdm.get(message.guild.id, "WelcomeDmMessage"))
+          .setImage(DMBackground)
+          .setFooter(`${client.wdm.get(message.guild.id, "WelcomeDmFooter")}`, client.user.displayAvatarURL())
+          .setTimestamp();
+          message.channel.send("**RESTED THE \`DM\` WELCOME SETUP**", DMSetup);
+          });
+          }
+          });
+        break;
+        case "13":
+          let dm13 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 0) {
+          let sqlDME = "UPDATE welcome SET DMWelcome = " + 1 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlDME);
+          const DMsuccess = new Discord.MessageEmbed()
+          .setColor("#46c300")
+          .setTitle("<:checkvector:869193650184269834> WELCOME DM ENABLED!")
+          .setDescription(`**Successfully Enabled \`DM\` welcome message**\nRun \`${prefix}setup -> welcome & leave\` to disable the DM welcome`)
+          message.channel.send(DMsuccess);
+          } else {
+          const alreon = new Discord.MessageEmbed()
+          .setColor("#ff590c")
+          .setTitle("DM SYSTEM IS ALREADY ENABLED")
+          .setDescription(`
+          The dm system has already been enabled for this guild.
+          You can run this setup command again to disable it or reset it
+          `)
+          message.channel.send(alreon)
+          }
+          });
+        break;
+        case "14":
+          let dm14 = sql.query("SELECT DMWelcome FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          if(result[0].DMWelcome == 1) {
+          let sqlDMD = "UPDATE welcome SET DMWelcome = " + 0 + " WHERE guildId = " + message.guild.id;
+          sql.query(sqlDMD);
+          const DMDsuccess = new Discord.MessageEmbed()
+          .setColor("#46c300")
+          .setTitle("<:checkvector:869193650184269834> WELCOME DM DISABLED!")
+          .setDescription(`**Successfully Disabled \`DM\` welcome message**\nRun \`${prefix}setup -> welcome & leave\` to enable the DM welcome`)
+          message.channel.send(DMDsuccess);
+          } else {
+          const alreoff = new Discord.MessageEmbed()
+          .setColor("#ff590c")
+          .setTitle("DM SYSTEM IS NOT ENABLED")
+          .setDescription(`
+          The dm system is not enabled for this guild yet.
+          You can run this setup command again to enable it or reset it
+          `)
+          message.channel.send(alreoff)
+          }
+          });
+        break;
+        default:
+          message.lineReply(String("<:xvector:869193619318382602> **| SORRY, that Number does not exists... Your Input:** " + collected.first().content).substr(0,1999))
+        break;
+      }
+    }).catch(error=>{
+      console.log(error)
+      return message.lineReply("<:thinkingface:867897965380108288> **| IT SEEMS YOUR TIME RAN OUT!**")
+  })
+  })
+  }
+
+
+
+  /**
+ * @defaultwelcomesystem FINISHED
+ */
+  function _DefaultWelcome(){
+    let rembed = new MessageEmbed()
+    .setColor(config.color)
+    .setAuthor("What would you like to do?", `${message.guild.iconURL()}`)
+    .setDescription(`
+    **1.** \`Set Welcome Channel\` - Set a default welcome channel.
+    **2.** \`Set Leave Channel\` - Set a default leave channel.
+    **3.** \`Reset-Both\` - Resets settings for Default Welcome & Leave.
+    **4.** \`Enable Welcome/leave\` - Enable default welcome/leave.
+    **5.** \`Disable Welcome/leave\` - Disable default welcome/leave.
+    **6.** \`Check Welcome Channel\` - Check default welcome channel.
+    **7.** \`Check leave Channel\` - Check default leave channel.
+    **8.** \`Change Welcome Message\` - Change default welcome message.
+    `)
+    .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
+    .setThumbnail(config.avatarUrl)
+    message.lineReply(rembed).then(msg => {
+    msg.channel.awaitMessages(m=>m.author.id===message.author.id,{max:1,time:50000,errors:['time']}).then(async collected=>{
+      switch(collected.first().content.toString()){
+        case "1":
+          client.wdsystem.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
+          let Dwelbg = "https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514";
+          let sqldgb = "UPDATE welcome SET background = '" + Dwelbg + "' WHERE guildId  = " + message.guild.id;
+          sql.query(sqldgb);
           const pingwelc = new Discord.MessageEmbed()
           .setColor("#0082ea")
           .setTitle(":pushpin: ENTER WELCOME CHANNEL!")
-          .setDescription("**You can ping your welcome channel now.**")
+          .setDescription("You can ping your welcome channel now")
           message.lineReply(pingwelc).then(msg=>{
             msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected=>{
               if (!message.member.hasPermission("MANAGE_CHANNELS")) {
@@ -1444,7 +3039,7 @@ function welcomesystem(){
                   .setTimestamp()
                   .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true,format: "png",}))
                   .setTitle("<:xchannel:887869003412947024> DEFAULT WELCOME CHANNEL & MESSAGE!")
-                  .setDescription(client.settings.get(message.guild.id, "defaultWelcomeMsg"))
+                  .setDescription(client.wdsystem.get(message.guild.id, "defaultWelcomeMsg"))
                   .setImage("attachment://welcome.png")
                   .attachFiles(attachment);
                   channel.send(defaultembed);
@@ -1458,7 +3053,7 @@ function welcomesystem(){
                   const wellsuccess1 = new Discord.MessageEmbed()
                   .setColor("#46c300")
                   .setTitle("<:checkvector:869193650184269834> Success!")
-                  .setDescription(`**Success! New channel for welcome messages is** ${channel}`)
+                  .setDescription(`Success! New channel for welcome messages is ${channel}`)
                   message.channel.send(wellsuccess1);
                   let bg = sql.query("SELECT background, message FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
                   Canvas.registerFont("./lib/fonts/FengardoNeue_Regular.otf", {family: "FengardoNeue",});
@@ -1504,7 +3099,7 @@ function welcomesystem(){
                   .setTimestamp()
                   .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true,format: "png",}))
                   .setTitle("<:xchannel:887869003412947024> DEFAULT WELCOME CHANNEL & MESSAGE!")
-                  .setDescription(client.settings.get(message.guild.id, "defaultWelcomeMsg"))
+                  .setDescription(client.wdsystem.get(message.guild.id, "defaultWelcomeMsg"))
                   .setImage("attachment://welcome.png")
                   .attachFiles(attachment);
                   channel.send(Newdefaultembed);
@@ -1513,16 +3108,16 @@ function welcomesystem(){
                  });
                 }
                });
-            })
-          })
+            });
+          });
         break;
-        case "4":
+        case "2":
           const pingleavec = new Discord.MessageEmbed()
           .setColor("#0082ea")
           .setTitle(":pushpin: ENTER LEAVE CHANNEL!")
           .setDescription("You can ping your leave channel now.")
           message.lineReply(pingleavec).then(msg=>{
-            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 60000, errors: ["TIME"]}).then(collected=>{
+            msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 80000, errors: ["TIME"]}).then(collected=>{
               if (!message.member.hasPermission("MANAGE_CHANNELS")) {
                 const Nopermission = new Discord.MessageEmbed()
                 .setColor("#f04949")
@@ -1544,7 +3139,7 @@ function welcomesystem(){
                   const leaveuccess = new Discord.MessageEmbed()
                   .setColor("#46c300")
                   .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-                  .setDescription(`**Successfully updated default leave channel\nNew leave channel is** ${channel}\n*Run \`${prefix}setup -> Welcome & Leave System \` to enable this channel!*`)
+                  .setDescription(`**Successfully updated default leave channel**\nNew leave channel is ${channel}\nRun \`${prefix}setup -> Welcome & Leave System \` to enable this channel!`)
                   message.channel.send(leaveuccess);
                   let leavebg = sql.query("SELECT background, message FROM `leave` WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
                   (async () => {
@@ -1598,7 +3193,7 @@ function welcomesystem(){
                 });
               });
                 } else {
-                 const insert1 = "INSERT INTO `leave` (`guildId`, `message`, `channelid`, `CustomMessage`, `enabled`, `CustomEnabled`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`) VALUES (" + guild.id + ", "+ channel.id +", ':crying_cat_face: Good bye.. We hope to see you again.', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d');";
+                 const insert1 = "INSERT INTO `leave` (`guildId`, `channelid`, `message`, `enabled`, `CustomEnabled`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`) VALUES (" + guild.id + ", "+ channel.id +", ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d', '#ff4d4d');";
                  sql.query(insert1, function (error, results, fields) {
                   if (error) console.log(error);
                   const leaveuccess1 = new Discord.MessageEmbed()
@@ -1659,11 +3254,17 @@ function welcomesystem(){
                  });
                 }
                });
-            })
-          })
+            });
+          });
         break;
-        case "5":
-          client.settings.set(message.guild.id, "Thank you for joining us\nWe're happy to have you with us", `defaultWelcomeMsg`);
+        case "3":
+          client.wdsystem.set(message.guild.id, "Thank you for joining us\nWe're happy to have you with us", `defaultWelcomeMsg`);
+          let TDwelbg = "https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514";
+          let sqltdgb = "UPDATE welcome SET background = '" + TDwelbg + "' WHERE guildId  = " + message.guild.id;
+          sql.query(sqltdgb);
+          let TDweleabg = "https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514";
+          let sqltdlegb = "UPDATE `leave` SET `background` = '" + TDweleabg + "' WHERE `guildId`  = " + message.guild.id;
+          sql.query(sqltdlegb);
           let sql1 = "UPDATE `welcome` SET `channelid` = " + 0 + " WHERE `guildId` = " + message.guild.id;
           sql.query(sql1);
           let sql2 = "UPDATE `leave` SET `channelid` = " + 0 + " WHERE `guildId` = " + message.guild.id;
@@ -1671,10 +3272,11 @@ function welcomesystem(){
           const wellssuccess3 = new Discord.MessageEmbed()
           .setColor("#46c300")
           .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-          .setDescription(`**Successfully Resetted Default \`WELCOME & LEAVE\` System**\n*You can set a new channel settings with \`${prefix}setup -> welcome & leave.\`*`)
+          .setDescription(`**Successfully Rested Default \`WELCOME & LEAVE\` System**\nYou can set a new channel settings with \`${prefix}setup -> welcome & leave.\``)
           message.channel.send(wellssuccess3);
         break;
-        case "6":
+        case "4":
+          client.wdsystem.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
           let sql6 = "UPDATE `welcome` SET `enabled` = " + 1 + " WHERE `guildId` = " + message.guild.id;
           sql.query(sql6);
           let sql7 = "UPDATE `leave` SET `enabled` = " + 1 + " WHERE `guildId` = " + message.guild.id;
@@ -1682,10 +3284,11 @@ function welcomesystem(){
           const welcome1 = new Discord.MessageEmbed()
           .setColor("#46c300")
           .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-          .setDescription(`**Successfully Enabled \`WELCOME\` and \`LEAVE\` System**\n*You can disable the settings with \`${prefix}setup -> Welcome & Leave.\`*`)
+          .setDescription(`**Successfully Enabled \`WELCOME\` and \`LEAVE\` System**\nYou can disable the settings with \`${prefix}setup -> Welcome & Leave.\``)
           message.channel.send(welcome1);
-          break;
-          case "7":
+        break;
+        case "5":
+          client.wdsystem.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
           let sql11 = "UPDATE `welcome` SET `enabled` = " + 0 + " WHERE `guildId` = " + message.guild.id;
           sql.query(sql11);
           let sql12 = "UPDATE `leave` SET `enabled` = " + 0 + " WHERE `guildId` = " + message.guild.id;
@@ -1693,174 +3296,177 @@ function welcomesystem(){
           const welcome2 = new Discord.MessageEmbed()
           .setColor("#46c300")
           .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-          .setDescription(`**Successfully Disabled \`WELCOME\` and \`LEAVE\` System**\n*You can enabled this settings with \`${prefix}setup -> Welcome & Leave System.\`*`)
+          .setDescription(`**Successfully Disabled \`WELCOME\` and \`LEAVE\` System**\nYou can enabled this settings with \`${prefix}setup -> Welcome & Leave System.\``)
           message.channel.send(welcome2);
-          break;
-          case "8":
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) {
-              const Nopermission1 = new Discord.MessageEmbed()
-              .setColor("#f04949")
-              .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-              .setDescription(`**You don't have permissions to check welcome channel!**`)
-              message.channel.send(Nopermission1);
+        break;
+        case "6":
+          client.wdsystem.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
+          if (!message.member.hasPermission("MANAGE_CHANNELS")) {
+            const Nopermission1 = new Discord.MessageEmbed()
+            .setColor("#f04949")
+            .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
+            .setDescription(`You don't have permissions to check welcome channel!`)
+            message.channel.send(Nopermission1);
+           }
+            const sqlquery11 = "SELECT channelid AS res FROM welcome WHERE guildId = " + message.guild.id;
+            sql.query(sqlquery11, function (error, results, fields) {
+             if (error) return console.log(error);
+             if (results[0]) {
+              const check1 = new Discord.MessageEmbed()
+              .setColor("#1775f2")
+              .setTitle("<:xchannel:887869003412947024> CURRENT WELCOME CHANNEL!")
+              .setDescription(`
+              Your current welcome channel is: <#${results[0].res}>
+              
+              **Default welcome message for your guild**
+              ${client.wdsystem.get(message.guild.id, "defaultWelcomeMsg")}
+              `)
+              message.channel.send(check1);
+             } else {
+              const check2 = new Discord.MessageEmbed()
+              .setColor("#1775f2")
+              .setTitle("<:xvector2:869193716575911966> WELCOME NOT ENABLED YET!")
+              .setDescription(`**You haven't enabled the default welcome system on this server yet.**\nRun \`${prefix}setup -> welcome & leave -> enable-welcome\` to enabled welcome system!`)
+              message.channel.send(check2);
              }
-              const sqlquery11 = "SELECT channelid AS res FROM welcome WHERE guildId = " + message.guild.id;
-              sql.query(sqlquery11, function (error, results, fields) {
-               if (error) return console.log(error);
-               if (results[0]) {
-                const check1 = new Discord.MessageEmbed()
-                .setColor("#1775f2")
-                .setTitle("<:xchannel:887869003412947024> CURRENT WELCOME CHANNEL!")
-                .setDescription(`
-                Your current welcome channel is: <#${results[0].res}>
-                The Default welcome message for your guild.
-
-                ${client.settings.get(message.guild.id, "defaultWelcomeMsg")}
-                `)
-                message.channel.send(check1);
-               } else {
-                const check2 = new Discord.MessageEmbed()
-                .setColor("#1775f2")
-                .setTitle("<:xvector2:869193716575911966> WELCOME NOT ENABLED YET!")
-                .setDescription(`**You haven't enabled the default welcome system on this server yet.**\n*Run \`${prefix}setup -> welcome & leave -> enable-welcome\` to enabled welcome system!*`)
-                message.channel.send(check2);
-               }
-              });
-          break;
-          case "9":
-            if (!message.member.hasPermission("MANAGE_CHANNELS")) {
-              const Nopermission1 = new Discord.MessageEmbed()
-              .setColor("#f04949")
-              .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-              .setDescription(`You don't have permissions to check leave channel!`)
-              message.channel.send(Nopermission1);
-             }
-              const sqlquery12 = "SELECT `channelid` AS res FROM `leave` WHERE `guildId` = " + message.guild.id;
-              sql.query(sqlquery12, function (error, results, fields) {
-               if (error) return console.log(error);
-               if (results[0]) {
-                const check1 = new Discord.MessageEmbed()
-                .setColor("#1775f2")
-                .setTitle("<:xchannel:887869003412947024> CURRENT LEAVE CHANNEL!")
-                .setDescription(`**Your current leave channel is: <#${results[0].res}>**\n*You can channge the channel using \`${prefix}setup -> welcome & leave\`*`)
-                message.channel.send(check1);
-               } else {
-                const check2 = new Discord.MessageEmbed()
-                .setColor("#1775f2")
-                .setTitle("<:xvector2:869193716575911966> LEAVE NOT ENABLED YET!")
-                .setDescription(`**You haven't enabled the default leave system on this server yet.**\n*Run \`${prefix}setup -> welcome & leave -> enable-leave\` to enabled leave system!*`)
-                message.channel.send(check2);
-               }
-              });
-              break;
-              case "10":
-              client.settings.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" })
-              const enterMessage = new Discord.MessageEmbed()
-              .setColor("#0082ea")
-              .setTitle(":incoming_envelope: ENTER YOUR MESSAGE!")
-              .setDescription(`You can enter your message!`)
-              message.channel.send(enterMessage).then(msg=>{
-              msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 150000, errors: ["TIME"]}).then(collected=>{
-              const queryleave = "SELECT `channelid` AS res FROM `welcome` WHERE `guildId` = " + message.guild.id;
-              sql.query(queryleave, function (error, results, fields) {
-              const logsetup = results[0].res;
-              const log = message.guild.channels.cache.find((c) => c.id == logsetup && c.type == "text");
-              if (!message.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
-              if (!log) return;
-              if (!log.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
-              message.guild.fetchAuditLogs().then((logs) => { 
-              let NewMessage = collected.first().content
-              client.settings.set(message.guild.id, NewMessage, `defaultWelcomeMsg`); 
-              if (error) console.log(error);
-              const upmsg = new Discord.MessageEmbed()
-              .setColor("#006eee")
-              .setTitle("<:checkvector:869193650184269834> NEW MESSAGE UPDATED!")
-              .setDescription(`**Successfully Updated the Default Welcome Message!**\n*You can run \`${prefix}setup -> welcome & leave\` to change the background Image!*`)
-              .setFooter("Message changed by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
-              .setTimestamp();
-              message.channel.send(upmsg);
-              let bg = sql.query("SELECT background FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
-              (async () => {
-              Canvas.registerFont("./lib/fonts/FengardoNeue_Regular.otf", {family: "FengardoNeue",});
-              const image = `${result[0].background}`;
-              const canvas = Canvas.createCanvas(1772, 633);
-              const ctx = canvas.getContext("2d");
-              const background = await Canvas.loadImage(image);
-              ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
-              ctx.strokeStyle = "#f2f2f2";
-              ctx.strokeRect(0, 0, canvas.width, canvas.height);
-              var textString3 = `${message.author.username}`;
-              if (textString3.length >= 14) {
-              ctx.font = 'bold 150px "FengardoNeue"';
-              ctx.fillStyle = "#f2f2f2";
-              ctx.fillText(textString3, 720, canvas.height / 2 + 20); // User Name
-              } else {
-              ctx.font = 'bold 200px "FengardoNeue"';
-              ctx.fillStyle = "#f2f2f2";
-              ctx.fillText(textString3, 720, canvas.height / 2 + 25); // User Name
-              }
-              var textString2 = `#${message.author.discriminator}`;
-              ctx.font = 'bold 40px "FengardoNeue"';
-              ctx.fillStyle = "#f2f2f2";
-              ctx.fillText(textString2, 730, canvas.height / 2 + 62); // User Tag
-              var textString4 = `Member #${message.guild.memberCount}`;
-              ctx.font = 'bold 60px "FengardoNeue"';
-              ctx.fillStyle = "#f2f2f2";
-              ctx.fillText(textString4, 720, canvas.height / 2 + 120); // Member Count
-              var textString4 = `${message.guild.name}`;
-              ctx.font = 'bold 70px "FengardoNeue"';
-              ctx.fillStyle = "#f2f2f2";
-              ctx.fillText(textString4, 720, canvas.height / 2 - 140); // Member Guild Name
-              ctx.beginPath();
-              ctx.arc(315, canvas.height / 2, 250, 0, Math.PI * 2, true);
-              ctx.closePath();
-              ctx.clip();
-              const avatar = await Canvas.loadImage(message.author.displayAvatarURL({format: "jpg",size: 2048,}));
-              ctx.drawImage(avatar, 65, canvas.height / 2 - 250, 500, 500);
-              const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png");
-              const embed = new Discord.MessageEmbed()
-              .setColor("RANDOM")
-              .setTimestamp()
-              .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true,format: "png",}))
-              .setTitle(`${message.author.tag.toUpperCase()}`)
-              .setDescription(client.settings.get(message.guild.id, "defaultWelcomeMsg"))
-              .setImage("attachment://welcome.png")
-              .attachFiles(attachment);
-              log.send(embed);    
-              })();
-              });
-             });
             });
-            }).catch(error=>{
-            console.log(error)
-            return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
-          })
-          })
-          break;
-          default:
-            message.lineReply(String("<:xvector:869193619318382602> **| SORRY, that Number does not exists... Your Input:** " + collected.first().content).substr(0,1999))
-          break;
+        break;
+        case "7":
+          if (!message.member.hasPermission("MANAGE_CHANNELS")) {
+            const Nopermission1 = new Discord.MessageEmbed()
+            .setColor("#f04949")
+            .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
+            .setDescription(`You don't have permissions to check leave channel!`)
+            message.channel.send(Nopermission1);
+           }
+            const sqlquery12 = "SELECT `channelid` AS res FROM `leave` WHERE `guildId` = " + message.guild.id;
+            sql.query(sqlquery12, function (error, results, fields) {
+             if (error) return console.log(error);
+             if (results[0]) {
+              const check1 = new Discord.MessageEmbed()
+              .setColor("#1775f2")
+              .setTitle("<:xchannel:887869003412947024> CURRENT LEAVE CHANNEL!")
+              .setDescription(`**Your current leave channel is: <#${results[0].res}>**\nYou can channge the channel using \`${prefix}setup -> welcome & leave\``)
+              message.channel.send(check1);
+             } else {
+              const check2 = new Discord.MessageEmbed()
+              .setColor("#1775f2")
+              .setTitle("<:xvector2:869193716575911966> LEAVE NOT ENABLED YET!")
+              .setDescription(`**You haven't enabled the default leave system on this server yet.**\nRun \`${prefix}setup -> welcome & leave -> enable-leave\` to enabled leave system!`)
+              message.channel.send(check2);
+             }
+            });
+        break;
+        case "8":
+          client.wdsystem.ensure(message.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
+          const enterMessage = new Discord.MessageEmbed()
+          .setColor("#0082ea")
+          .setTitle(":incoming_envelope: ENTER YOUR MESSAGE!")
+          .setDescription(`You can change the default welcome message!`)
+          message.channel.send(enterMessage).then(msg=>{
+          msg.channel.awaitMessages(m=>m.author.id === message.author.id, {max: 1, time: 150000, errors: ["TIME"]}).then(collected=>{
+          const queryleave = "SELECT `channelid` AS res FROM `welcome` WHERE `guildId` = " + message.guild.id;
+          sql.query(queryleave, function (error, results, fields) {
+          const logsetup = results[0].res;
+          const log = message.guild.channels.cache.find((c) => c.id == logsetup && c.type == "text");
+          if (!message.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
+          if (!log) return;
+          if (!log.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
+          message.guild.fetchAuditLogs().then((logs) => { 
+          let NewMessage = collected.first().content
+          client.wdsystem.set(message.guild.id, NewMessage, `defaultWelcomeMsg`); 
+          if (error) console.log(error);
+          const upmsg = new Discord.MessageEmbed()
+          .setColor("#006eee")
+          .setTitle("<:checkvector:869193650184269834> NEW MESSAGE UPDATED!")
+          .setDescription(`**Successfully Updated the Default Welcome Message!**\nYou can run \`${prefix}setup -> welcome & leave\` to change the background Image!`)
+          .setFooter("Message changed by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
+          .setTimestamp();
+          message.channel.send(upmsg);
+          let bg = sql.query("SELECT background FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+          (async () => {
+          Canvas.registerFont("./lib/fonts/FengardoNeue_Regular.otf", {family: "FengardoNeue",});
+          const image = `${result[0].background}`;
+          const canvas = Canvas.createCanvas(1772, 633);
+          const ctx = canvas.getContext("2d");
+          const background = await Canvas.loadImage(image);
+          ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+          ctx.strokeStyle = "#f2f2f2";
+          ctx.strokeRect(0, 0, canvas.width, canvas.height);
+          var textString3 = `${message.author.username}`;
+          if (textString3.length >= 14) {
+          ctx.font = 'bold 150px "FengardoNeue"';
+          ctx.fillStyle = "#f2f2f2";
+          ctx.fillText(textString3, 720, canvas.height / 2 + 20); // User Name
+          } else {
+          ctx.font = 'bold 200px "FengardoNeue"';
+          ctx.fillStyle = "#f2f2f2";
+          ctx.fillText(textString3, 720, canvas.height / 2 + 25); // User Name
+          }
+          var textString2 = `#${message.author.discriminator}`;
+          ctx.font = 'bold 40px "FengardoNeue"';
+          ctx.fillStyle = "#f2f2f2";
+          ctx.fillText(textString2, 730, canvas.height / 2 + 62); // User Tag
+          var textString4 = `Member #${message.guild.memberCount}`;
+          ctx.font = 'bold 60px "FengardoNeue"';
+          ctx.fillStyle = "#f2f2f2";
+          ctx.fillText(textString4, 720, canvas.height / 2 + 120); // Member Count
+          var textString4 = `${message.guild.name}`;
+          ctx.font = 'bold 70px "FengardoNeue"';
+          ctx.fillStyle = "#f2f2f2";
+          ctx.fillText(textString4, 720, canvas.height / 2 - 140); // Member Guild Name
+          ctx.beginPath();
+          ctx.arc(315, canvas.height / 2, 250, 0, Math.PI * 2, true);
+          ctx.closePath();
+          ctx.clip();
+          const avatar = await Canvas.loadImage(message.author.displayAvatarURL({format: "jpg",size: 2048,}));
+          ctx.drawImage(avatar, 65, canvas.height / 2 - 250, 500, 500);
+          const attachment = new Discord.MessageAttachment(canvas.toBuffer(), "welcome.png");
+          const embed = new Discord.MessageEmbed()
+          .setColor("RANDOM")
+          .setTimestamp()
+          .setFooter(`${message.guild.name}`, message.guild.iconURL({dynamic: true,format: "png",}))
+          .setTitle(`${message.author.tag.toUpperCase()}`)
+          .setDescription(client.wdsystem.get(message.guild.id, "defaultWelcomeMsg"))
+          .setImage("attachment://welcome.png")
+          .attachFiles(attachment);
+          log.send(embed);    
+          })();
+          });
+         });
+        });
+        }).catch(error=>{
+        console.log(error)
+        return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+      });
+      });
+        break;
+        default:
+          message.lineReply(String("<:xvector:869193619318382602> **| SORRY, that Number does not exists... Your Input:** " + collected.first().content).substr(0,1999))
+        break;
       }
     }).catch(error=>{
-      //console.log(error)
-      return message.lineReply("<:thinkingface:867897965380108288> **| HMMM IT SEEMS YOUR TIME RAN OUT!**")
+      console.log(error)
+      return message.lineReply("<:thinkingface:867897965380108288> **| IT SEEMS YOUR TIME RAN OUT!**")
   });
   });
+  }
 
   /**
  * @welcomesetup FINISHED
  */
   function _welcome(){
     let rembed = new MessageEmbed()
-    .setColor(config.black)
+    .setColor(config.color)
     .setAuthor("What would you like to do?", `${message.guild.iconURL()}`)
     .setDescription(`
-    **0.** \`Create Setup\` - *Creates a Welcome channel setup!*
-    **1.** \`Manage Message\` - *Let's you edit the Welcome Message*
-    **2.** \`Manage Image\` - *Let's you change the background Image*
-    **3.** \`Reset All\` - *Resets all settings for Custom Welcome*
-    **4.** \`Enable Welcome\` - *Enables Custom Welcome*
-    **5.** \`Disable Welcome\` - *Disables Custom Welcome*
+    **0.** \`Create Setup\` - Creates a Welcome channel setup.
+    **1.** \`Manage Message\` - Let's you edit the Welcome Message.
+    **2.** \`Manage Image\` - Let's you change the background Image.
+    **3.** \`Manage Role\` - Let's you manage the welcome roles.
+    **4.** \`Reset All\` - Resets all settings for Custom Welcome.
+    **5.** \`Enable Welcome\` - Enables Custom Welcome.
+    **6.** \`Disable Welcome\` - Disables Custom Welcome.
     `)
     .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
     .setThumbnail(config.avatarUrl)
@@ -1961,7 +3567,7 @@ function welcomesystem(){
               .setFooter("Message changed by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
               .setTimestamp();
               message.channel.send(upmsg);
-              let select = sql.query("SELECT CustomMessage, background, border, usernameBox, discriminatorBox, messageBox, titleBox, avatarBox FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+              let select = sql.query("SELECT background, border, usernameBox, discriminatorBox, messageBox, titleBox, avatarBox FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
               (async () => {
               let avatar = message.author.displayAvatarURL({format: "png"});
               let username = message.author.username
@@ -1975,7 +3581,6 @@ function welcomesystem(){
               const titleColor = `${result[0].titleBox}`;
               const avatarColor = `${result[0].avatarBox}`;
               const backgroundImage = `${result[0].background}`;
-              const NewMessage = `${result[0].CustomMessage}`;
               const WelcomeCard = new canvacord.Welcomer()
               .setUsername(username)
               .setDiscriminator(hash)
@@ -2011,20 +3616,20 @@ function welcomesystem(){
         break;
         case "2":
           let bgembed = new MessageEmbed()
-          .setColor(config.black)
+          .setColor(config.color)
           .setAuthor("What do you want to do?", `${message.guild.iconURL()}`)
           .setDescription(`
-          **1.** \`Change Background\` - *Changes Background Image*
-          **2.** \`Change Border Color\` - *Changes Color of the border*
-          **3.** \`Change Username Box\` - *Changes Color of the Username-box*
-          **4.** \`Change Discriminator\` - *Changes Color of the discriminator-box*
-          **5.** \`Change Message Box\` - *Changes Color of the message-box*
-          **6.** \`Change Title Color\` - *Changes Color of the Title*
-          **7.** \`Change Avatar Color\` - *Changes Color of the Avatar*
-          **8.** \`Change Embed Color\` - *Changes Color of the Embed*
-          **9.** \`Enable Welcome Embed\` - *Enable's embed of the welcome card*
-          **10.** \`Disable Welcome Embed\` - *Disable's embed of the welcome card*
-          **11.** \`Reset All Changes\` - *Resets welcome card changes to default*
+          **1.** \`Change Background\` - Changes Background Image.
+          **2.** \`Change Border Color\` - Changes Color of the border.
+          **3.** \`Change Username Box\` - Changes Color of the Username-box.
+          **4.** \`Change Discriminator\` - Changes Color of the discriminator-box.
+          **5.** \`Change Message Box\` - Changes Color of the message-box.
+          **6.** \`Change Title Color\` - Changes Color of the Title.
+          **7.** \`Change Avatar Color\` - Changes Color of the Avatar.
+          **8.** \`Change Embed Color\` - Changes Color of the Embed.
+          **9.** \`Enable Welcome Embed\` - Enable's embed of the welcome card.
+          **10.** \`Disable Welcome Embed\` - Disable's embed of the welcome card.
+          **11.** \`Reset All Changes\` - Resets welcome card changes to default.
           `)
           .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
           .setThumbnail(config.avatarUrl)
@@ -2987,7 +4592,7 @@ function welcomesystem(){
                     const bgsuccess = new Discord.MessageEmbed()
                     .setColor("#46c300")
                     .setTitle("<:checkvector:869193650184269834> RESERT CHANGES COMPLETED!")
-                    .setDescription(`**Successfully Resetted \`WELCOME CARD\` Changes**\n*You can set a new changes settings with \`${prefix}setup -> welcome & leave.\`*`)
+                    .setDescription(`**Successfully Rested \`WELCOME CARD\` Changes**\n*You can set a new changes settings with \`${prefix}setup -> welcome & leave.\`*`)
                     message.channel.send(bgsuccess);
                     let select = sql.query("SELECT background, border, usernameBox, discriminatorBox, messageBox, titleBox, avatarBox, embedColor FROM welcome WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
                     (async () => {
@@ -3044,29 +4649,40 @@ function welcomesystem(){
           })
         break;
         case "3":
+          let NotCompleted3 = new Discord.MessageEmbed()
+          .setColor('#f862ff')
+          .setThumbnail(config.Kotlin)
+          .setTitle(`THIS FEATURE IS STILL UNDER CONSTRUCTION`)
+          .setDescription(`
+          **${message.author.username}** this feature is still being constructed by **Kotlin#0427**
+          You will have to wait for a while or join my [support](https://discord.com/invite/tyjhKE3VdB) server to know when it would be released
+          `)
+          message.channel.send(NotCompleted3);
+          break;
+        case "4":
           client.settings.delete(message.guild.id, "welcomeMsg");
           const sql1del = "DELETE FROM welcome WHERE guildId = " + message.guild.id;
           sql.query(sql1del, function (error, results, fields) {
           if (error) return console.log(error);
-          const sql4 = "INSERT INTO `welcome` (`guildId`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + message.guild.id + ", ':heart: Thanks for joining us at', ':partying_face: Thanks for joining us.', '0', '0', '1', 'lib/img/welcome.png', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
+          const sql4 = "INSERT INTO `welcome` (`guildId`, `message`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + message.guild.id + ", ':heart: Thanks for joining us at', ':partying_face: Thanks for joining us.', '0', '0', '1', 'lib/img/welcome.png', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c');";
           sql.query(sql4, function (error, results, fields) {if (error) console.log(error);});
           const wellssuccess3 = new Discord.MessageEmbed()
           .setColor("#46c300")
           .setTitle("<:checkvector:869193650184269834> RESET SUCCESS!")
-          .setDescription(`**Successfully Resetted \`WELCOME\` System**\n*You can set a new settings settings with \`${prefix}setup -> welcome & leave.\`*`)
+          .setDescription(`**Successfully Rested \`WELCOME\` System**\n*You can set a new settings settings with \`${prefix}setup -> welcome & leave.\`*`)
           message.channel.send(wellssuccess3);
-        });
-          break;
-        case "4":
-          let sql60 = "UPDATE `welcome` SET `CustomEnabled` = " + 1 + " WHERE `guildId` = " + message.guild.id;
-          sql.query(sql60);
-          const welcome1 = new Discord.MessageEmbed()
-          .setColor("#46c300")
-          .setTitle("<:checkvector:869193650184269834> SUCCESS!")
-          .setDescription(`**Successfully Enabled Custom \`WELCOME\` System**\n*You can disable the settings with \`${prefix}setup -> Welcome & Leave System.\`*`)
-          message.channel.send(welcome1);
+          });
           break;
           case "5":
+            let sql60 = "UPDATE `welcome` SET `CustomEnabled` = " + 1 + " WHERE `guildId` = " + message.guild.id;
+            sql.query(sql60);
+            const welcome1 = new Discord.MessageEmbed()
+            .setColor("#46c300")
+            .setTitle("<:checkvector:869193650184269834> SUCCESS!")
+            .setDescription(`**Successfully Enabled Custom \`WELCOME\` System**\n*You can disable the settings with \`${prefix}setup -> Welcome & Leave System.\`*`)
+            message.channel.send(welcome1);
+            break;
+            case "6":
             let sql11 = "UPDATE `welcome` SET `CustomEnabled` = " + 0 + " WHERE `guildId` = " + message.guild.id;
             sql.query(sql11);
             const welcome2 = new Discord.MessageEmbed()
@@ -3091,15 +4707,15 @@ function welcomesystem(){
  */
    function _leave(){
     let rembed = new MessageEmbed()
-    .setColor(config.black)
+    .setColor(config.color)
     .setAuthor("What would you like to do?", `${message.guild.iconURL()}`)
     .setDescription(`
-    **0.** \`Create Setup\` - *Creates a Leave channel setup!*
-    **1.** \`Manage Message\` - *Let's you edit the Leave Message*
-    **2.** \`Manage Image\` - *Let's you change the background Image*
-    **3.** \`Reset All\` - *Resets all settings for Custom Leave*
-    **4.** \`Enable Leave\` - *Enables Custom Leave*
-    **5.** \`Disable Leave\` - *Disables Custom Leave*
+    **0.** \`Create Setup\` - Creates a Leave channel setup.
+    **1.** \`Manage Message\` - Let's you edit the Leave Message.
+    **2.** \`Manage Image\` - Let's you change the background Image.
+    **3.** \`Reset All\` - Resets all settings for Custom Leave.
+    **4.** \`Enable Leave\` - Enables Custom Leave.
+    **5.** \`Disable Leave\` - Disables Custom Leave.
     `)
     .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
     .setThumbnail(config.avatarUrl)
@@ -3249,20 +4865,20 @@ function welcomesystem(){
         break;
         case "2":
           let bgembed = new MessageEmbed()
-          .setColor(config.black)
+          .setColor(config.color)
           .setAuthor("What do you want to do?", `${message.guild.iconURL()}`)
           .setDescription(`
-          **1.** \`Change Background\` - *Changes Background Image*
-          **2.** \`Change Border Color\` - *Changes Color of the border*
-          **3.** \`Change Username Box\` - *Changes Color of the Username-box*
-          **4.** \`Change Discriminator\` - *Changes Color of the discriminator-box*
-          **5.** \`Change Message Box\` - *Changes Color of the message-box*
-          **6.** \`Change Title Color\` - *Changes Color of the Title*
-          **7.** \`Change Avatar Color\` - *Changes Color of the Avatar*
-          **8.** \`Change Embed Color\` - *Changes Color of the Embed*
-          **9.** \`Enable Leave Embed\` - *Enable's the embed of the leave card*
-          **10.** \`Disable Leave Embed\` - *Disable's the embed of the leave card*
-          **11.** \`Reset All Changes\` - *Resets leave card changes to default*
+          **1.** \`Change Background\` - Changes Background Image.
+          **2.** \`Change Border Color\` - Changes Color of the border.
+          **3.** \`Change Username Box\` - Changes Color of the Username-box.
+          **4.** \`Change Discriminator\` - Changes Color of the discriminator-box.
+          **5.** \`Change Message Box\` - Changes Color of the message-box.
+          **6.** \`Change Title Color\` - Changes Color of the Title.
+          **7.** \`Change Avatar Color\` - Changes Color of the Avatar.
+          **8.** \`Change Embed Color\` - Changes Color of the Embed.
+          **9.** \`Enable Leave Embed\` - Enable's the embed of the leave card.
+          **10.** \`Disable Leave Embed\` - Disable's the embed of the leave card.
+          **11.** \`Reset All Changes\` - Resets leave card changes to default.
           `)
           .setFooter("PICK YOUR INDEX NUMBER", message.author.displayAvatarURL())
           .setThumbnail(config.avatarUrl)
@@ -4225,7 +5841,7 @@ function welcomesystem(){
                     const bgsuccess = new Discord.MessageEmbed()
                     .setColor("#46c300")
                     .setTitle("<:checkvector:869193650184269834> RESERT CHANGES COMPLETED!")
-                    .setDescription(`**Successfully Resetted \`LEAVE CARD\` Changes**\n*You can set a new changes settings with \`${prefix}setup -> welcome & leave.\`*`)
+                    .setDescription(`**Successfully Rested \`LEAVE CARD\` Changes**\n*You can set a new changes settings with \`${prefix}setup -> welcome & leave.\`*`)
                     message.channel.send(bgsuccess);
                     let select = sql.query("SELECT `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM `leave` WHERE `guildId` = ?;", message.guild.id, function (err, result, fields) {
                     (async () => {
@@ -4286,12 +5902,12 @@ function welcomesystem(){
           const sql1del = "DELETE FROM `leave` WHERE `guildId` = " + message.guild.id;
           sql.query(sql1del, function (error, results, fields) {
           if (error) return console.log(error);
-          const sql4 = "INSERT INTO `leave` (`guildId`, `message`, `CustomMessage`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + message.guild.id + ", ':crying_cat_face: Good bye.. We hope to see you again.', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
+          const sql4 = "INSERT INTO `leave` (`guildId`, `message`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES (" + message.guild.id + ", ':crying_cat_face: Good bye.. We hope to see you again.', ':crying_cat_face: Good bye.. We hope to see you again.', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/877887340947853372/goodbye.png?width=1440&height=514', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29', '#ff5f29');";
           sql.query(sql4, function (error, results, fields) {if (error) console.log(error);});
           const wellssuccess3 = new Discord.MessageEmbed()
           .setColor("#46c300")
           .setTitle("<:checkvector:869193650184269834> RESET SUCCESS!")
-          .setDescription(`**Successfully Resetted \`LEAVE\` System**\n*You can set a new settings settings with \`${prefix}setup -> welcome & leave.\`*`)
+          .setDescription(`**Successfully Rested \`LEAVE\` System**\n*You can set a new settings settings with \`${prefix}setup -> welcome & leave.\`*`)
           message.channel.send(wellssuccess3);
         });
           break;

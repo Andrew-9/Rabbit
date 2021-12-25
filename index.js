@@ -16,6 +16,10 @@ const leveling = require("./models/ranking");
 leveling(client);
 const apply = require("./models/apply");
 apply(client);
+const WelcomeAndLeave = require("./models/welcome&Leave");
+WelcomeAndLeave(client);
+const Interaction = require("./models/interaction");
+Interaction(client);
 const DisTube = require("distube");
 
 /* = Enmap Database Registering = */
@@ -26,6 +30,9 @@ client.settings = new Enmap({ name: "settings", dataDir: "./data/settings" });
 client.infos = new Enmap({ name: "infos", dataDir: "./data/infos" });
 client.custom = new Enmap({ name: "custom", dataDir: "./data/playlist" });
 client.custom2 = new Enmap({ name: "custom", dataDir: "./data/playlist2" });
+client.wdm = new Enmap({ name: "wdm", dataDir: "./data/wdm" }); 
+client.wembed = new Enmap({ name: "wembed", dataDir: "./data/wembed" }); 
+client.wdsystem = new Enmap({ name: "wdsystem", dataDir: "./data/wdsystem" }); 
 /* = Enmap Database Ended = */
 
 /* = Logging system = */
@@ -44,12 +51,12 @@ sql.query("CREATE TABLE IF NOT EXISTS `guilds` (`guildId` VARCHAR(100) NOT NULL,
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Guilds`! Status: Success"));
 });
 /* = Welcome message = */
-sql.query("CREATE TABLE IF NOT EXISTS `welcome` (`guildId` VARCHAR(100) NOT NULL, `channelid` VARCHAR(32) NOT NULL, `CustonChannelid` VARCHAR(32) NOT NULL, `message` VARCHAR(1000) NOT NULL, `CustomMessage` VARCHAR(1000) NOT NULL, `enabled` VARCHAR(32) NOT NULL, `embedEnable` VARCHAR(32) NOT NULL, `CustomEnabled` VARCHAR(32) NOT NULL, `role` VARCHAR(5000) NOT NULL, `background` VARCHAR(8000) NOT NULL, `border` VARCHAR(32) NOT NULL, `usernameBox` VARCHAR(32) NOT NULL, `discriminatorBox` VARCHAR(32) NOT NULL, `messageBox` VARCHAR(32) NOT NULL, `titleBox` VARCHAR(32) NOT NULL, `avatarBox` VARCHAR(32) NOT NULL, `embedColor` VARCHAR(32) NOT NULL, UNIQUE(`guildid`));", function(error) {
+sql.query("CREATE TABLE IF NOT EXISTS `welcome` (`guildId` VARCHAR(100) NOT NULL, `channelid` VARCHAR(32) NOT NULL, `CustonChannelid` VARCHAR(32) NOT NULL, `message` VARCHAR(1000) NOT NULL, `enabled` VARCHAR(32) NOT NULL, `embedEnable` VARCHAR(32) NOT NULL, `CustomEnabled` VARCHAR(32) NOT NULL, `role` VARCHAR(100) NOT NULL, `background` VARCHAR(1500) NOT NULL, `border` VARCHAR(32) NOT NULL, `usernameBox` VARCHAR(32) NOT NULL, `discriminatorBox` VARCHAR(32) NOT NULL, `messageBox` VARCHAR(32) NOT NULL, `titleBox` VARCHAR(32) NOT NULL, `avatarBox` VARCHAR(32) NOT NULL, `embedColor` VARCHAR(32) NOT NULL, `DMWelcome` VARCHAR(100) NULL, `DMEmbed` VARCHAR(100) NOT NULL, `DMImage` VARCHAR(100) NOT NULL, `DMBackground` VARCHAR(1500) NULL, `w_embed_welcome` VARCHAR(100) NULL, `w_embed_thumb` VARCHAR(1500) NULL, `w_embed_Image` VARCHAR(1500) NULL, `w_embed_Image_on` VARCHAR(100) NULL, `w_embed_thumb_on` VARCHAR(100) NULL, UNIQUE(`guildid`));", function(error) {
     if (error) throw new Error(error);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Welcome`! Status: Success"));
 });
 /* = Leave message = */
-sql.query("CREATE TABLE IF NOT EXISTS `leave` (`guildId` VARCHAR(100) NOT NULL, `channelid` VARCHAR(32) NOT NULL, `CustonChannelid` VARCHAR(32) NOT NULL, `message` VARCHAR(1000) NOT NULL, `CustomMessage` VARCHAR(1000) NOT NULL, `enabled` VARCHAR(32) NOT NULL, `embedEnable` VARCHAR(32) NOT NULL, `CustomEnabled` VARCHAR(32) NOT NULL, `background` VARCHAR(8000) NOT NULL, `border` VARCHAR(32) NOT NULL, `usernameBox` VARCHAR(32) NOT NULL, `discriminatorBox` VARCHAR(32) NOT NULL, `messageBox` VARCHAR(32) NOT NULL, `titleBox` VARCHAR(32) NOT NULL, `avatarBox` VARCHAR(32) NOT NULL, `embedColor` VARCHAR(32) NOT NULL, UNIQUE(`guildid`));", function(error) {
+sql.query("CREATE TABLE IF NOT EXISTS `leave` (`guildId` VARCHAR(100) NOT NULL, `channelid` VARCHAR(32) NOT NULL, `CustonChannelid` VARCHAR(32) NOT NULL, `message` VARCHAR(1000) NOT NULL, `enabled` VARCHAR(32) NOT NULL, `embedEnable` VARCHAR(32) NOT NULL, `CustomEnabled` VARCHAR(32) NOT NULL, `background` VARCHAR(1500) NOT NULL, `border` VARCHAR(32) NOT NULL, `usernameBox` VARCHAR(32) NOT NULL, `discriminatorBox` VARCHAR(32) NOT NULL, `messageBox` VARCHAR(32) NOT NULL, `titleBox` VARCHAR(32) NOT NULL, `avatarBox` VARCHAR(32) NOT NULL, `embedColor` VARCHAR(32) NOT NULL, UNIQUE(`guildid`));", function(error) {
     if (error) throw new Error(error);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold(" Fetched table `Leave`! Status: Success"));
 });
@@ -120,9 +127,9 @@ sql.query("SELECT `guildId`, `enabled`, `channelid` FROM logs WHERE `guildId` = 
     return;
   }
 });
-sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM welcome WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`, `DMWelcome`, `DMEmbed`, `DMImage`, `DMBackground` FROM welcome WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`,  `enabled`, `CustomEnabled`, `role`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`, `DMWelcome`, `DMEmbed`, `DMImage`, `DMBackground`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
@@ -130,9 +137,9 @@ sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomM
     return;
   }
 });
-sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM leave WHERE `guildId` = 0;", function (err, result, fields){
+sql.query("SELECT `guildId`, `channelid`, `CustonChannelid`, `message`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor` FROM leave WHERE `guildId` = 0;", function (err, result, fields){
     if(result == 0) {
-    sql.query("INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`, `CustomMessage`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
+    sql.query("INSERT INTO `leave` (`guildId`, `channelid`, `CustonChannelid`, `message`,  `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`) VALUES ('0','0','0','0','0','0','0','0','0','0','0','0','0','0','0');", (err) => {
     if (err) throw new Error(err);
     console.log(chalk.bold(chalk.blue.bold("[SQL]")) + chalk.cyan.bold("Fetched table `Inserts Welcome`! Status: Success"));
     });
@@ -206,7 +213,6 @@ const Giveaways = class extends GiveawaysManager {
         });
     }
 };
-/* ---- */
 
 /* Distube Logging */
 const https = require('https-proxy-agent');
@@ -234,11 +240,9 @@ client.distube = new DisTube(client, {
     youtubeDL: true,
     updateYouTubeDL: true,
     savePreviousSongs: true,
-    nsfw: true, //Set it to false if u want to disable nsfw songs
+    nsfw: false, //Set it to false if u want to disable nsfw songs
     customFilters: MusicConfig.customs
 })
-// client.setMaxListeners(0);
-// require("./handlers/slashcommands")(client);
 
 /* Login and Commands */
 if (process.env.TOKEN) {
@@ -248,18 +252,29 @@ if (process.env.TOKEN) {
     client.snipes = new Discord.Collection();
     client.queue = new Map();
     const manager = new Giveaways(client, {
-        updateCountdownEvery: 5000,
-        default: {
-            botsCanWin: false,
-            embedColor: "RANDOM",
-            embedColorEnd: "RANDOM",
-            reaction: config.reaction
-        },
+    updateCountdownEvery: 10000,
+    default: {
+    botsCanWin: false,
+    embedColor: "RANDOM",
+    embedColorEnd: "RANDOM",
+    reaction: config.reaction
+    },
     });
     client.giveawaysManager = manager;
     client.giveawaysManager.on("giveawayReactionAdded", (giveaway, member, reaction) => { ///We give users a heads up when someone joins their givwaway
         if (member.id !== client.user.id){
-            try {  
+            try { 
+            const dmMember = new Discord.MessageEmbed()
+            .setTitle("<:checkvector:869193650184269834> GIVEAWAY ENTRY CONFIRMED")
+            .setDescription(`
+            <:happyrabbit:868230223961919548> **Add [Rabbit](https://discord.com/api/oauth2/authorize?client_id=734522699228905585&permissions=3690852087&scope=bot%20applications.commands) to your server**
+
+            **Useful Links** - [Support server](${config.server}) | [Website](https://rabbit.fumigram.com) | [Fumigram](https://fumigram.com)
+            `)
+            .setColor("#ff7a1d")
+            .setTimestamp()
+            .setFooter(client.user.username, client.user.displayAvatarURL());
+            member.send(dmMember);
             let con = sql.query("SELECT enabled FROM logs WHERE guildId = ?;", member.guild.id, function (err, result, fields) {
             let isEnabled = result[0].enabled
             if(isEnabled == 0) { 
@@ -298,6 +313,18 @@ if (process.env.TOKEN) {
     client.giveawaysManager.on("giveawayReactionRemoved", (giveaway, member, reaction) => {
         if (member.id !== client.user.id){
             try {  
+            const dmMember = new Discord.MessageEmbed()
+            .setTitle("<:checkvector:869193650184269834> GIVEAWAY ENTRY REMOVED")
+            .setDescription(`
+            Your entry for this **Giveaway** has been removed
+            <:happyrabbit:868230223961919548> **Add [Rabbit](https://discord.com/api/oauth2/authorize?client_id=734522699228905585&permissions=3690852087&scope=bot%20applications.commands) to your server**
+
+            **Useful Links** - [Support server](${config.server}) | [Website](https://rabbit.fumigram.com) | [Fumigram](https://fumigram.com)
+            `)
+            .setColor("#ff7a1d")
+            .setTimestamp()
+            .setFooter(client.user.username, client.user.displayAvatarURL());
+            member.send(dmMember);
             let con = sql.query("SELECT enabled FROM logs WHERE guildId = ?;", member.guild.id, function (err, result, fields) {
             let isEnabled = result[0].enabled
             if(isEnabled == 0) { 
@@ -335,7 +362,7 @@ if (process.env.TOKEN) {
     
     require("events").EventEmitter.prototype._maxListeners = 70;
     require("events").defaultMaxListeners = 70;
-    ["command", "event"].forEach((handler) => {
+    ["command", "slashCommands", "event"].forEach((handler) => {
         require(`./handlers/${handler}`)(client);
     });
     client.login(process.env.TOKEN);

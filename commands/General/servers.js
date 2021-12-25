@@ -1,5 +1,5 @@
 const Discord = require("discord.js");
-
+const config = require("../../config");
 module.exports = {
  name: "servers",
  aliases: ["guilds"],
@@ -12,10 +12,10 @@ module.exports = {
   .setColor("#ff6900")
   .setAuthor(`SERVERS THAT LOVES RABBIT!`, client.user.displayAvatarURL())
   .setDescription(`
-  <:rabbitbullet:887617523925778443> **Running in** - \`${client.guilds.cache.size}\` servers
-  <:rabbitbullet:887617523925778443> **Serving up to** - \`${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}\` members
-  <:rabbitbullet:887617523925778443> **Rabbit Version** - \`3.5.5\`
-  <:rabbitbullet:887617523925778443> **Invite Rabbit** - [with this link](https://discord.com/api/oauth2/authorize?client_id=734522699228905585&permissions=158913785591&scope=bot%20applications.commands)
+  <:rabbitpoint:897844154258841620> **Running in** - \`${client.guilds.cache.size}\` servers
+  <:rabbitpoint:897844154258841620> **Serving up to** - \`${client.guilds.cache.reduce((a, g) => a + g.memberCount, 0)}\` members
+  <:rabbitpoint:897844154258841620> **Rabbit Version** - \`${config.version}\`
+  <:rabbitpoint:897844154258841620> **Invite Rabbit** - [with this link](https://discord.com/api/oauth2/authorize?client_id=734522699228905585&permissions=158913785591&scope=bot%20applications.commands)
   `)
    message.lineReply(embed);
   } catch (err) {

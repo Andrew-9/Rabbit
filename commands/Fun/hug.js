@@ -34,17 +34,11 @@ module.exports = {
     const response = await fetch("https://nekos.life/api/v2/img/cuddle");
     const body = await response.json();
     const embed = new Discord.MessageEmbed() // Prettier()
-     .setTitle(
-      user.username + " Just got a hug from " + message.author.username,
-      message.guild.iconURL({
-       dynamic: true,
-       format: "png",
-      })
-     )
+     .setTitle(user.username + " Just got a hug from " + message.author.username, message.guild.iconURL({dynamic: true,format: "png"}))
      .setImage(body.url)
      .setURL(body.url)
      .setColor("RANDOM")
-     .setDescription(user.toString() + " **got a hug from** " + message.author.toString())
+     .setDescription(user.toString() + " Got a hug from " + message.author.toString())
      .setFooter(
       "Requested by " + `${message.author.username}` + " • (this is so cute ＼( ^o^ )／)",
       message.author.displayAvatarURL({
@@ -58,7 +52,13 @@ module.exports = {
     message.channel.stopTyping();
     message.lineReply(embed);
    } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
    }
   })();
  },

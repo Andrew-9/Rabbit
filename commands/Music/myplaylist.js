@@ -133,11 +133,11 @@ module.exports = {
       .setDescription(`
       This command includs the following categories you can use. Read it first
       **Note:** You'll have to add the \`myplaylist\` tag. **Eg:** \`${prefix}myplaylist add\` [link]
-      <:bluebullet:887635391866372106> ... **1** - \`add\` | \`set\` | \`use\` | \`pull\` add songs to your custom playlist
-      <:bluebullet:887635391866372106> ... **2** - \`reset\` | \`clean\` | \`purge\` |\`wipe\` reset songs in your playlist
-      <:bluebullet:887635391866372106> ... **3** - \`play\` | \`start\` | \`hear\` | \`listen\` play song that are in your playlist
-      <:bluebullet:887635391866372106> ... **4** - \`remove\` | \`delete\` | \`del\` | \`rem\` delete song from your playlist
-      <:bluebullet:887635391866372106> ... **Currently** there are **${playlist.length}** songs in your custom playlist! **(¬‿¬)**
+      <:bluepointer:897839647034601492> ... **1** - \`add\` | \`set\` | \`use\` | \`pull\` add songs to your custom playlist
+      <:bluepointer:897839647034601492> ... **2** - \`reset\` | \`clean\` | \`purge\` |\`wipe\` reset songs in your playlist
+      <:bluepointer:897839647034601492> ... **3** - \`play\` | \`start\` | \`hear\` | \`listen\` play song that are in your playlist
+      <:bluepointer:897839647034601492> ... **4** - \`remove\` | \`delete\` | \`del\` | \`rem\` delete song from your playlist
+      <:bluepointer:897839647034601492> ... **Currently** there are **${playlist.length}** songs in your custom playlist! **(¬‿¬)**
       `)
       return message.channel.send(plist);
     }

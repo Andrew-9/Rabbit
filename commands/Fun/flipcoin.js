@@ -11,10 +11,16 @@ module.exports = {
    const answers = ["Heads", "Tails"];
    const answer = answers[Math.floor(Math.random() * answers.length)];
    message.channel.startTyping();
-   message.lineReply(`**🪙 I got:** **\`${answer}\`**`);
+   message.lineReply(`🪙 I got: **\`${answer}\`**`);
    message.channel.stopTyping();
   } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
   }
  },
 };

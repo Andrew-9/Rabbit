@@ -1,0 +1,209 @@
+<%- include("partials/dbhead", { bot, path, user, description, title: "Status", twitter, url, image }) %>
+<% function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+} %>
+    <div class="container-scroller">
+      <nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
+            <a href="https://<%= hostname %>" style="text-decoration: none;"><span class="name" style="color: honeydew;font-size: 22px;"><%- bot.user.username %></span><span class="tag" style="font-size: 20px;color:deepskyblue;">#<%- bot.user.discriminator %></span></a>
+        </div>
+      </nav>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <nav class="navbar p-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
+            <ul class="navbar-nav w-100">
+                <li class="nav-item w-100">
+                  <p class="text-center"><span class="bold"><%= capitalizeFirstLetter(bot.user.username) %> Status In Numbers</span></p>
+                </li>
+            </ul>
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item dropdown">
+                <% if (user) { %>
+                <% if (user.avatar) {
+                    avatar = "https://cdn.discordapp.com/avatars/" + user.id + "/" + user.avatar + ".png?size=128";
+                   } else {
+                    avatar = "https://cdn.glitch.com/82fe990a-7942-42e3-9790-39807ccdb9f6%2Ficon-404.png?v=1602412158188";
+                   }
+                   %>
+                <a class="nav-link" id="profileDropdown" href="javascript:void(0)" data-toggle="dropdown">
+                  <div class="navbar-profile">
+                    <img class="img-xs rounded-circle" src="<%= avatar %>" alt="">
+                    <p class="mb-0 d-none d-sm-block navbar-profile-name"><%= user.username %>#<%= user.discriminator %></p>
+                  </div>
+                </a>
+                <% } %>
+                <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">
+                    <% if (path === "/dashboard") { %>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item" href="https://<%= hostname %>/">
+                          <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                              <i class="mdi mdi-home text-primary"></i>
+                            </div>
+                          </div>
+                          <div class="preview-item-content">
+                            <p class="preview-subject mb-1">Home</p>
+                          </div>
+                        </a>
+                       <% } else if (path !== "/") { %>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item" href="https://<%= hostname %>/">
+                          <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                              <i class="mdi mdi-home text-primary"></i>
+                            </div>
+                          </div>
+                          <div class="preview-item-content">
+                            <p class="preview-subject mb-1">Home</p>
+                          </div>
+                        </a>
+                        <% } %>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item" href="/dashboard">
+                          <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                              <i class="mdi mdi-format-float-right text-primary"></i>
+                            </div>
+                          </div>
+                          <div class="preview-item-content">
+                              <p class="preview-subject mb-1">Servers</p>
+                          </div>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item preview-item" href="https://<%= hostname %>/logout">
+                            <div class="preview-thumbnail">
+                            <div class="preview-icon bg-dark rounded-circle">
+                                <i class="mdi mdi-logout text-danger"></i>
+                            </div>
+                            </div>
+                            <div class="preview-item-content">
+                            <p class="preview-subject mb-1">Log out</p>
+                            </div>
+                        </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+            <div class="row">
+                   <div class="col-sm-3 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Guilds</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                              <h2 class="mb-0"><%= bot.guilds.cache.size %></h2>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">Servers that Loves Rabbit.</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-format-float-left text-primary ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Total Channels</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                              <h2 class="mb-0"><%= bot.channels.cache.size %></h2>
+                            </div>
+                            <h6 class="text-muted font-weight-normal"> Total channel of all the servers.</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-flip-to-front text-danger ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Total members</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                              <h2 class="mb-0"><%= bot.guilds.cache.reduce((a, g) => a + g.memberCount, 0) %></h2>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">The total members of the servers</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-account-multiple text-success ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-3 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Ping</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                              <h2 class="mb-0"><%= Math.round(bot.ws.ping) %>ms</h2>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">This is Discord API ping.</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-access-point-network text-primary ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Uptime</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <div class="d-flex d-sm-block d-md-flex align-items-center">
+                                <% totalSeconds = (bot.uptime / 1000);
+                                days = Math.floor(totalSeconds / 86400);
+                                totalSeconds %= 86400;
+                                hours = Math.floor(totalSeconds / 3600);
+                                totalSeconds %= 3600;
+                                minutes = Math.floor(totalSeconds / 60) 
+                                seconds = Math.floor(totalSeconds % 60); %>
+                              <h2 class="mb-0"><%= days %> Days, <%= hours %> hours, <%= minutes %> minutes, <%= seconds %> seconds</h2>
+                            </div>
+                            <h6 class="text-muted font-weight-normal">The time the bot is awake and running.</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-camera-timer text-primary ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                   <div class="col-sm-12 grid-margin">
+                    <div class="card">
+                      <div class="card-body">
+                        <h5>Rabbit Server Status</h5>
+                        <div class="row">
+                          <div class="col-8 col-sm-12 col-xl-8 my-auto">
+                            <h6 class="text-muted font-weight-normal">The Bot is online and Ready</h6>
+                          </div>
+                          <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
+                            <i class="icon-lg mdi mdi-pencil-box-outline text-primary ml-auto"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<%- include("partials/dbfooter") %>

@@ -15,20 +15,9 @@ module.exports = {
     async function wallpaper() {
     const GIF = await neko.sfw.wallpaper();
     const embed = new Discord.MessageEmbed()
-    .setTitle(`Try this wallpaper ${message.author.username}`,
-        message.guild.iconURL({
-         dynamic: true,
-         format: "png",
-        })
-       )
-       .setFooter(
-        "Requested by " + `${message.author.username}`,
-        message.author.displayAvatarURL({
-         dynamic: true,
-         format: "png",
-         size: 2048,
-        })
-       )
+    .setTitle(`Try this wallpaper ${message.author.username}`)
+    .setFooter("Requested by " + `${message.author.username}`,
+    message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048}))
     .setColor('#202225')
     .setImage(GIF.url)
     message.channel.stopTyping();

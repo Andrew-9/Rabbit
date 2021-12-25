@@ -56,24 +56,24 @@ module.exports = {
     .setColor("#00efff")
     .setThumbnail(message.guild.iconURL())
     .setDescription(`
-    <:bluebullet:887635391866372106> **ID** - \`${message.guild.id}\`
-    <:bluebullet:887635391866372106> **DJ Roles** - ${djs}
-    <:bluebullet:887635391866372106> **Owner** - ${message.guild.owner}
-    <:bluebullet:887635391866372106> **Region** - ${region[message.guild.region] || message.guild.region}
-    <:bluebullet:887635391866372106> **Roles** - \`${message.guild.roles.cache.size}\`
-    <:bluebullet:887635391866372106> **Members** - ${message.guild.memberCount}
-    <:bluebullet:887635391866372106> **Channels** - ${message.guild.channels.cache.size}
-    <:bluebullet:887635391866372106> **Emojis** - \`${message.guild.emojis.cache.size}\`
-    <:bluebullet:887635391866372106> **Boosts** - \`${message.guild.premiumSubscriptionCount}\` [${message.guild.premiumTier} tier]
-    <:bluebullet:887635391866372106> **Members verification** - \`${message.guild.verificationLevel.toLowerCase()}\`
-    <:bluebullet:887635391866372106> **Creation Date** - ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkdays(message.channel.guild.createdAt)})
-    <:bluebullet:887635391866372106> **Guild verified** - ${message.guild.verified}
-    <:bluebullet:887635391866372106> **Discord partner** - ${message.guild.partnered}
-    <:bluebullet:887635391866372106> **Banner** - ${message.guild.banner || "Not set"}
-    <:bluebullet:887635391866372106> **Discovery Splash** - ${message.guild.discoverySplash || "Not set"}
-    <:bluebullet:887635391866372106> **Rules channel** - ${rules}
-    <:bluebullet:887635391866372106> **Widget channel** - ${widget}
-    <:bluebullet:887635391866372106> **Description** - ${message.guild.description || "Not set"}
+    <:bluepointer:897839647034601492> **ID** - \`${message.guild.id}\`
+    <:bluepointer:897839647034601492> **DJ Roles** - ${djs}
+    <:bluepointer:897839647034601492> **Owner** - ${message.guild.owner}
+    <:bluepointer:897839647034601492> **Region** - ${region[message.guild.region] || message.guild.region}
+    <:bluepointer:897839647034601492> **Roles** - \`${message.guild.roles.cache.size}\`
+    <:bluepointer:897839647034601492> **Members** - ${message.guild.memberCount}
+    <:bluepointer:897839647034601492> **Channels** - ${message.guild.channels.cache.size}
+    <:bluepointer:897839647034601492> **Emojis** - \`${message.guild.emojis.cache.size}\`
+    <:bluepointer:897839647034601492> **Boosts** - \`${message.guild.premiumSubscriptionCount}\` [${message.guild.premiumTier} tier]
+    <:bluepointer:897839647034601492> **Members verification** - \`${message.guild.verificationLevel.toLowerCase()}\`
+    <:bluepointer:897839647034601492> **Creation Date** - ${message.channel.guild.createdAt.toUTCString().substr(0, 16)} (${checkdays(message.channel.guild.createdAt)})
+    <:bluepointer:897839647034601492> **Guild verified** - ${message.guild.verified}
+    <:bluepointer:897839647034601492> **Discord partner** - ${message.guild.partnered}
+    <:bluepointer:897839647034601492> **Banner** - ${message.guild.banner || "Not set"}
+    <:bluepointer:897839647034601492> **Discovery Splash** - ${message.guild.discoverySplash || "Not set"}
+    <:bluepointer:897839647034601492> **Rules channel** - ${rules}
+    <:bluepointer:897839647034601492> **Widget channel** - ${widget}
+    <:bluepointer:897839647034601492> **Description** - ${message.guild.description || "Not set"}
     `)
     .setFooter("Requested by " + `${message.author.username}`, message.author.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
     .setTimestamp();

@@ -7,10 +7,16 @@ const client = new Discord.Client();
 
 module.exports = async (client, member) => {
   try {
+    let c = sql.query("SELECT `guildId` FROM `welcome` WHERE `guildId` = ?;", member.guild.id, function (err, result, fields) {
+    if(result == 0) {
+    const sql4 = "INSERT INTO `welcome` (`guildId`, `channelid`, `CustonChannelid`, `enabled`, `CustomEnabled`, `embedEnable`, `background`, `border`, `usernameBox`, `discriminatorBox`, `messageBox`, `titleBox`, `avatarBox`, `embedColor`, `DMWelcome`, `w_embed_welcome`, `DMEmbed`, `DMImage`, `DMBackground`, `w_embed_channel`, `w_embed_thumb`, `w_embed_Image`, `w_embed_Image_on`, `w_embed_thumb_on`) VALUES (" + member.guild.id + ", '123456789', '123456789', '0', '0', '1', 'https://media.discordapp.net/attachments/711910361133219903/893604349698277397/welcome.png?width=1440&height=514', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '#ffab2c', '0', '0', '0', '0', '0', '0', '0', '0', '0', '0');";
+    sql.query(sql4, function (error, results, fields) {if (error) console.log(error);});
+    } else {
     let con = sql.query("SELECT enabled FROM welcome WHERE guildId = ?;", member.guild.id, function (err, result, fields) {
     if(result[0].enabled == 0) { 
       return;
     } else if (result[0].enabled == 1) {
+      client.wdsystem.ensure(member.guild.id, { "defaultWelcomeMsg": "Thank you for joining us\nWe're happy to have you with us" });
       const sqlquery = "SELECT channelid AS res FROM welcome WHERE guildId = " + member.guild.id;
       sql.query(sqlquery, function (error, results, fields) {
        if (error) console.log(error);
@@ -68,11 +74,11 @@ module.exports = async (client, member) => {
         .setColor("RANDOM")
         .setTimestamp()
         .setFooter(`${member.guild.name}`, member.guild.iconURL({dynamic: true,format: "png",}))
-        .setTitle(`Hey ${member.user.tag} Welcome to **${member.guild.name}**`)
-        .setDescription(client.settings.get(message.guild.id, "defaultWelcomeMsg"))
+        .setTitle(`${member.user.tag.toUpperCase()}`)
+        .setDescription(client.wdsystem.get(member.guild.id, "defaultWelcomeMsg"))
         .setImage("attachment://welcome.png")
         .attachFiles(attachment);
-        channel.send(embed);
+        channel.send(`<@${member.user.id}>`, embed);
     
     
       // member.guild.fetchInvites().then(guildInvites => {
@@ -103,8 +109,10 @@ module.exports = async (client, member) => {
       });
     }
   });
+    }
+    });
   //console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(`User data created for: `) + chalk.blue.bold.underline(member.guild.name) + chalk.cyan.bold(" (ID: ") + chalk.blue.bold.underline(member.guild.id));
   } catch (err) {
-   // console.log(err);
+    console.log(err);
   }
 };

@@ -32,25 +32,25 @@ module.exports = (client) => {
 
  //////////////////////////
 
- const guildonlycounter = new Map();
- client.on("ready", () => {
-     setInterval(() => {
-         client.guilds.cache.forEach(async guild => {
-             await functions.delay(client.ws.ping);
-             let member = await client.guilds.cache.get(guild.id).members.cache.get(client.user.id)
-             //if not connected
-             if (!member.voice.channel)
-                 return;
-             if (member.voice.channel.members.size === 1) {
-                 if (!guildonlycounter.has(guild.id)) return guildonlycounter.set(guild.id);
-                 try {
-                     guildonlycounter.delete(guild.id);
-                     return member.voice.channel.leave();
-                 } catch {}
-             }
-         });
-     }, (30 * 1000));
- });
+//  const guildonlycounter = new Map();
+//  client.on("ready", () => {
+//      setInterval(() => {
+//          client.guilds.cache.forEach(async guild => {
+//              await functions.delay(client.ws.ping);
+//              let member = await client.guilds.cache.get(guild.id).members.cache.get(client.user.id)
+//              //if not connected
+//              if (!member.voice.channel)
+//                  return;
+//              if (member.voice.channel.members.size === 1) {
+//                  if (!guildonlycounter.has(guild.id)) return guildonlycounter.set(guild.id);
+//                  try {
+//                      guildonlycounter.delete(guild.id);
+//                      return member.voice.channel.leave();
+//                  } catch {}
+//              }
+//          });
+//      }, (30 * 1000));
+//  });
 
  ////////////////////////
  client.distube
@@ -100,11 +100,11 @@ module.exports = (client) => {
         .setThumbnail(song.thumbnail)
         .setTitle(`<:musicblues:888396777202520124> SONG ADDED TO THE QUEUE`)
         .setDescription(`
-        <:bluebullet:887635391866372106> **Song** - \`${song.name}\`
-        <:bluebullet:887635391866372106> **Duration** - \`${song.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Requested by** - ${song.user}
-        <:bluebullet:887635391866372106> **Estimated Time** - \`${queue.songs.length - 1}\` song(s) - \`${(Math.floor((queue.duration - song.duration) / 60 * 100) / 100).toString().replace(".", ":")}\`
-        <:bluebullet:887635391866372106> **Queue duration** - \`${queue.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Song** - \`${song.name}\`
+        <:bluepointer:897839647034601492> **Duration** - \`${song.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Requested by** - ${song.user}
+        <:bluepointer:897839647034601492> **Estimated Time** - \`${queue.songs.length - 1}\` song(s) - \`${(Math.floor((queue.duration - song.duration) / 60 * 100) / 100).toString().replace(".", ":")}\`
+        <:bluepointer:897839647034601492> **Queue duration** - \`${queue.formattedDuration}\`
         `)
         .setFooter(`${song.user.tag}`, song.user.displayAvatarURL({dynamic: true}))
         message.channel.send(songadd).then(msg => msg.delete({ timeout: 60000 }));
@@ -149,11 +149,11 @@ module.exports = (client) => {
      .setThumbnail(playlist.thumbnail.url ? playlist.thumbnail.url : "")
      .setTitle(`<:musicblues:888396777202520124> PLAYLIST ADDED TO THE QUEUE`)
      .setDescription(`
-     <:bluebullet:887635391866372106> **Playlist** - \`${playlist.name}\`
-     <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedDuration}\`
-     <:bluebullet:887635391866372106> **Requested by** - ${queue.songs[0].user ? queue.songs[0].user : "error"}
-     <:bluebullet:887635391866372106> **Estimated Time** - \`${playlist.songs.length ? playlist.songs.length : "undefinied"} \` songs
-     <:bluebullet:887635391866372106> **Queue duration** - \`${queue.formattedDuration}\`
+     <:bluepointer:897839647034601492> **Playlist** - \`${playlist.name}\`
+     <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedDuration}\`
+     <:bluepointer:897839647034601492> **Requested by** - ${queue.songs[0].user ? queue.songs[0].user : "error"}
+     <:bluepointer:897839647034601492> **Estimated Time** - \`${playlist.songs.length ? playlist.songs.length : "undefinied"} \` songs
+     <:bluepointer:897839647034601492> **Queue duration** - \`${queue.formattedDuration}\`
      `)
      .setFooter(`${playlist.user.tag}`, playlist.user.displayAvatarURL({dynamic: true}))
      message.channel.send(playadd).then(msg => msg.delete({ timeout: 70000 }));
@@ -177,11 +177,11 @@ module.exports = (client) => {
         .setThumbnail(playlist.thumbnail.url ? playlist.thumbnail.url : "")
         .setTitle(`<:musicblues:888396777202520124> ADDED A PLAYLIST TO THE QUEUE`)
         .setDescription(`
-        <:bluebullet:887635391866372106> **Playlist** - \`${playlist.name}\`
-        <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Requested by** - ${queue.songs[0].user ? queue.songs[0].user : "error"}
-        <:bluebullet:887635391866372106> **Estimated Time** - \`${playlist.songs.length ? playlist.songs.length : "undefinied"} \` songs
-        <:bluebullet:887635391866372106> **Queue duration** - \`${queue.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Playlist** - \`${playlist.name}\`
+        <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Requested by** - ${queue.songs[0].user ? queue.songs[0].user : "error"}
+        <:bluepointer:897839647034601492> **Estimated Time** - \`${playlist.songs.length ? playlist.songs.length : "undefinied"} \` songs
+        <:bluepointer:897839647034601492> **Queue duration** - \`${queue.formattedDuration}\`
         `)
         .setFooter(`${playlist.user.tag}`, playlist.user.displayAvatarURL({dynamic: true}))
         message.channel.send(listadd).then(msg => msg.delete({ timeout: 70000 }));
@@ -203,7 +203,7 @@ module.exports = (client) => {
          .setColor(config.colors.music)
          .setThumbnail(playlist.thumbnail.url ? playlist.thumbnail.url : "")
          .setTitle(`<:musicblues:888396777202520124> CHOOSE AN OPTION BELOW`)
-         .setDescription(`${result.map(song => `<:bluebullet:887635391866372106> **${++i}** - [${song.name}](${song.url}) - \`${song.formattedDuration}\``).join("\n")}`)
+         .setDescription(`${result.map(song => `<:bluepointer:897839647034601492> **${++i}** - [${song.name}](${song.url}) - \`${song.formattedDuration}\``).join("\n")}`)
          .setFooter(`Enter a number. will cancel after 60 seconds`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
          return message.channel.send(sresult)
      } catch (error) {
@@ -222,13 +222,13 @@ module.exports = (client) => {
         message.react("❌")
      } catch (error) {
         console.log(error)
-        // const Anerror = new Discord.MessageEmbed()
-        // .setColor("#e63064")
-        // .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
-        // .setDescription(`\`\`\`${error.stack.toString().substr(0, 2000)}\`\`\``)
-        // .setFooter("Error in code: Report this error to kotlin0427")
-        // .setTimestamp();
-        // message.channel.send(Anerror);
+        const Anerror = new Discord.MessageEmbed()
+        .setColor("#e63064")
+        .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+        .setDescription(`\`\`\`${error.stack.toString().substr(0, 2000)}\`\`\``)
+        .setFooter("Error in code: Report this error to kotlin0427")
+        .setTimestamp();
+        message.channel.send(Anerror);
      }
      try {
         const canceled = new Discord.MessageEmbed()
@@ -325,13 +325,13 @@ module.exports = (client) => {
         return message.channel.send(norelated);
      } catch (error) {
          console.error(error)
-        //  const Anerror = new Discord.MessageEmbed()
-        //  .setColor("#e63064")
-        //  .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
-        //  .setDescription(`\`\`\`${error.stack.toString().substr(0, 2000)}\`\`\``)
-        //  .setFooter("Error in code: Report this error to kotlin0427")
-        //  .setTimestamp();
-        //  message.channel.send(Anerror);
+         const Anerror = new Discord.MessageEmbed()
+         .setColor("#e63064")
+         .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+         .setDescription(`\`\`\`${error.stack.toString().substr(0, 2000)}\`\`\``)
+         .setFooter("Error in code: Report this error to kotlin0427")
+         .setTimestamp();
+         message.channel.send(Anerror);
      }
  })
  .on("initQueue", queue => {

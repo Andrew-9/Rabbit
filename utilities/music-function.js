@@ -107,11 +107,11 @@ function QueueEmbed(client, queue) {
             const current = qus.slice(i, k)
             let j = i;
             k += 15;
-            const info = current.map((track) => `<:bluebullet:887635391866372106> .. **${j++} - ** [\`${track.name}\`](${track.url})`).join("\n")
+            const info = current.map((track) => `<:bluepointer:897839647034601492> .. **${j++} - ** [\`${track.name}\`](${track.url})`).join("\n")
             const embed = new Discord.MessageEmbed()
             .setTitle(`<:musicblues:888396777202520124> SERVER QUEUE FOR THIS GUILD`)
             .setColor(config.colors.playmode)
-            .setDescription(`<:bluebullet:887635391866372106> **Current Song** - \`${qus[0].name}\` \n\n${info} `)
+            .setDescription(`<:bluepointer:897839647034601492> **Current Song** - \`${qus[0].name}\` \n\n${info} `)
             .setFooter(client.user.username + ` - by Kotlin#0427`, client.user.displayAvatarURL())
             embeds.push(embed);
         }
@@ -232,17 +232,17 @@ async function playsongyes(client, message, queue, song) {
         .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
         .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
         .setDescription(`
-        <:bluebullet:887635391866372106> **PLAYING SONG**
-        <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-        <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-        <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-        <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-        <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-        <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-        <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-        <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+        <:bluepointer:897839647034601492> **PLAYING SONG**
+        <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+        <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+        <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+        <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+        <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+        <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+        <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+        <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
         `)
         .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
         let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -300,17 +300,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Shuffled** - \`${queue.songs.length}\` songs. Time Left - \`${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Shuffled** - \`${queue.songs.length}\` songs. Time Left - \`${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -342,17 +343,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Autoplay** is now activated.
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Autoplay** is now activated.
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -388,18 +390,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Forwarded** - \`10 Seconds\` of the song
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Forwarded** - \`10 Seconds\` of the song
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -433,18 +435,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Rewinded** - \`10 Seconds\` of the song
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Rewinded** - \`10 Seconds\` of the song
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -476,18 +478,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Reduced** - the Volume to \`${queue.volume}\`
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Reduced** - the Volume to \`${queue.volume}\`
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -519,18 +521,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Raised** - the Volume to \`${queue.volume}\`
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Raised** - the Volume to \`${queue.volume}\`
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -563,18 +565,18 @@ async function playsongyes(client, message, queue, song) {
             .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
             .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
             .setDescription(`
-            <:bluebullet:887635391866372106> **PLAYING SONG**
-            <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-            <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-            <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-            <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-            <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-            <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-            <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-            <:rabbitbullet:887617523925778443> **Replaying** - the current track
-            <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-            <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+            <:bluepointer:897839647034601492> **PLAYING SONG**
+            <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+            <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+            <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+            <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+            <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+            <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+            <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+            <:rabbitpoint:897844154258841620> **Replaying** - the current track
+            <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+            <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
             `)
             .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
             let skip = new MessageButton().setStyle('blurple').setID('skip').setLabel("⏩ Skip")
@@ -635,17 +637,17 @@ function curembed(client, message) {
         .setAuthor(message.author.tag.toUpperCase(), message.member.user.displayAvatarURL({ dynamic: true }))
         .setThumbnail(`https://img.youtube.com/vi/${song.id}/mqdefault.jpg`)
         .setDescription(`
-        <:bluebullet:887635391866372106> **PLAYING SONG**
-        <:bluebullet:887635391866372106> **Song** - \`${songName}\`
-        <:bluebullet:887635391866372106> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
-        <:bluebullet:887635391866372106> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
-        <:bluebullet:887635391866372106> **Volume** - \`${queue.volume} %\`
-        <:bluebullet:887635391866372106> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
-        <:bluebullet:887635391866372106> **Filter** - \`${queue.filter || "No Filter"}\`
-        <:bluebullet:887635391866372106> **DJ-Role** - ${djs}
-        <:bluebullet:887635391866372106> **Requested by** -  ${song.user}
-        <:bluebullet:887635391866372106> **Watch Music Video** - [\`Click here\`](${song.url})
+        <:bluepointer:897839647034601492> **PLAYING SONG**
+        <:bluepointer:897839647034601492> **Song** - \`${songName}\`
+        <:bluepointer:897839647034601492> **Loop** - ${queue.repeatMode ? queue.repeatMode === 2 ? "<:musicblues:888396777202520124> Queue" : "<:musicblues:888396777202520124> Song" : "Nope"}
+        <:bluepointer:897839647034601492> **Duration** - \`${queue.formattedCurrentTime} / ${song.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Queue** - \`${queue.songs.length} song(s) - ${queue.formattedDuration}\`
+        <:bluepointer:897839647034601492> **Volume** - \`${queue.volume} %\`
+        <:bluepointer:897839647034601492> **Autoplay** -  ${queue.autoplay ? "Yeap" : "Nope"}
+        <:bluepointer:897839647034601492> **Filter** - \`${queue.filter || "No Filter"}\`
+        <:bluepointer:897839647034601492> **DJ-Role** - ${djs}
+        <:bluepointer:897839647034601492> **Requested by** -  ${song.user}
+        <:bluepointer:897839647034601492> **Watch Music Video** - [\`Click here\`](${song.url})
         `)
         .setFooter(client.user.username + ` | Playing Music Blues In ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
         return newembed;

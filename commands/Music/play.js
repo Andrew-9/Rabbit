@@ -41,7 +41,7 @@ module.exports = {
     const Usage = new Discord.MessageEmbed()
     .setColor(config.colors.playmode)
     .setTitle("<:musicblues:888396777202520124> ADD A MUSIC TO PLAY!")
-    .setDescription(`<:bluebullet:887635391866372106> **Youtube** \`${prefix}play\` <youtube link | youtube video name | youtube playlist>\n<:bluebullet:887635391866372106> **Spotify** \`${prefix}play\` <spotify song link> | spotify playlist **coming soon**`)
+    .setDescription(` <:bluepointer:897839647034601492> **Youtube** \`${prefix}play\` <youtube link | youtube video name | youtube playlist>\n <:bluepointer:897839647034601492> **Spotify** \`${prefix}play\` <spotify song link> | spotify playlist **coming soon**`)
     return message.channel.send(Usage);
     }
     //if not allowed to CONNECT to the CHANNEL

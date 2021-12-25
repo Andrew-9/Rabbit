@@ -54,7 +54,7 @@ module.exports = {
 
         for (let i = 0; i < result.length; i++) {
             try {
-                searchresult += await `<:bluebullet:887635391866372106> ...**${i+1}**. [${result[i].name}](${result[i].url}) - \`${result[i].formattedDuration}\`\n`;
+                searchresult += await `<:bluepointer:897839647034601492> ...**${i+1}**. [${result[i].name}](${result[i].url}) - \`${result[i].formattedDuration}\`\n`;
             } catch {
                 searchresult += await " ";
             }

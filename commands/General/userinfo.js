@@ -50,14 +50,14 @@ module.exports = {
    .setColor("#00efff")
    .setTitle(user.user.tag + isbot)
    .setDescription(`
-   <:bluebullet:887635391866372106> **ID** - \`${user.user.id}\`
-   <:bluebullet:887635391866372106> **Status** - ${capitalizeFirstLetter(user.user.presence.status)}
-   <:bluebullet:887635391866372106> **Badges** - ${capitalizeFirstLetter(newbadges.join(", ")) || "None"}
-   <:bluebullet:887635391866372106> **Discriminator** - \`#${user.user.discriminator}\`
-   <:bluebullet:887635391866372106> **Joined At** - ${moment(user.user.joinedAt).format("LLLL")}
-   <:bluebullet:887635391866372106> **Account Created At** - ${moment(user.user.createdAt).format("LLLL")}
-   <:bluebullet:887635391866372106> **Account Deleted?** - ${user.deleted}
-   <:bluebullet:887635391866372106> **Highest Role** - ${user.roles.highest}
+   <:bluepointer:897839647034601492> **ID** - \`${user.user.id}\`
+   <:bluepointer:897839647034601492> **Status** - ${capitalizeFirstLetter(user.user.presence.status)}
+   <:bluepointer:897839647034601492> **Badges** - ${capitalizeFirstLetter(newbadges.join(", ")) || "None"}
+   <:bluepointer:897839647034601492> **Discriminator** - \`#${user.user.discriminator}\`
+   <:bluepointer:897839647034601492> **Joined At** - ${moment(user.user.joinedAt).format("LLLL")}
+   <:bluepointer:897839647034601492> **Account Created At** - ${moment(user.user.createdAt).format("LLLL")}
+   <:bluepointer:897839647034601492> **Account Deleted?** - ${user.deleted}
+   <:bluepointer:897839647034601492> **Highest Role** - ${user.roles.highest}
    `)
    .setFooter("Requested by " + `${message.author.username}`, message.author.displayAvatarURL({dynamic: true, format: "png", size: 2048 }));
    message.channel.send(embed);

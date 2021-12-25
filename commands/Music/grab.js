@@ -59,11 +59,11 @@ module.exports = {
         .setThumbnail(`https://img.youtube.com/vi/${queue.songs[0].id}/mqdefault.jpg`)
         .setColor(config.colors.playmode)
         .setDescription(`
-        <:bluebullet:887635391866372106> **SONG SAVED**
-        <:bluebullet:887635391866372106> **Duration** - \`${queue.songs[0].formattedDuration}\`
-        <:bluebullet:887635391866372106> **Requested by** - ${queue.songs[0].user.tag}
-        <:bluebullet:887635391866372106> **Download this song** - [\`CLICK HERE\`](${queue.songs[0].streamURL})
-        <:bluebullet:887635391866372106> **You Play it with** - \`${prefix}play ${queue.songs[0].url}\`
+        <:bluepointer:897839647034601492> **SONG SAVED**
+        <:bluepointer:897839647034601492> **Duration** - \`${queue.songs[0].formattedDuration}\`
+        <:bluepointer:897839647034601492> **Requested by** - ${queue.songs[0].user.tag}
+        <:bluepointer:897839647034601492> **Download this song** - [\`CLICK HERE\`](${queue.songs[0].streamURL})
+        <:bluepointer:897839647034601492> **You Play it with** - \`${prefix}play ${queue.songs[0].url}\`
         `)
         .setFooter(client.user.username + ` | Playing music in ${message.guild.name}`, "https://media.discordapp.net/attachments/711910361133219903/888393417334345728/blues.png?width=596&height=613")
         )

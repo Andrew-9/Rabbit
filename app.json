@@ -4,7 +4,7 @@
    "logo": "https://media.discordapp.net/attachments/711910361133219903/872461614404743218/avatar.png",
    "stack": "Rabbit#1895",
    "buildpacks": [{
-      "url": ""
+      "url": "heroku/nodejs"
    }],
    "env": {
       "TOKEN": {
@@ -31,10 +31,21 @@
          "description": "Your Brainshop AI Brain Key",
          "required": true
       },
-      
+      "DOMAIN": {
+         "description": "Your website domain (eg https://example.com)",
+         "required": false
+      },
       "ID": {
          "description": "Your Discord Bot ID",
          "required": true
+      },
+      "CONTACT_WEBHOOK_TOKEN": {
+         "description": "Your contact form webhook token",
+         "required": false
+      },
+      "CONTACT_WEBHOOK_ID": {
+         "description": "Your contact form webhook id",
+         "required": false
       },
       "STATUS_WEBHOOK_TOKEN": {
          "description": "Your status webhook token",
@@ -47,6 +58,22 @@
       "GENIUS": {
          "description": "Your Genius API key",
          "required": true
+      },
+      "DASHBOARD": {
+         "description": "The Web-Dashboard config value. (eg. true/false)",
+         "required": true
+      },
+      "SESSION_SECRET": {
+         "description": "Random sequence of words, letterss or numbers",
+         "required": false
+      },
+      "SECRET": {
+         "description": "The bot client secret (Remember! The SECRET value is Super-Secret)",
+         "required": false
+      },
+      "ANALYTICS": {
+         "description": "Google analytics tracking ID, used in Web-Dashboard",
+         "required": false
       },
       "MYSQL_DATABASE": {
          "description": "Your MYSQL Database name",
@@ -66,5 +93,1358 @@
       }
    },
 
-   "keywords": ["discord", "discord-bot", "node-js", "bot", "rabbit"]
+
+   "commands": {
+      "Fun": [{
+            "name": "4chan",
+            "category": "Fun",
+            "description": "Shows a random image from the selected 4chan board",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["h"],
+            "usage": "r!4chan <board/boards>"
+         },
+         {
+            "name": "Advice",
+            "category": "Fun",
+            "description": "Get a random advice",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["h"],
+            "usage": "r!sdvice"
+         },
+         {
+            "name": "Animal-fact",
+            "category": "Fun",
+            "description": "Shows a random fact about animal",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["ani-fact"],
+            "usage": "r!animal-fact"
+         },
+         {
+            "name": "Anime",
+            "category": "Fun",
+            "description": "Search anime list",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["animesearch"],
+            "usage": "r!sdvice"
+         },
+         {
+            "name": "Ascii",
+            "category": "Fun",
+            "description": "Convert text to asci format",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["asciiart", "ascii-art"],
+            "usage": "r!ascii <text>"
+         },
+         {
+            "name": "Baka",
+            "category": "Fun",
+            "description": "You're a BAKA! or something like that",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!baka"
+         },
+         {
+            "name": "Beep",
+            "category": "Fun",
+            "description": "Beep-Boop!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!beep"
+         },
+         {
+            "name": "Bot-token",
+            "category": "Fun",
+            "description": "Generate (fake) random Discord Bot token",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["discord-token", "discord-bot-token"],
+            "usage": "r!bot-token"
+         },
+         {
+            "name": "Cat-emoji",
+            "category": "Fun",
+            "description": "Cat is cute",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cat-emoji"
+         },
+         {
+            "name": "Chat",
+            "category": "Fun",
+            "description": "Chat with bot AI",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!chat <message>"
+         },
+         {
+            "name": "Cuddle",
+            "category": "Fun",
+            "description": "Give a cuddle to mentioned user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cuddle <user>"
+         },
+         {
+            "name": "Dice",
+            "category": "Fun",
+            "description": "Roll a dice",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!dice"
+         },
+         {
+            "name": "Eightball",
+            "category": "Fun",
+            "description": "Rabbit wll tell you a fortune",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["8ball", "fortune"],
+            "usage": "r!eightball <question>"
+         },
+         {
+            "name": "Flatearth",
+            "category": "Fun",
+            "description": "Demonstrates that the earth really is flat",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!flatearth"
+         },
+         {
+            "name": "Flipcoin",
+            "category": "Fun",
+            "description": "Flip a virtual coin",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!flipcoin"
+         },
+         {
+            "name": "Fliptext",
+            "category": "Fun",
+            "description": "Flip some text",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!fliptext"
+         },
+         {
+            "name": "Hack",
+            "category": "Fun",
+            "description": "Hack a user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!hack <user>"
+         },
+         {
+            "name": "Hug",
+            "category": "Fun",
+            "description": "Give a hug to mention user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!hug <user>"
+         },
+         {
+            "name": "iq",
+            "category": "Fun",
+            "description": "Display a user IQ",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!iq"
+         },
+         {
+            "name": "Joke",
+            "category": "Fun",
+            "description": "Display a random dad joke",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["dad-joke", "dadjoke"],
+            "usage": "r!joke"
+         },
+         {
+            "name": "Kill",
+            "category": "Fun",
+            "description": "Murders a user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!kill <user>"
+         },
+         {
+            "name": "Kiss",
+            "category": "Fun",
+            "description": "Kiss Kiss <3 | Nina... I love you, after all this time. I still love you. Come back to me...",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!kiss <user>"
+         },
+         {
+            "name": "Meme",
+            "category": "Fun",
+            "description": "Sends a random meme",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!meme"
+         },
+         {
+            "name": "Pepe",
+            "category": "Fun",
+            "description": "Show user PP size",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["pp"],
+            "usage": "r!pepe <user>"
+         },
+         {
+            "name": "Poke",
+            "category": "Fun",
+            "description": "Poke anyone",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!poke <user>"
+         },
+         {
+            "name": "Rate",
+            "category": "Fun",
+            "description": "Rate your thing",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["pp"],
+            "usage": "r!rate <text>"
+         },
+         {
+            "name": "Ship",
+            "category": "Fun",
+            "description": "Ship members",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["pp"],
+            "usage": "r!ship <member> <member>"
+         },
+         {
+            "name": "Slap",
+            "category": "Fun",
+            "description": "Slap a user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!slap <user>"
+         },
+         {
+            "name": "Sneeze",
+            "category": "Fun",
+            "description": "Achoo",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!sneeze"
+         },
+         {
+            "name": "Tickle",
+            "category": "Fun",
+            "description": "Tickle a user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!tickle <user>"
+         },
+         {
+            "name": "Tictactoe",
+            "category": "Fun",
+            "description": "Play Tic Tac Toe against someone",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["ttt"],
+            "usage": "r!tictactoe <user>"
+         }
+      ],
+      "General": [{
+            "name": "Help",
+            "category": "General",
+            "description": "Displays all the commands available.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["h"],
+            "usage": "r!help <cmd>"
+         }, {
+            "name": "Info",
+            "category": "General",
+            "description": "Shows informations of the about the bot.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["botinfo", "clientinfo", "stats"],
+            "usage": "r!info"
+         },
+         {
+            "name": "Invite",
+            "category": "General",
+            "description": "Invite me to your server.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!invite"
+         },
+         {
+            "name": "Tempinvite",
+            "category": "General",
+            "description": "Use the bot to create a temporary invite link for your server and the bot will DM it to you.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["temporary-invite", "cti"],
+            "usage": "r!tempinvite <reason>"
+         },
+         {
+            "name": "Perminvite",
+            "category": "General",
+            "description": "Use the bot to create a permanent invite link for your server and the bot will DM it to you.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["permanent-invite", "cpi"],
+            "usage": "r!perminvite <reason>"
+         },
+         {
+            "name": "Reload",
+            "category": "General",
+            "description": "Reload all the commands for new changes Note: Only my developer can use this command.",
+            "permissions": ["BOT_OWNER_ONLY"],
+            "aliases": ["reload-commands"],
+            "usage": "r!reload"
+         },
+         {
+            "name": "Request",
+            "category": "General",
+            "description": "Request for new features for rabbit.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["feature-request"],
+            "usage": "r!request <feature>"
+         },
+         {
+            "name": "Eval",
+            "category": "General",
+            "description": "Use the bot to evaluates and runs JavaScript codes.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!eval <code>"
+         },
+         {
+            "name": "Dashboard",
+            "category": "General",
+            "description": "Provide link to the web-dashboard.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!dashboard"
+         },
+         {
+            "name": "Servers",
+            "category": "General",
+            "description": "Displays total servers where the bot is in.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["guilds"],
+            "usage": "r!servers"
+         },
+         {
+            "name": "Shell",
+            "category": "General",
+            "description": "Shows informations only developers would understand.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["cmd", "exec", "terminal"],
+            "usage": "r!shell"
+         },
+         {
+            "name": "Uptime",
+            "category": "General",
+            "description": "Display's the bot uptime.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["bot", "botuptime"],
+            "usage": "r!uptime"
+         },
+         {
+            "name": "Ping",
+            "category": "General",
+            "description": "Show client ping.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!ping"
+         },
+         {
+            "name": "Suggest",
+            "category": "General",
+            "description": "Suggest a feature for the bot development.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!suggest <suggestion>"
+         }
+      ],
+      "Images": [{
+            "name": "Neko",
+            "category": "Images",
+            "description": "Random Neko Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!neko"
+         }, {
+            "name": "3000years",
+            "category": "Images",
+            "description": "3000 Years later",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["3kyears", "3ky"],
+            "usage": "r!3000years [user mention, user id, user name]"
+         },
+         {
+            "name": "Affect",
+            "category": "Images",
+            "description": "No, it doesn't affect my baby",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!affect [user mention, user id, user name]"
+         },
+         {
+            "name": "Approved",
+            "category": "Images",
+            "description": "Approve any users avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!approved [user mention, user id, user name]"
+         },
+         {
+            "name": "Beautiful",
+            "category": "Images",
+            "description": "Ohh this? This is beautiful!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!beautiful [user mention, user id, user name]"
+         },
+         {
+            "name": "Bird",
+            "category": "Images",
+            "description": "Sends a random bird image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!bird"
+         },
+         {
+            "name": "Blur",
+            "category": "Images",
+            "description": "Blur the user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!blur [user mention, user id, user name] [blur]"
+         },
+         {
+            "name": "Cat",
+            "category": "Images",
+            "description": "Sends a random cat photo",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cat"
+         },
+         {
+            "name": "Changemymind",
+            "category": "Images",
+            "description": "Try to change my mind!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!changemymind <text>"
+         },
+         {
+            "name": "Circle",
+            "category": "Images",
+            "description": "Creates circular image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!circle [user mention, user id, user name]"
+         },
+         {
+            "name": "Contrast",
+            "category": "Images",
+            "description": "Add contrast effect to user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!contrast [user mention, user id, user name]"
+         },
+         {
+            "name": "Distort",
+            "category": "Images",
+            "description": "Add distort effect to user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!distort [user mention, user id, user name]"
+         },
+         {
+            "name": "Dog",
+            "category": "Images",
+            "description": "Sends a random dog photo",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!dog"
+         },
+         {
+            "name": "Facepalm",
+            "category": "Images",
+            "description": "Creates facepalm image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!facepalm [user mention, user id, user name]"
+         },
+         {
+            "name": "Fire",
+            "category": "Images",
+            "description": "Burns the users avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!fire [user mention, user id, user name]"
+         },
+         {
+            "name": "Fox",
+            "category": "Images",
+            "description": "Sends a random fox image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!fox"
+         },
+         {
+            "name": "Foxgirl",
+            "category": "Images",
+            "description": "Random Foxgirl Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!foxgirl"
+         },
+         {
+            "name": "Frame",
+            "category": "Images",
+            "description": "Place user avatar in a frame",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!frame [user mention, user id, user name]"
+         },
+         {
+            "name": "Gay",
+            "category": "Images",
+            "description": "Rainbow ( ͡° ͜ʖ ͡°)",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!gay [user mention, user id, user name]"
+         },
+         {
+            "name": "Glass",
+            "category": "Images",
+            "description": "Returns a glass image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!glass [user mention, user id, user name]"
+         },
+         {
+            "name": "Glitch",
+            "category": "Images",
+            "description": "Add glitch effect to user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!glitch [user mention, user id, user name]"
+         },
+         {
+            "name": "Heaven",
+            "category": "Images",
+            "description": "Returns a heaven image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!heaven [user mention, user id, user name]"
+         },
+         {
+            "name": "Hitler",
+            "category": "Images",
+            "description": "Worse than hitler",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!hitler [user mention, user id, user name]"
+         },
+         {
+            "name": "Holo",
+            "category": "Images",
+            "description": "Random Holo Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!holo"
+         },
+         {
+            "name": "Invert",
+            "category": "Images",
+            "description": "Invert image colors",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!invert [user mention, user id, user name]"
+         },
+         {
+            "name": "Jail",
+            "category": "Images",
+            "description": "Sends user to jail",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!jail [user mention, user id, user name]"
+         },
+         {
+            "name": "Jokeoverhead",
+            "category": "Images",
+            "description": "Whoosh!!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!jokeoverhead [user mention, user id, user name]"
+         },
+         {
+            "name": "Kiss",
+            "category": "Images",
+            "description": "Random Kiss Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!kiss"
+         },
+         {
+            "name": "Koala",
+            "category": "Images",
+            "description": "Sends a random koala image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!koala"
+         },
+         {
+            "name": "Cat",
+            "category": "Images",
+            "description": "Add a dash of magik to the user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cat"
+         },
+         {
+            "name": "Magik",
+            "category": "Images",
+            "description": "magik [user mention, user id, user name]",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!magik"
+         },
+         {
+            "name": "Moustache",
+            "category": "Images",
+            "description": "Add moustache to user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!moustache [user mention, user id, user name]"
+         },
+         {
+            "name": "Ohno",
+            "category": "Images",
+            "description": "Oh no! It's stupid!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!ohno <text>"
+         },
+         {
+            "name": "Panda",
+            "category": "Images",
+            "description": "Sends a random panda image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!panda"
+         },
+         {
+            "name": "Pat",
+            "category": "Images",
+            "description": "Sends a random pat image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!pat"
+         },
+         {
+            "name": "Pikachu",
+            "category": "Images",
+            "description": "Sends a random pikachu image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!pikachu"
+         },
+         {
+            "name": "Pixelize",
+            "category": "Images",
+            "description": "Pixelize the user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!pixelize [user mention, user id, user name] [pixelize]"
+         },
+         {
+            "name": "Posterize",
+            "category": "Images",
+            "description": "Posterize the user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!posterize [user mention, user id, user name] [posterize]"
+         },
+         {
+            "name": "red-panda",
+            "category": "Images",
+            "description": "Sends a random red panda image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!red-panda"
+         },
+         {
+            "name": "Reject",
+            "category": "Images",
+            "description": "Reject the users avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!reject [user mention, user id, user name]"
+         },
+         {
+            "name": "Rip",
+            "category": "Images",
+            "description": "F in the chat",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!rip [user mention, user id, user name]"
+         },
+         {
+            "name": "Sad",
+            "category": "Images",
+            "description": "Returns a sad image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!sad [user mention, user id, user name]"
+         },
+         {
+            "name": "Scary",
+            "category": "Booo!",
+            "description": "Sends a random cat photo",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!scary [user mention, user id, user name]"
+         },
+         {
+            "name": "Sepia",
+            "category": "Images",
+            "description": "Add sepia effect to user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!sepia [user mention, user id, user name]"
+         },
+         {
+            "name": "Shit",
+            "category": "Images",
+            "description": "Oh Shit!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!shit [user mention, user id, user name]"
+         },
+         {
+            "name": "Tickle",
+            "category": "Images",
+            "description": "Random tickle Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["tic"],
+            "usage": "r!tickle"
+         },
+         {
+            "name": "Trigerred",
+            "category": "Images",
+            "description": "Returns a triggered image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!trigerred [user mention, user id, user name]"
+         },
+         {
+            "name": "Trash",
+            "category": "Images",
+            "description": "A trash?",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!trash [user mention, user id, user name]"
+         },
+         {
+            "name": "Utatoo",
+            "category": "Images",
+            "description": "Hmmm",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!utatoo [user mention, user id, user name]"
+         },
+         {
+            "name": "Waifu",
+            "category": "Images",
+            "description": "Random waifu Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!waifu"
+         },
+         {
+            "name": "Wallpaper",
+            "category": "Images",
+            "description": "Random Wallpaper Images!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["wall", "paper"],
+            "usage": "r!wallpaper"
+         },
+         {
+            "name": "Wanted",
+            "category": "Images",
+            "description": "Creates wanted card",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!wanted [user mention, user id, user name]"
+         },
+         {
+            "name": "Wasted",
+            "category": "Images",
+            "description": "Returns a wasted image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["wtd"],
+            "usage": "r!wasted [user mention, user id, user name]"
+         },
+         {
+            "name": "Wink",
+            "category": "Images",
+            "description": "Sends a random winking image",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!wink"
+         }
+      ],
+      "Moderation": [{
+            "name": "Ban",
+            "category": "moderation",
+            "description": "Ban a member",
+            "permissions": ["BAN_MEMBERS"],
+            "aliases": [""],
+            "usage": "r!ban <mention> <reason>"
+         }, {
+            "name": "Kick",
+            "category": "moderation",
+            "description": "Kicks a member from guild",
+            "permissions": ["KICK_MEMBERS"],
+            "aliases": [""],
+            "usage": "r!kick <mention> <reason>"
+         },
+         {
+            "name": "Setprefix",
+            "category": "moderation",
+            "description": "Set a custom prefix for your server",
+            "permissions": ["ADMINISTRATOR"],
+            "aliases": ["set-prefix", "sp"],
+            "usage": "r!setprefix <prefix>"
+         },
+         {
+            "name": "ID",
+            "category": "moderation",
+            "description": "Display a mentioned user ID (Yes, you can copy this directly from Discord too)",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["get-id"],
+            "usage": "r!id <mention>"
+         },
+         {
+            "name": "Prune",
+            "category": "moderation",
+            "description": "Removes up to 100 messages",
+            "permissions": ["MANAGE_MESSAGES", "ADMINISTRATOR"],
+            "aliases": ["clear", "purge", "pruge", "purne", "clean", "trash"],
+            "usage": "r!prune <amount>"
+         },
+         {
+            "name": "Say",
+            "category": "moderation",
+            "description": "Send a message using the bot",
+            "permissions": ["MANAGE_MESSAGES"],
+            "aliases": [""],
+            "usage": "r!say <channel> <message>"
+         },
+         {
+            "name": "Softban",
+            "category": "moderation",
+            "description": "Softban a member from the Guild. It bans them and unbans them, therefore deleting any content they may have posted",
+            "permissions": ["BAN_MEMBERS"],
+            "aliases": [""],
+            "usage": "r!softban <mention> <reason>"
+         },
+         {
+            "name": "Unbans",
+            "category": "moderation",
+            "description": "Unbans a member into the server",
+            "permissions": ["BAN_MEMBERS"],
+            "aliases": ["ub"],
+            "usage": "r!unban <user> [reason]"
+         },
+         {
+            "name": "Warn",
+            "category": "moderation",
+            "description": "Send a warning to any user that tries shit.",
+            "permissions": ["KICK_MEMBERS"],
+            "aliases": [""],
+            "usage": "r!Warn <mention> <reason>"
+         }
+      ],
+      "Music": [{
+            "name": "Play",
+            "category": "music",
+            "description": "Play any music from youtube",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["p"],
+            "usage": "r!play <youtube link | youtube video name>"
+         },
+         {
+            "name": "Pause",
+            "category": "music",
+            "description": "Pause the current playing music",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!pause"
+         },
+         {
+            "name": "Loop",
+            "category": "music",
+            "description": "Loop the music, You can just repeat the current song using loop, or repeat the music queue.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!loop <queue>"
+         },
+         {
+            "name": "Clear-queue",
+            "category": "music",
+            "description": "Clear the music queue",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["cq"],
+            "usage": "r!clear-queue"
+         },
+         {
+            "name": "Filter",
+            "category": "music",
+            "description": "Add effects to music. you can disable a filter by add a disable tag. Eg: filter nightcore disable.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["filters", "effects", "effect"],
+            "usage": "r!filter [filter-name]"
+         },
+         {
+            "name": "Join",
+            "category": "music",
+            "description": "Tell Rabbit to join the voice channel you're in!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["come", "connect"],
+            "usage": "r!join"
+         },
+         {
+            "name": "Leave",
+            "category": "music",
+            "description": "Leave The Voice Channel!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["disconnect"],
+            "usage": "r!leave"
+         },
+         {
+            "name": "Nowplaying",
+            "category": "music",
+            "description": "Display now playing song",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["np"],
+            "usage": "r!nowplaying"
+         },
+         {
+            "name": "Queue",
+            "category": "music",
+            "description": "Displays musics in the server queue",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["q"],
+            "usage": "r!queue"
+         },
+         {
+            "name": "Resume",
+            "category": "music",
+            "description": "Resume the music",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["r"],
+            "usage": "r!resume"
+         },
+         {
+            "name": "Search",
+            "category": "music",
+            "description": "Search and select music or videos to play",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["music-search", "s"],
+            "usage": "r!search"
+         },
+         {
+            "name": "Shuffle",
+            "category": "music",
+            "description": "Shuffle the current queue",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["sh"],
+            "usage": "r!shuffle"
+         },
+         {
+            "name": "Skip",
+            "category": "music",
+            "description": "Skip the current playing music",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["next"],
+            "usage": "r!skip"
+         },
+         {
+            "name": "Stop",
+            "category": "music",
+            "description": "Stop the current playing music",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!stop"
+         },
+         {
+            "name": "Volume",
+            "category": "music",
+            "description": "Control the sound volume",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["vol"],
+            "usage": "r!volume [1-100]"
+         },
+         {
+            "name": "W-filters",
+            "category": "music",
+            "description": "Shows current filters that are active and not active",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["a-filters", "c-filters", "d-filters"],
+            "usage": "r!filter [filter-name]"
+         }
+      ],
+
+      "NSFW": [{
+            "name": "Anal",
+            "category": "nsfw",
+            "description": "Display a random anal image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!anal"
+         },
+         {
+            "name": "Ass",
+            "category": "nsfw",
+            "description": "Display a random ass image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!ass"
+         },
+         {
+            "name": "Blowjob",
+            "category": "nsfw",
+            "description": "Display a random blowjob image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!blowjob"
+         },
+         {
+            "name": "Boobs",
+            "category": "nsfw",
+            "description": "Display a random boobs image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!boobs"
+         },
+         {
+            "name": "Classic",
+            "category": "nsfw",
+            "description": "Display a random classic porn image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!classic"
+         },
+         {
+            "name": "Cum",
+            "category": "nsfw",
+            "description": "Display a random cum image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cum"
+         },
+         {
+            "name": "Cumsluts",
+            "category": "nsfw",
+            "description": "Random Cumsluts Bitc** Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!cumsluts"
+         },
+         {
+            "name": "Ero",
+            "category": "nsfw",
+            "description": "Display a random ero image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!ero"
+         },
+         {
+            "name": "Erofeet",
+            "category": "nsfw",
+            "description": "Display a random ero feet image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!erofeet"
+         },
+         {
+            "name": "Eroneko",
+            "category": "nsfw",
+            "description": "Display a random ero neko image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["erokemo"],
+            "usage": "r!eroneko"
+         },
+         {
+            "name": "Eroyuri",
+            "category": "nsfw",
+            "description": "Display a random ero yuri image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!eroyuri"
+         },
+         {
+            "name": "Feet",
+            "category": "nsfw",
+            "description": "Display a random feet image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!feet"
+         },
+         {
+            "name": "Femdom",
+            "category": "nsfw",
+            "description": "Display a random femdom image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!femdom"
+         },
+         {
+            "name": "Foxgirl",
+            "category": "nsfw",
+            "description": "Display a random foxgirl image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!foxgirl"
+         },
+         {
+            "name": "Furry",
+            "category": "nsfw",
+            "description": "Search internet for your furry!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!furry"
+         },
+         {
+            "name": "Futa",
+            "category": "nsfw",
+            "description": "Display a random futa image/gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["futanari"],
+            "usage": "r!futa"
+         },
+         {
+            "name": "Hentai",
+            "category": "nsfw",
+            "description": "Display a random hentai gif",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!hentai"
+         },
+         {
+            "name": "Hentaigif",
+            "category": "nsfw",
+            "description": "Random Hentai Gif Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!hentaigif"
+         },
+         {
+            "name": "keta",
+            "category": "nsfw",
+            "description": "Random Keta Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!keta"
+         },
+         {
+            "name": "Tits",
+            "category": "nsfw",
+            "description": "Random Tits Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!tits"
+         },
+         {
+            "name": "Trap",
+            "category": "nsfw",
+            "description": "Random Trap Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!trap"
+         },
+         {
+            "name": "Yuri",
+            "category": "nsfw",
+            "description": "Random Yuri Images/Gif!",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!yuri"
+         }
+      ],
+      "Utility": [{
+            "name": "Avatar",
+            "category": "utility",
+            "description": "Get a user avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!avatar [user mention, user id, user name]"
+         },
+         {
+            "name": "Base64-decode",
+            "category": "utility",
+            "description": "Decode Base64 text to normal",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["b64-decode", "base-64-decode"],
+            "usage": "r!base64-decode <text>"
+         },
+         {
+            "name": "base64",
+            "category": "utility",
+            "description": "Encode text to Base64 format",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["b64", "base-64"],
+            "usage": "r!base64 <text>"
+         },
+         {
+            "name": "Calculator",
+            "category": "utility",
+            "description": "Calculator",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["math", "calc"],
+            "usage": "r!calculator [--gui] [math task]"
+         },
+         {
+            "name": "Color",
+            "category": "utility",
+            "description": "Shows information about a color",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["colors"],
+            "usage": "r!color <hex color>"
+         },
+         {
+            "name": "Country",
+            "category": "utility",
+            "description": "Get the information of a country",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!country <country name>"
+         },
+         {
+            "name": "Djs",
+            "category": "utility",
+            "description": "Look at the discord.js docs",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["discordjs", "djsdocs"],
+            "usage": "r!djs (query)"
+         },
+         {
+            "name": "Emojify",
+            "category": "utility",
+            "description": "Convert text to emojis",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!emojify (text)"
+         },
+         {
+            "name": "Delete-giveaway",
+            "category": "utility",
+            "description": "Delete a giveaway",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["gdelete", "dg"],
+            "usage": "r!delete-giveaway <giveaway id>"
+         },
+         {
+            "name": "Edit-giveaway",
+            "category": "utility",
+            "description": "Edit a Giveaway. You can specify the price or time by using the following command. Eg: r!edit-giveaway <giveaway id> price: 10$ from Rabbit Or winners: 5",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["edit", "e-giveaway"],
+            "usage": "r!edit-giveaway <giveaway id> <price> or <winners>"
+         },
+         {
+            "name": "End-giveaway",
+            "category": "utility",
+            "description": "Ends any current running giveaway",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!end-giveaway <giveaway id>"
+         },
+         {
+            "name": "Fetch-giveaway",
+            "category": "utility",
+            "description": "Fetch server's current running giveaways",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["gfetch", "glist", "giveaway-list"],
+            "usage": "r!fetch-giveaway"
+         },
+         {
+            "name": "Github",
+            "category": "utility",
+            "description": "Search for things in github",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!github (search)"
+         },
+         {
+            "name": "Giveaway",
+            "category": "utility",
+            "description": "Create a giveaway",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["create", "gstart", "c-giveaway", "start-giveaway"],
+            "usage": "r!giveaway"
+         },
+         {
+            "name": "Reroll-giveaway",
+            "category": "utility",
+            "description": "Restart any ended giveaways",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["greroll"],
+            "usage": "r!reroll-giveaway <giveaway-id>"
+         },
+         {
+            "name": "Guild-avatar",
+            "category": "utility",
+            "description": "Get a guild avatar",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["g-avatar"],
+            "usage": "r!guild-avatar"
+         },
+         {
+            "name": "Members",
+            "category": "utility",
+            "description": "How many members are in the server currently",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["users"],
+            "usage": "r!members"
+         },
+         {
+            "name": "Serverinfo",
+            "category": "utility",
+            "description": "Display information about the server the bot is in.",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["sf", "server-info", "server"],
+            "usage": "r!serverinfo"
+         },
+         {
+            "name": "Shortener",
+            "category": "utility",
+            "description": "Shorter a url",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["url-shortener", "link-shortener"],
+            "usage": "r!shortener <link>"
+         },
+         {
+            "name": "Snipe",
+            "category": "utility",
+            "description": "Snipe a deleted message",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!snipe"
+         },
+         {
+            "name": "Userinfo",
+            "category": "utility",
+            "description": "Get the information about a user",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": ["uf", "user-info"],
+            "usage": "r!userinfo (user)"
+         },
+         {
+            "name": "Weather",
+            "category": "utility",
+            "description": "Checks a weather forecast",
+            "permissions": ["NO_PERMISSION_REQUIRED"],
+            "aliases": [""],
+            "usage": "r!weather <location>"
+         }
+      ]
+   },
+
+   "keywords": ["discord", "discord-bot", "node-js", "web-dashboard", "bot", "rabbit"]
 }

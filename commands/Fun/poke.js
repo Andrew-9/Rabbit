@@ -15,7 +15,7 @@ module.exports = {
      return message.lineReply("<:xvector:869193619318382602> **| You must mention someone to poke!**");
     }
     if (user == message.author) {
-     return message.lineReply("<:What:868050544151900170> **| You can't poke yourself tfu!**");
+     return message.lineReply("<:xvector:869193619318382602> **| You can't poke yourself tfu!**");
     }
     if (user == client.user) {
      return message.lineReply("🤦 **| Oh, you tried to poke me but u cant hehe (hopefully)**");
@@ -34,7 +34,7 @@ module.exports = {
      .setImage(body.url)
      .setURL(body.url)
      .setColor("RANDOM")
-     .setDescription(user.toString() + " **got a poke from** " + message.author.toString())
+     .setDescription(user.toString() + " Got a poke from " + message.author.toString())
      .setFooter(
       "Requested by " + `${message.author.username}` + " • (rip)",
       message.author.displayAvatarURL({
@@ -48,7 +48,13 @@ module.exports = {
      message.channel.stopTyping();
     message.lineReply(embed);
    } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
    }
   })();
  },

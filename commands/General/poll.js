@@ -12,9 +12,7 @@ module.exports = {
         const NoQuestion = new Discord.MessageEmbed()
         .setColor("#ff4d4d")
         .setTitle("<:xvector:869193619318382602> NO QUESTION ADDED!")
-        .setDescription(`*You have to enter a question or message*`)
-        .setFooter("Requested by " + `${message.author.username}`, message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048}))
-        .setTimestamp();
+        .setDescription(`You have to enter a question or message`)
         return message.lineReply(NoQuestion);
         }
 

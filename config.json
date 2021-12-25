@@ -1,9 +1,88 @@
 {
+
+  "dev": true,
+  "ksoftapi": "",
   "cookie": "",
   "colors": {
     "music" : "#00ffff",
-    "playmode"  : "#00efff"
+    "playmode"  : "#0056ff"
   },
+
+  "slashcommands": [
+    {
+      "name": "ping",
+      "description": "Show the Client Ping"
+    },
+     {
+       "name": "discord",
+       "description": "Shows random Discord servers to join"
+    },
+    {
+      "name": "support",
+      "description": "Shows our support server"
+   },
+     {
+       "name": "help",
+       "description": "Shows all available slash commands"
+    },
+     {
+       "name": "echo",
+       "description": "Echo your text in an embed",
+       "options": [
+        {
+          "name": "content",
+          "description": "Content of the embed",
+          "type": 3,
+          "required": true
+        }
+    ]
+    },
+    {
+      "name": "invite",
+      "description": "Invite me to your server"
+    },
+    {
+      "name": "info",
+      "description": "Shows informations of the about rabbit"
+    },
+    {
+      "name": "wallpaper",
+      "description": "Shows a random wallpaper Image"
+    },
+    {
+      "name": "neko",
+      "description": "Shows a random neko Image"
+    },
+    {
+      "name": "foxgirl",
+      "description": "Shows a random foxgirl Image"
+    },
+    {
+      "name": "wink",
+      "description": "Shows a random winking Image"
+    },
+    {
+      "name": "waifu",
+      "description": "Shows a random waifu Image"
+    },
+    {
+      "name": "balance",
+      "description": "Shows your current balance with random images"
+    },
+    {
+      "name": "fumigram",
+      "description": "Provide's some information about fumigram"
+    },
+    {
+      "name": "cat",
+      "description": "Shows a random cat Image"
+    },
+    {
+      "name": "dog",
+      "description": "Shows a random dog Image"
+    }
+  ],
+
   "customs": {
     "clear": "dynaudnorm=f=200",
     "lightbass": "bass=g=8,dynaudnorm=f=200",

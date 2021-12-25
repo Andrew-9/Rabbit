@@ -38,7 +38,7 @@ module.exports = {
         const Usage = new Discord.MessageEmbed()
         .setColor(config.colors.playmode)
         .setTitle("<:musicblues:888396777202520124> ADD A MUSIC TO SEARCH!")
-        .setDescription(`<:bluebullet:887635391866372106> **Search** \`${prefix}search\` kygo`)
+        .setDescription(`<:bluepointer:897839647034601492> **Search** \`${prefix}search\` kygo`)
         return message.channel.send(Usage);
         }
     
@@ -80,7 +80,7 @@ module.exports = {
         //create string information
         for (let i = 0; i < 50; i++) {
             try {
-                searchresult += await `<:bluebullet:887635391866372106> ...**${i+1}**. [${result[i].name}](${result[i].url}) - \`${result[i].formattedDuration}\`\n`;
+                searchresult += await ` <:bluepointer:897839647034601492> ...**${i+1}**. [${result[i].name}](${result[i].url}) - \`${result[i].formattedDuration}\`\n`;
             } catch {
                 searchresult += await " ";
             }

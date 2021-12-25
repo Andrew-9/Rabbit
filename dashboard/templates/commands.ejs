@@ -1,0 +1,96 @@
+<%- include("partials/cmdhead", { bot, path }) %>
+<!-- Header Section Begin -->
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                  <a href="http://<%= domain %>" class="navbar-brand"><img src="img/logo1.png" alt="" class="logo"></a>
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <div class="header__nav">
+                    <nav class="header__menu mobile-menu">
+                        <ul>
+                            <li><a href="http://<%= domain %>/dashboard">Dashboard</a></li>
+                            <li><a href="https://discord.com/invite/ghdvMDVFse">Support Server</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu-wrap"></div>
+    </div>
+</header>
+<!-- Header End -->
+
+<!-- Normal Breadcrumb Begin -->
+<section class="command-background set-bg" data-setbg="img/command-background.jpg">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <div class="normal__breadcrumb__text">
+                    <h2>Commands</h2>
+                    <p>List of bot commands</p>
+                    <p>Rabbit's default prefix is r! or @Rabbit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Normal Breadcrumb End -->
+
+<!-- Login Section Begin -->
+<section class="rcommand spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-8 col-xs-9 bhoechie-tab-container">
+              <div class="row command-section-">
+                <div class="col-3 nav-side-">
+                  <div class="nav flex-column nav-pills-" role="tablist" aria-orientation="vertical">
+                    <h3>Quick Access</h3>
+                    <% Object.keys(commands).forEach((category, i) => { %>
+                     <a class="nav-link- <%= i==0 ? 'active' : '' %>"  data-toggle="pill" href="#<%= category %>" role="tab" aria-controls="<%= category %>" aria-selected="true"><img class="shape" src="img/fast-forward.svg" alt="">&nbsp; <%= category %></a>
+                    <% }) %>
+                  </div>
+                </div>
+                <div class="col-9">
+                  <div class="tab-content">
+                    <% Object.keys (commands).forEach((category, k) => { %>
+                      <div class="tab-pane fade show <%= k==0 ? 'active' : '' %>" id="<%= category %>" role="tabpanel" aria-labelledby="<%= category %>">
+                        <div class="accordion" id="acc_<%= category %>">
+                          <% commands[category].forEach((cmd, i) => { %> 
+                            <div class="card">
+                              <div class="card-header" id="head_<%= cmd.name %>">
+                                <h2 class="mb-0">
+                                  <button class="btn btn-link btn-block text-left <%= i==0 ? '' : 'collapsed' %>" type="button" data-toggle="collapse" data-target="#c_<%= cmd.name %>" aria-expanded="<%= i==0 ? 'true' : 'false' %>" aria-controls="<%= cmd.name %>">
+                                    <%= cmd.name %>
+                                  </button>
+                                </h2>
+                              </div>
+                              <div id="c_<%= cmd.name %>" class="collapse <%= i==0 ? 'show' : '' %>" aria-labelledby="h_<%= cmd.name %>" data-parent="#acc_<%= category %>">
+                                <div class="card-body">
+                                 <code style="color: #00e1ff;">Description : </code><%= cmd.description %> <br>
+                                 <code style="color: #00e1ff;">Permissions : </code> <% cmd.permissions.forEach(p => { %>
+                                 <kbd><%= p %></kbd>
+                                  <% }) %><br>
+                                  <code style="color: #00e1ff;">Aliases : </code><% cmd.aliases.forEach(a => { %>
+                                    <small class="text-muted">[r!<%= a %>]</small>
+                                  <% }) %><br>
+                                  <code style="color: #00e1ff;">Usage : </code><small><kbd><%= cmd.usage%></kbd></small><br>
+                                </div>
+                              </div>
+                            </div>
+                          <% }) %>
+                        </div>
+                      </div>
+                    <% }) %>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</section>
+<!-- Login Section End -->
+<%- include("partials/cmdfooter") %>

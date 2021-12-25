@@ -209,14 +209,14 @@ module.exports = {
           .setColor(config.colors.playmode)
           .setTitle("<:musicblues:888396777202520124> AVAILABLE PLAYLISTS TO PLAY!")
           .setDescription(`
-          <:bluebullet:887635391866372106> .... **1** - Charts
-          <:bluebullet:887635391866372106> .... **2** - Christmas
-          <:bluebullet:887635391866372106> .... **3** - Jazz
-          <:bluebullet:887635391866372106> .... **4** - Blues
-          <:bluebullet:887635391866372106> .... **5** - Country
-          <:bluebullet:887635391866372106> .... **6** - Rock
-          <:bluebullet:887635391866372106> .... **7** - Kygo
-          <:bluebullet:887635391866372106> .... **8** - Hollow Coves
+          <:bluepointer:897839647034601492> .... **1** - Charts
+          <:bluepointer:897839647034601492> .... **2** - Christmas
+          <:bluepointer:897839647034601492> .... **3** - Jazz
+          <:bluepointer:897839647034601492> .... **4** - Blues
+          <:bluepointer:897839647034601492> .... **5** - Country
+          <:bluepointer:897839647034601492> .... **6** - Rock
+          <:bluepointer:897839647034601492> .... **7** - Kygo
+          <:bluepointer:897839647034601492> .... **8** - Hollow Coves
           `)
           message.channel.send(plist);
           break;
@@ -226,14 +226,14 @@ module.exports = {
           .setColor(config.colors.playmode)
           .setTitle("<:musicblues:888396777202520124> AVAILABLE PLAYLISTS TO PLAY!")
           .setDescription(`
-          <:bluebullet:887635391866372106> .... **1** - Charts
-          <:bluebullet:887635391866372106> .... **2** - Christmas
-          <:bluebullet:887635391866372106> .... **3** - Jazz
-          <:bluebullet:887635391866372106> .... **4** - Blues
-          <:bluebullet:887635391866372106> .... **5** - Country
-          <:bluebullet:887635391866372106> .... **6** - Rock
-          <:bluebullet:887635391866372106> .... **7** - Kygo
-          <:bluebullet:887635391866372106> .... **8** - Hollow Coves
+          <:bluepointer:897839647034601492> .... **1** - Charts
+          <:bluepointer:897839647034601492> .... **2** - Christmas
+          <:bluepointer:897839647034601492> .... **3** - Jazz
+          <:bluepointer:897839647034601492> .... **4** - Blues
+          <:bluepointer:897839647034601492> .... **5** - Country
+          <:bluepointer:897839647034601492> .... **6** - Rock
+          <:bluepointer:897839647034601492> .... **7** - Kygo
+          <:bluepointer:897839647034601492> .... **8** - Hollow Coves
           `)
           message.channel.send(plist);
     }

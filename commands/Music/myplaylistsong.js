@@ -5,7 +5,7 @@ const { MessageButton } = require('discord-buttons');
 module.exports = {
   name: "mylist",
   category: "Music",
-  aliases: ["myplaylistsong"],
+  aliases: ["mylistsongs", "mlistsongs", "mls", "ml"],
   usage: "mylist",
   description: "Displays the urls of each songs in your playlist",
   run: async (client, message, args, cmduser, text, prefix) => {

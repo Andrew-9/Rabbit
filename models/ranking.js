@@ -5,11 +5,16 @@ const sql = require("../utilities/database");
 module.exports = function (client, guild) {
   const description = {
     name: "Rabbit leveling",
-    filename: "leveling.js",
+    filename: "ranking.js",
     version: "2.3"
   }
 
   client.on("message", async (message) => {
+    let con = sql.query("SELECT guildId FROM ranking WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
+    if(result == 0) { 
+      const sql2 = "INSERT INTO `ranking` (`guildId`, `enabled`, `embedEnable`, `cardtype`, `backgroundimage`) VALUES (" + message.guild.id + ", '0', '1', '0', 'lib/img/rank.jpg');";
+      sql.query(sql2, function (error, results, fields) {if (error) console.log(error);});
+    } else {
     let con = sql.query("SELECT enabled FROM ranking WHERE guildId = ?;", message.guild.id, function (err, result, fields) {
       if (result[0].enabled == 0) {
         return;
@@ -74,7 +79,6 @@ module.exports = function (client, guild) {
               let RecievedReward = new Intl.NumberFormat("en-US", {style: 'currency', currency: 'USD'}).format(LevelAward);
               message.reply(`You've just advanced to level **${newLevel}!**\nAnd have been awarded with **${RecievedReward}<:dollars:881559643820793917>**`); //Award the user for their effots
               let con = sql.query("SELECT channelid AS res FROM economy_ward WHERE guildid = " + message.guild.id, function (error, results, fields) {
-                //if (error) { console.log("error"); }
                 const logsetup = results[0].res; //Try logging the action that just took place
                 const log = message.guild.channels.cache.find((c) => c.id == logsetup && c.type == "text");
                 if (!message.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
@@ -96,7 +100,7 @@ module.exports = function (client, guild) {
                     } else {
                       let sql5 = 'UPDATE economy SET balance = balance+' + LevelAward + ' WHERE userId = ' + message.author.id + ''; //Update the users balance and add the reward
                       sql.query(sql5);
-                      let con = sql.query("SELECT balance FROM economy WHERE userId = ?;", message.author.id, function (err, result, fields) { //let's lot the action and the user's balance
+                      let con = sql.query("SELECT balance FROM economy WHERE userId = ?;", message.author.id, function (err, result, fields) { //let's log the action and the user's balance
                       let TotalBalance = result[0].balance
                       let LTotalBalance = new Intl.NumberFormat("en-US", {style: 'currency', currency: 'USD'}).format(TotalBalance);
                       const LevelAwards = new Discord.MessageEmbed()
@@ -119,6 +123,8 @@ module.exports = function (client, guild) {
         }
         Giving_Ranking_Points();
       }
+    });
+    }
     });
   })
   console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(`Successfully Loaded: ${description.name}`));

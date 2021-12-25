@@ -10,10 +10,10 @@ module.exports = {
  run: async (client, message, args) => {
   const user = (await message.mentions.members.first()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find((r) => r.user.username.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.guild.members.cache.find((r) => r.displayName.toLowerCase().includes() === args.join(" ").toLocaleLowerCase());
   if (!user) {
-   return message.lineReply("<:xvector:869193619318382602> **💔 | You must mention user to kiss ;-;**");
+   return message.lineReply("<:xvector:869193619318382602> 💔 | You must mention user to kiss ;-;");
   }
   if (message.author === user || message.member == user) {
-   return await message.lineReply("<:xvector:869193619318382602> **💔 | You cant kiss yourself ;-; (Try kissing someone else, your love. Maybe you need some help?)**");
+   return await message.lineReply("<:xvector:869193619318382602> 💔 | You cant kiss yourself ;-;\nTry kissing someone else, your love.\nMaybe you need some help?");
   }
   (async () => {
    try {
@@ -45,7 +45,13 @@ module.exports = {
      message.channel.stopTyping();
     message.lineReply(embed);
    } catch (err) {
-    message.lineReply("<:errorcode:868245243357712384> **| Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
    }
   })();
  },

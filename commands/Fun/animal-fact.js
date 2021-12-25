@@ -22,14 +22,6 @@ module.exports = {
      message.channel.startTyping();
      const embed = new Discord.MessageEmbed()
       .setColor("RANDOM")
-      .setFooter(
-       "Requested by " + `${message.author.username}`,
-       message.author.displayAvatarURL({
-        dynamic: true,
-        format: "png",
-        size: 2048,
-       })
-      )
       .setTitle(`✨ ${args.join(" ")} fact`)
       // .setImage(response.data.img)
       .setDescription(response.data.fact);
@@ -37,16 +29,17 @@ module.exports = {
      message.lineReply(embed);
     })
     .catch(() => {
-     return message.lineReply({
-      embed: {
-       color: 16734039,
-       description: "<:xvector:869193619318382602> | **Sorry, we don't have any facts for that animal**",
-      },
-     });
+      return message.lineReply("<:xvector2:869193716575911966> Sorry, we don't have any\nfacts for that animal");
     });
   }  catch (err) {
     console.log(err);
-    return message.lineReply("<:errorcode:868245243357712384> | **Oops Something went wrong...**");
+    const Anerror = new Discord.MessageEmbed()
+    .setColor("#e63064")
+    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+    .setDescription(`\`\`\`${err}\`\`\``)
+    .setFooter("Error in code: Report this error to kotlin0427")
+    .setTimestamp();
+    return message.lineReply(Anerror);
   }
  },
 };

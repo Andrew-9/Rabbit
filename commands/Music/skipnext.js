@@ -1,4 +1,4 @@
-﻿const functions = require("../../utilities/music-function")
+const functions = require("../../utilities/music-function")
 const config = require("../../config.json")
 const Discord = require("discord.js");
 var { getPreview } = require("spotify-url-info");
@@ -7,7 +7,7 @@ const guildPrefix = new Map();
 module.exports = {
   name: "skipnext",
   category: "Music",
-  aliases: ["sn", "nextskip"],
+  aliases: ["sn", "nextskip", "playskip", "skipplay"],
   usage: "skipnext <name> or <url>",
   description: "Play new song and skip the current song",
   run: async (client, message, args) => {
@@ -37,7 +37,7 @@ module.exports = {
     const Usage = new Discord.MessageEmbed()
     .setColor(config.colors.playmode)
     .setTitle("<:musicblues:888396777202520124> ADD A MUSIC TO PLAY!")
-    .setDescription(`<:bluebullet:887635391866372106> **Youtube** \`${prefix}skipnext\` <youtube link | music name | youtube playlist>\n<:bluebullet:887635391866372106> **Spotify** \`${prefix}play\` <spotify song link>`)
+    .setDescription(`<:bluepointer:897839647034601492> **Youtube** \`${prefix}skipnext\` <youtube link | music name | youtube playlist>\n<:bluepointer:897839647034601492> **Spotify** \`${prefix}play\` <spotify song link>`)
     return message.channel.send(Usage);
     }
     //if not allowed to CONNECT to the CHANNEL
