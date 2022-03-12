@@ -1,48 +1,96 @@
-const Discord = require("discord.js");
+const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 const fetch = require("node-fetch");
-
 module.exports = {
- name: "slap",
- aliases: [],
- description: "Slap a user",
- category: "Fun",
- usage: "slap <user>",
- run: async (client, message, args) => {
-  try {
-   const member = (await await message.mentions.members.first()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find((r) => r.user.username.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.guild.members.cache.find((r) => r.displayName.toLowerCase().includes() === args.join(" ").toLocaleLowerCase());
-   if (!member) {
-    return message.lineReply("<:xvector:869193619318382602> **| Mention a valid member of this server!**");
-   }
-   if (message.author === member || message.member == member) {
-    return await message.lineReply("<:xvector:869193619318382602> **| You cant slap yourself!**");
-   }
-   (async () => {
-    message.channel.startTyping();
+  name: "slap",
+  category: "Fun",
+  usage: "slap <user>",
+  aliases: [""],
+  description: "Slap a user",
+  cooldown: 2,
+  memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
+  requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
+  alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
+  run: async (client, message, args) => {
+    try {
+    let prefix = client.settings.get(message.guild.id, "prefix");
+    let color = client.settings.get(message.guild.id, `funcolor`);
+    const user = message.mentions.users.first();
+    const row = new MessageActionRow()
+    .addComponents(
+    new MessageButton()
+    .setURL(client.global.get("global", "invite"))
+    .setLabel("Invite")
+    .setEmoji('924818034965766215')
+    .setStyle("LINK"),
+
+    new MessageButton()
+    .setLabel('Vote')
+    .setURL(client.global.get("global", "vote"))
+    .setStyle('LINK')
+    .setEmoji('924819119860224082'),
+    
+    new MessageButton()
+    .setLabel('Bunny')
+    .setURL('https://www.youtube.com/watch?v=lp9o5i2s5sA&ab_channel=PeterRabbit')
+    .setStyle('LINK')
+    .setEmoji('916090320758915102')
+    )
+    if (!user) {
+    return message.reply({
+    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun slap\`**",
+    embeds: [new MessageEmbed()
+    .setColor(color)
+    .setTitle("TAG A FRIEND")
+    .setDescription(`Please mention the user you want to slap. \`${prefix}slap @kotlin\``)
+    ],
+    components: [row]
+    });
+    } else if (user == message.author){
+    return message.reply({
+    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun slap\`**",
+    embeds: [new MessageEmbed()
+    .setColor(color)
+    .setTitle("NOPE NOPE NOPE")
+    .setDescription(`You cannot slap yourself. it's an unbroken rule`)
+    ],
+    components: [row]
+    });
+    } else if (user == client.user){
+    return message.reply({
+    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun slap\`**",
+    embeds: [new MessageEmbed()
+    .setColor(color)
+    .setAuthor(client.user.username, client.user.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
+    .setDescription(`Oh, you tried to slap me but u can't hehe\nFor I'm not real. just your darling bot...`)
+    .setThumbnail(client.user.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
+    ],
+    components: [row]
+    });  
+    } else {
+    message.channel.sendTyping();
     const response = await fetch("https://nekos.life/api/v2/img/slap");
     const body = await response.json();
-    const embed = await new Discord.MessageEmbed() // Prettier()
-     .setColor("RANDOM")
-     .setTitle(member.user.username + " just got slapped by " + message.author.username)
-     .setFooter(
-      "That must hurt ._. | Requested by " + `${message.author.username}`,
-      message.author.displayAvatarURL({
-       dynamic: true,
-       format: "png",
-       size: 2048,
-      })
-     )
-     .setImage(body.url);
-     message.channel.stopTyping();
-    message.lineReply(embed);
-   })();
-  } catch (err) {
-    const Anerror = new Discord.MessageEmbed()
-    .setColor("#e63064")
-    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
-    .setDescription(`\`\`\`${err}\`\`\``)
-    .setFooter("Error in code: Report this error to kotlin0427")
-    .setTimestamp();
-    return message.lineReply(Anerror);
+    return message.reply({
+    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun kill\`**",
+    embeds: [new MessageEmbed()
+    .setColor(color)
+    .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
+    .setImage(body.url)
+    .setDescription(`<@${user.id}> Just got slapped by <@${message.author.id}>`)
+    ]
+    });
+    }
+    } catch (e) {
+    console.log(e.stack ? e.stack : e)
+    message.reply({
+    embeds: [
+    new MessageEmbed()
+    .setColor("#ff0079")
+    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setFooter("Error in code: Report this error to kotlin#0427")
+    .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
+    ],
+    });
+    }
   }
- },
-};
+}

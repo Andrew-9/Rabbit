@@ -1,86 +1,95 @@
-const Discord = require("discord.js");
-const embGen = require("../../utilities/embedGenerator");
-const sql = require("../../utilities/database");
-
+const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
- name: "warn",
- aliases: [],
- description: "Send a warning to any user that tries shit.",
- category: "Moderation",
- usage: "Warn <mention> <reason>",
- run: async (client, message, args) => {
-  try {
-   if (!message.member.hasPermission("KICK_MEMBERS")) {
-    const Nopermission8 = new Discord.MessageEmbed()
-    .setColor("#f04949")
-    .setTitle("<:xvector:869193619318382602> NO PERMISSION!")
-    .setDescription(`**You don't have permissions to warn members!**`)
-    .setFooter("Requested by " + `${message.author.username}`,message.author.displayAvatarURL({dynamic: true,format: "png",size: 2048,}))
-    .setTimestamp();
-    return message.channel.send(Nopermission8);
-   }
-       const user = message.author;
-       const offender = message.mentions.members.first();
-       const reason = args.slice(1).join(" ");
-       const embedGen = new embGen();
-       const warnMsg = embedGen.generateUserWarn(client,user,message,offender,reason);
-       if (!offender) {message.lineReply("<:xvector:869193619318382602> **| You need to tag the offender!**");}
-       else if (
-         message.member.roles.highest.comparePositionTo(offender.roles.highest) > 0
-       ) {
-         if (reason.length === 0) {
-           message.lineReply(`<:xvector:869193619318382602> | **Please give me a reason to warn this user!**`);
-         } else {
-            const sqlquery = "SELECT channelid AS res FROM logs WHERE guildid = " + message.guild.id;
-            sql.query(sqlquery, function (error, results, fields) {
-             if (error) console.log(error);
-             if (!results || results.length == 0) {
-              return;
-             }
-             (async () => {
-              const logsetup = await results[0].res;
-              const log = await message.guild.channels.cache.find((c) => c.id == logsetup && c.type == "text");
-              if (!message.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
-              if (!log) return;
-              if (!log.guild.member(client.user).hasPermission("EMBED_LINKS", "VIEW_CHANNEL", "READ_MESSAGE_HISTORY", "VIEW_AUDIT_LOG", "SEND_MESSAGES")) return;
-                message.guild.fetchAuditLogs().then((logs) => {          
-                const filter = (m) =>
-                m.content.includes("yes") && m.author.id === message.author.id;
-                message.lineReply(`<:thinkingface:867897965380108288> **| Hmm are you sure you want to warn? \`${offender.user.username}\`**`)
-                .then((reply) => {
-                    reply.channel
-                    .awaitMessages(filter, { max: 1, time: 15000, errors: ["time"] })
-                    .then((collected) => {
-                        let confirmation = collected.first();
-                        reply.delete();
-                        confirmation.delete();
-                        const UpdateGID = offender.guild.id;
-                        const UpdateGMember = offender.user.id;
-                        let guiMemSQL = "UPDATE members SET warning=warning+1 WHERE guildId = ? AND userId = ?";
-                        sql.query(guiMemSQL, [UpdateGID, UpdateGMember], (error, result) => {
-                        if (error) console.log(error);
-                        message.lineReply(`<:checkvector:869193650184269834> **| Uh-oh \`${offender.user.username}\` Just recieved a warning**`);
-                        });
-                        log.send(warnMsg);
-                    })
-                    .catch((collected) => {
-                        message.lineReply(`<:xvector:869193619318382602> **| You didn't warn \`${offender.user.username}\`**`);
-                        return collected;
-                    });
-                });
-                });
-             })();
+    name: "warn",
+    category: "Moderation",
+    usage: "warn <user>",
+    aliases: [""],
+    cooldown: 5,
+    description: "Warn a user in the server",
+    memberpermissions: ["MANAGE_MESSAGES"], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
+    requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
+    alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
+    run: async (client, message, args) => {
+        try {
+            let color = client.settings.get(message.guild.id, `modcolor`);
+            let rabbitsmirk = client.settings.get(message.guild.id, "rabbitsmirk");
+            let emoji = client.settings.get(message.guild.id, "SlashEmoji");
+            let smug = client.settings.get(message.guild.id, "smug");
+            const Target = message.mentions.members.first();
+            args.shift();
+            let reason = args.join(" ") || "No reason provided";
+            if (reason.length > 1024) reason = reason.slice(0, 1021) + "...";
+            const row = new MessageActionRow()
+            .addComponents(
+            new MessageButton()
+            .setURL(client.global.get("global", "invite"))
+            .setLabel("Invite")
+            .setEmoji('924818034965766215')
+            .setStyle("LINK"),
+
+            new MessageButton()
+            .setLabel('Support Server')
+            .setURL(client.global.get("global", "support"))
+            .setStyle('LINK')
+            .setEmoji('924818382908440606'),
+
+            new MessageButton()
+            .setLabel('Vote')
+            .setURL(client.global.get("global", "vote"))
+            .setStyle('LINK')
+            .setEmoji('924819119860224082'),
+
+            new MessageButton()
+            .setLabel('Instagram')
+            .setURL("https://www.instagram.com/fumigramapp")
+            .setStyle('LINK')
+            .setEmoji('924819412505223188'),
+            )
+            if (!Target) {
+            message.reply({
+            content: "**<:rabbitslash:913423874182500352> Try slash command \`/moderation warn\`**",
+            embeds: [new MessageEmbed()
+            .setColor(color)
+            .setTitle("NOT A VALID USER")
+            .setDescription("Please mention a valid user to warn")
+            ]
             });
-         }
-       }
-  } catch (err) {
-    const Anerror = new Discord.MessageEmbed()
-    .setColor("#e63064")
-    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
-    .setDescription(`\`\`\`${err}\`\`\``)
-    .setFooter("Error in code: Report this error to kotlin0427")
-    .setTimestamp();
-    return message.lineReply(Anerror);
-  }
- },
-};
+            } else {
+            client.warning.ensure(Target.id, {  userId: "", userTag: "", guildId: "", moderatorId: "", reason: "", timestamp: "" });
+            client.warning.set(Target.id, Target.user.tag, "userId");
+            client.warning.set(Target.id, Target.user.tag, "userTag");
+            client.warning.set(Target.id, message.guild.id, "guildId");
+            client.warning.set(Target.id, message.author.tag, "moderatorId");
+            client.warning.set(Target.id, reason, "reason");
+            client.warning.set(Target.id, Date.now(), "timestamp");
+            let msg = await message.reply({ content: `<:checkinginformation:914230628516519937> **Collecting the user's information...**`,  components: [row] });
+            const wait = require('util').promisify(setTimeout);
+            await wait(4000);
+            await msg.edit({ content: `${smug} **Warning the user... Hold on...**`,  components: [row] });
+            await wait(4000);
+            msg.edit({ content: `**${rabbitsmirk} Good Job \`${Target.user.tag}\` has been warned. Reason: \`${reason}\`**`,  components: [row] });
+            try {
+            Target.send({
+            content: `You have been warned in **${message.guild.name}** \nModerator who issued the warning: **${message.author.tag}**\nThe reason is: **\`${reason}\`**`,
+            components: [row]
+            });
+            } catch (e) {
+            message.channel.send({
+            content: `${emoji} I could not DM **${Target.tag}** about the warning`,
+            components: [row]
+            })
+            }
+            }
+        } catch (e) {
+         console.log(e)
+         return message.reply({
+            embeds: [new MessageEmbed()
+              .setColor("#ff0079")
+              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setFooter("Error in code: Report this error to kotlin#0427")
+              .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
+            ]
+          });
+        }
+    }
+}

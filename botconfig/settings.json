@@ -1,0 +1,40 @@
+{
+    "ownerIDS": ["696724053477556254"],
+    "default_cooldown_in_sec" : 1.5,
+    "antiCrash": true,
+    "ping_message": true,
+    "delete_commands": true,
+    "somethingwentwrong_cmd": true,
+
+    "messages": {
+        "ping_message": "To see all commands type: `%{prefix}%help`",
+        "cooldown": "⏰ Please wait `%{timeleft}%` more second(s)\nBefore reusing the `%{commandname}%` command.",
+        "notallowed_to_exec_cmd": {
+            "title": "NO PERMISSION!",
+            "description": {
+                "memberpermissions": "> You need the following permissions: %{commandmemberpermissions}%",
+                "alloweduserids": "> You need to be one of the following users: %{commandalloweduserids}%",
+                "requiredroles": "> You need to have one of the following roles: %{commandrequiredroles}%",
+                "default": "Please make sure, to get the needed permissions!"
+            }
+        },
+        "somethingwentwrong_cmd": {
+            "title": "❌ SOMETHING WENT WRONG",
+            "description": "```%{errormessage}%```"
+        },
+        "unknown_cmd": "❌ Unkown command, try: **`%{prefix}%help`**",
+        "error_occur": "❌ An error occurred",
+        "error_occur_desc": "````%{errorstack}%````"
+    },
+    "timeout": {
+        "notallowed_to_exec_cmd": {
+            "memberpermissions": 8000,
+            "alloweduserids": 5000,
+            "requiredroles": 5000
+        },
+        "minargs": 5000,
+        "maxargs": 5000,
+        "minplusargs": 5000,
+        "maxplusargs": 5000
+    }
+}

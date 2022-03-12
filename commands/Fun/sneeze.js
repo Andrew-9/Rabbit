@@ -1,25 +1,40 @@
-const Discord = require("discord.js");
-
+const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
- name: "sneeze",
- aliases: [],
- description: "Achoo!",
- category: "Fun",
- usage: "sneeze",
- run: async (client, message, args) => {
- message.channel.startTyping();
-  try {
-   const sneezes = ["**Achoo!**", "*chew!*", "Ah... Ah... **A_CHOO!_**", "_Ah..._**CHOOOOOOOOOOOOOOOOOOOO!**", "**Achoo!** Excuse me!"];
-   message.channel.send(sneezes[Math.floor(Math.random() * Math.floor(sneezes.length))]);
-   message.channel.stopTyping();
-  } catch (err) {
-    const Anerror = new Discord.MessageEmbed()
-    .setColor("#e63064")
-    .setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
-    .setDescription(`\`\`\`${err}\`\`\``)
-    .setFooter("Error in code: Report this error to kotlin0427")
-    .setTimestamp();
-    return message.lineReply(Anerror);
+  name: "sneeze",
+  category: "Fun",
+  usage: "sneeze",
+  aliases: [""],
+  description: "Achoo",
+  cooldown: 2,
+  memberpermissions: [], //Only allow members with specific Permissions to execute a Commmand [OPTIONAL]
+  requiredroles: [], //Only allow specific Users with a Role to execute a Command [OPTIONAL]
+  alloweduserids: [], //Only allow specific Users to execute a Command [OPTIONAL]
+
+  run: async (client, message, args) => {
+    try {
+    let prefix = client.settings.get(message.guild.id, "prefix");
+    let color = client.settings.get(message.guild.id, `funcolor`);
+    const row = new MessageActionRow()
+    .addComponents(    
+    new MessageButton()
+    .setLabel('Bunny')
+    .setURL('https://www.youtube.com/watch?v=I28saraQ9XI&ab_channel=PeterRabbit')
+    .setStyle('LINK')
+    .setEmoji('916090320758915102')
+    )
+    const sneezes = ["**Achoo!**", "*chew!*", "Ah... Ah... **A_CHOO!_**", "_Ah..._**CHOOOOOOOOOOOOOOOOOOOO!**", "**Achoo!** Excuse me!"];
+    message.reply({ content: `${sneezes[Math.floor(Math.random() * Math.floor(sneezes.length))]}`, components: [row] });
+    } catch (e) {
+    console.log(e.stack ? e.stack : e)
+    message.reply({
+    embeds: [
+    new MessageEmbed()
+    .setColor("#ff0079")
+    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setFooter("Error in code: Report this error to kotlin#0427")
+    .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
+    ],
+    });
+    }
   }
- },
-};
+}

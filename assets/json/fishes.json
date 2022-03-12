@@ -1,0 +1,37 @@
+{
+	"dead fish": {
+		"symbol": "<:dead_fish:934918108752248832>",
+		"max": 5,
+		"min": 1
+	},
+	"dried fish": {
+		"symbol": "<:dried_fish:934918313044217896>",
+		"max": 60,
+		"min": 20
+	},
+	"fish bone": {
+		"symbol": "<:fish_bone:934918292429225985>",
+		"max": 90,
+		"min": 30
+	}, 
+	"carp fish": {
+		"symbol": "<:carp_fish:934918217166651482>",
+		"max": 190,
+		"min": 90
+	},
+	"fine fish": {
+		"symbol": "<:fine_fish:934918242923839549>",
+		"max": 160,
+		"min": 80
+	},
+	"koi fish": {
+		"symbol": "<:koi_fish:934918195364630569>",
+		"max": 260,
+		"min": 100
+	}, 
+    "legendary fish": {
+    "symbol": "<:legendary_fish:934918409383194644>", 
+    "max": 600,
+    "min": 200
+    } 
+}

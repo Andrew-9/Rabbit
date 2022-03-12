@@ -1,26 +1,217 @@
-const config = require("../config.json");
+const { readdirSync, lstatSync } = require("fs");
 const chalk = require("chalk");
+const { SlashCommandBuilder } = require('@discordjs/builders');
+const config = require("../botconfig/config.json");
+const dirSetup = [
+	{
+		"Folder": "Info", "CmdName": "info",
+		"CmdDescription": "Generic Information"
+	},
+	{
+		"Folder": "Moderation", "CmdName": "moderation",
+		"CmdDescription": "Light moderation feature"
+	},
+	{
+		"Folder": "Settings", "CmdName": "settings",
+		"CmdDescription": "General settings and configurations"
+	},
+	{
+		"Folder": "System", "CmdName": "system",
+		"CmdDescription": "Advance multipurpose setup"
+	},
+	{
+		"Folder": "Fun", "CmdName": "fun",
+		"CmdDescription": "Fun and Memes Commands"
+	},
+	{
+		"Folder": "Image", "CmdName": "image",
+		"CmdDescription": "4th Gen Image Generation"
+	},
+	{
+		"Folder": "Pixel", "CmdName": "pixel",
+		"CmdDescription": "Pixel Image Generation"
+	},
+	{
+		"Folder": "Leveling", "CmdName": "leveling",
+		"CmdDescription": "Advance leveling system"
+	},
+	{
+		"Folder": "Owner", "CmdName": "owner",
+		"CmdDescription": "Developer settings and congig"
+	},
+	{
+		"Folder": "Audiomack", "CmdName": "audiomack",
+		"CmdDescription": "Advance music system"
+	},
+	{
+		"Folder": "Equalizer", "CmdName": "equalizer",
+		"CmdDescription": "Audiomack's music equalizer"
+	},
+	{
+		"Folder": "Economy", "CmdName": "economy",
+		"CmdDescription": "Grand Economical System"
+	}
+];
 module.exports = (client) => {
     try {
-		//Then Code a Function to manage the SlashCommands
-		const SlashCommandsApp = (guild) => {
-			const app = client.api.applications(client.user.id)
-			if (guild) app.guilds(guild)
-			return app;
-		}
-		//Ready Event + Loading the Slash Commands
-		client.on('ready', async () => {
-			console.log(`Logged in as ${client.user.tag}!`);
-			//Register All Slash Commands for a specific Guild
-			for (const configData of config.slashcommands) {
-				await SlashCommandsApp("").commands.post({
-					data: configData
-				});
-				console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(`✓ Loaded the SlashCommand ${configData.name}`));
+		let allCommands = [];
+        readdirSync("./slashCommands/").forEach((dir) => {
+			if(lstatSync(`./slashCommands/${dir}`).isDirectory()) {
+				const groupName = dir;
+				const cmdSetup = dirSetup.find(d=>d.Folder == dir);
+				//If its a valid cmdsetup
+				if(cmdSetup && cmdSetup.Folder) {
+					//Set the SubCommand as a Slash Builder
+					const subCommand = new SlashCommandBuilder().setName(String(cmdSetup.CmdName).replace(/\s+/g, '_').toLowerCase()).setDescription(String(cmdSetup.CmdDescription));
+					//Now for each file in that subcommand, add a command!
+					const slashCommands = readdirSync(`./slashCommands/${dir}/`).filter((file) => file.endsWith(".js"));
+					for (let file of slashCommands) {
+						let pull = require(`../slashCommands/${dir}/${file}`);
+						if (pull.name && pull.description) {
+							subCommand
+							.addSubcommand((subcommand) => {
+								subcommand.setName(String(pull.name).toLowerCase()).setDescription(pull.description)
+								if(pull.options && pull.options.length > 0){
+									for(const option of pull.options){
+										if(option.User && option.User.name && option.User.description){
+											subcommand.addUserOption((op) =>
+												op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+											)
+										} else if(option.Integer && option.Integer.name && option.Integer.description){
+											subcommand.addIntegerOption((op) =>
+												op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
+											)
+										} else if(option.String && option.String.name && option.String.description){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
+											)
+										} else if(option.Channel && option.Channel.name && option.Channel.description){
+											subcommand.addChannelOption((op) =>
+												op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+											)
+										} else if(option.Role && option.Role.name && option.Role.description){
+											subcommand.addRoleOption((op) =>
+												op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
+											)
+										} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
+												.addChoices(option.StringChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),String(c[1])] )),
+											)
+										} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
+											subcommand.addStringOption((op) =>
+												op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
+												.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
+											)
+										} else {
+											console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`A Option is missing the Name or/and the Description of ${pull.name}`));
+										}
+									}
+								}
+								return subcommand;
+							})
+							client.slashCommands.set(String(cmdSetup.CmdName).replace(/\s+/g, '_').toLowerCase() + pull.name, pull)
+						} else {
+							console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`${file} error -> missing a help.name, or help.name is not a string.`));
+							continue;
+						}
+					}
+					//add the subcommand to the array
+					allCommands.push(subCommand.toJSON());
+				} 
+				else {
+					return console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`The Subcommand folder ${dir} is not in the dirSetup configuration!`));
+				}
+			} else {
+				let pull = require(`../slashCommands/${dir}`);
+				if (pull.name && pull.description) {
+					let Command = new SlashCommandBuilder().setName(String(pull.name).toLowerCase()).setDescription(pull.description);
+						if(pull.options && pull.options.length > 0){
+							for(const option of pull.options){
+								if(option.User && option.User.name && option.User.description){
+									Command.addUserOption((op) =>
+										op.setName(String(option.User.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.User.description).setRequired(option.User.required)
+									)
+								} else if(option.Integer && option.Integer.name && option.Integer.description){
+									Command.addIntegerOption((op) =>
+										op.setName(String(option.Integer.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Integer.description).setRequired(option.Integer.required)
+									)
+								} else if(option.String && option.String.name && option.String.description){
+									Command.addStringOption((op) =>
+										op.setName(String(option.String.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.String.description).setRequired(option.String.required)
+									)
+								} else if(option.Channel && option.Channel.name && option.Channel.description){
+									Command.addChannelOption((op) =>
+										op.setName(String(option.Channel.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Channel.description).setRequired(option.Channel.required)
+									)
+								} else if(option.Role && option.Role.name && option.Role.description){
+									Command.addRoleOption((op) =>
+										op.setName(String(option.Role.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.Role.description).setRequired(option.Role.required)
+									)
+								} else if(option.StringChoices && option.StringChoices.name && option.StringChoices.description && option.StringChoices.choices && option.StringChoices.choices.length > 0){
+									Command.addStringOption((op) =>
+										op.setName(String(option.StringChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.StringChoices.description).setRequired(option.StringChoices.required)
+										.addChoices(option.StringChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),String(c[1])] )),
+									)
+								} else if(option.IntChoices && option.IntChoices.name && option.IntChoices.description && option.IntChoices.choices && option.IntChoices.choices.length > 0){
+									Command.addStringOption((op) =>
+										op.setName(String(option.IntChoices.name).replace(/\s+/g, '_').toLowerCase()).setDescription(option.IntChoices.description).setRequired(option.IntChoices.required)
+										.addChoices(option.IntChoices.choices.map(c=> [String(c[0]).replace(/\s+/g, '_').toLowerCase(),parseInt(c[1])] )),
+									)
+								} else {
+									console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`A Option is missing the Name or/and the Description of ${pull.name}`));
+								}
+							}
+						}
+						allCommands.push(Command.toJSON());
+						client.slashCommands.set("normal" + pull.name, pull)
+				} 
+				else {
+					console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`${file} error -> missing a help.name, or help.name is not a string.`));
+				}
 			}
-		});
-
+        });
+        
+		//Once the Bot is ready, add all Slas Commands to each guild
+		client.on("ready", () => {
+			if(config.loadSlashsGlobal){
+				client.application.commands.set(allCommands)
+				.then(slashCommandsData => {
+					client.slashCommandsData = slashCommandsData;
+					console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`Successfully Loaded ${slashCommandsData.size} slashCommands ${`(With ${slashCommandsData.map(d => d.options).flat().length} Subcommands)`} Loaded for all: ${`Possible Guilds`}`));
+					console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`Because u are Using Global Settings, it can take up to 1 hour until the Commands are changed!`));
+				}).catch((e)=>{});
+			} else {
+				client.guilds.cache.map(g => g).forEach(async (guild) => {
+					try{
+						await guild.commands.set([]).catch((e)=>{});
+						guild.commands.set(allCommands)
+						.then(slashCommandsData => {
+							client.slashCommandsData = slashCommandsData;
+							console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`Successfully Loaded ${slashCommandsData.size} slashCommands ${`(With ${slashCommandsData.map(d => d.options).flat().length} Subcommands)`} for: ${`${guild.name}`}`));
+						}).catch((e)=>{});
+					}catch (e){
+						console.log(String(e))
+					}
+				});
+			}
+		})
+		//DISABLE WHEN USING GLOBAL!
+		client.on("guildCreate", async (guild) => {
+			try{
+				if(!config.loadSlashsGlobal){
+					await guild.commands.set([]).catch((e)=>{});
+					guild.commands.set(allCommands)
+					.then(slashCommandsData => {
+					console.log(chalk.bold(chalk.blue.bold(`[RABBIT]`)) + chalk.cyan.bold(`Successfully Loaded ${slashCommandsData.size} slashCommands ${`(With ${slashCommandsData.map(d => d.options).flat().length} Subcommands)`} for: ${`${guild.name}`.underline}`)); 
+					}).catch((e)=>{console.log(String(e))});
+				}
+			}catch (e){
+			 console.log(String(e))
+			}
+		})
+		
     } catch (e) {
-        console.log(e)
+      console.log(String(e.stack))
     }
 };

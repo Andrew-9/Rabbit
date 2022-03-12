@@ -1,7 +1,4 @@
-const Discord = require("discord.js");
-const moment = require("moment");
-const timestamp = `[${moment().format("DD-MM-YY H:m:s")}]:`;
-
-module.exports = (client) => {
- console.log(`${timestamp} Client is disconnecting...`);
-};
+const chalk = require("chalk");
+module.exports = client => {
+    console.log(chalk.bold(chalk.blue.bold("[RABBIT]")) + chalk.cyan.bold(`You have been disconnected at ${new Date()}.`));
+}
