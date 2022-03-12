@@ -2,7 +2,7 @@
 Rabbit - An adorable rabbit bot with over 260+ commands He is very obedient and can help you setup your server.
 The bot has a lot of functionalities with an advance server setup settings which includes a bunch of commands that are package into one grand command. this source code will be constantly updated with new features and functions.
 
-[![Discord Banner](https://media.discordapp.net/attachments/711910361133219903/880873445951430686/banner.jpg?width=851&height=613)](https://rabbit.fumigram.com/)
+[![Logo]https://media.discordapp.net/attachments/711910361133219903/929412133920313344/Rabbit.png)](https://rabbit.fumigram.com/)
 
 ### Features
 
