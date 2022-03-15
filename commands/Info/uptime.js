@@ -21,32 +21,32 @@ module.exports = {
             const timestamp = date.getTime() - Math.floor(client.uptime);
             const row = new MessageActionRow()
             .addComponents(
-            new MessageButton()
-            .setURL(client.global.get("global", "invite"))
-            .setLabel("Invite")
-            .setEmoji('924818034965766215')
-            .setStyle("LINK"),
-
-            new MessageButton()
-            .setLabel('Support Server')
-            .setURL(client.global.get("global", "support"))
-            .setStyle('LINK')
-            .setEmoji('924818382908440606'),
-
-            new MessageButton()
-            .setLabel('Vote')
-            .setURL(client.global.get("global", "vote"))
-            .setStyle('LINK')
-            .setEmoji('924819119860224082'),
+              new MessageButton()
+              .setLabel('Support Server')
+              .setURL("https://discord.com/invite/MJ5tYb4Jh9")
+              .setStyle('LINK')
+              .setEmoji('✈'),
+  
+              new MessageButton()
+              .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+              .setLabel("Invite")
+              .setEmoji('💌')
+              .setStyle("LINK"),
+          
+              new MessageButton()
+              .setLabel('Vote')
+              .setURL("https://top.gg/bot/897819791732121621")
+              .setStyle('LINK')
+              .setEmoji('🐰'),
 
             new MessageButton()
             .setLabel('Instagram')
             .setURL("https://www.instagram.com/fumigramapp")
             .setStyle('LINK')
-            .setEmoji('924819412505223188'),
+            .setEmoji('❤'),
             )
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> You can try this with slash command \`/info uptime\`**",
+            content: "**/ You can try this with slash command \`/info uptime\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle(`${client.user.username.toUpperCase()} UPTIME`)
@@ -57,13 +57,13 @@ module.exports = {
             .setThumbnail(client.user.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
             ],
             components: [row]
-         });   // ${duration(client.uptime).map(t=>`\`${t}\``).join(", ")}
+         });
         } catch (e) {
          console.log(e)
          return message.reply({
             embeds: [new MessageEmbed()
               .setColor("#ff0079")
-              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setTitle(`❌ AN ERROR OCCURED!`)
               .setFooter("Error in code: Report this error to kotlin#0427")
               .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
             ]

@@ -14,8 +14,6 @@ const client = new Discord.Client({
   ]
 });
 
-//npm install @distube/ytdl-core@latest
-
 ///// Requires
 require("dotenv").config();
 const Enmap = require("enmap");
@@ -24,7 +22,6 @@ logs(client);
 const DisTube = require("distube").default;
 const filters = require(`./botconfig/filters.json`);
 /* = Enmap Database Registering = */
-client.ward = new Enmap({ name: "ward", dataDir: "./database/ward" });
 client.infos = new Enmap({ name: "infos", dataDir: "./database/infos" });
 client.global = new Enmap({ name: "global", dataDir: "./database/global" }); 
 client.warning = new Enmap({ name: "warning", dataDir: "./database/warning" }); 
@@ -80,7 +77,6 @@ if (process.env.TOKEN) {
   client.slashCommands = new Discord.Collection();
   client.aliases = new Discord.Collection();
   client.categories = require("fs").readdirSync(`./commands`);  
-  client.allEmojis = require("./botconfig/emojis.json");
   client.setMaxListeners(100); require('events').defaultMaxListeners = 100;
   ["command", "slashCommands", "distubeEvent", "event", settings.antiCrash ? "antiCrash" : null].forEach((handler) => {
     require(`./handlers/${handler}`)(client);

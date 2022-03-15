@@ -18,25 +18,25 @@ module.exports = {
     const row = new MessageActionRow()
     .addComponents(
       new MessageButton()
-      .setLabel('Vote')
-      .setURL(client.global.get("global", "vote"))
-      .setStyle('LINK')
-      .setEmoji('924819119860224082'),
-    
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
+  
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=BQMTb-S60l4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     message.channel.sendTyping();
     const options = {
     method: "GET", url: "https://some-random-api.ml/img/red_panda" };
     axios.request(options).then(async (response) => {
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Looking for a red panda...**`,  components: [row] })
+    const m = await message.reply({ content: `🥕 **Looking for a red panda...**`,  components: [row] })
     await wait(2000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Found one. Try slash command \`/Fun red-panda\`**",
+    content: "**/ Found one. Try slash command \`/Fun red-panda\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage(response.data.link)
@@ -50,7 +50,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

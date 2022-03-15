@@ -18,11 +18,11 @@ module.exports = {
     let color = client.settings.get(message.guild.id, `pixelcolor`);
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
@@ -33,10 +33,10 @@ module.exports = {
     message.channel.sendTyping();
     async function nekof() {
     const GIF = await neko.sfw.neko();
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Looking for a neko...**`,  components: [row] })
+    const m = await message.reply({ content: `🙂 **Looking for a neko...**`,  components: [row] })
     await wait(2000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Found one. Try \`/pixel neko\`**",
+    content: "**/ Found one. Try \`/pixel neko\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage(GIF.url)
@@ -51,7 +51,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

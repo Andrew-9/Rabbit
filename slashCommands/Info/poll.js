@@ -26,21 +26,21 @@ module.exports = {
     const question = options.getString("message");
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Support Server')
-    .setURL(client.global.get("global", "support"))
-    .setStyle('LINK')
-    .setEmoji('924818382908440606'),
+      new MessageButton()
+      .setLabel('Support Server')
+      .setURL("https://discord.com/invite/MJ5tYb4Jh9")
+      .setStyle('LINK')
+      .setEmoji('924818382908440606'),
 
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
     )
     if(!question){
     return interaction.reply({
-    content: `<:attention:924255783695314964> **Please enter some questions to ask...**`,
+    content: `💢 **Please enter some questions to ask...**`,
     components: [row]
     });
     } else {
@@ -55,16 +55,16 @@ module.exports = {
     embeds: [embed],
     components: []
     });
-    await pollchannel.react("<:R_rabbit:924819119860224082>");
-    await pollchannel.react("<:colds_weat:891709868791177236>");
-    await pollchannel.react("<:expressionless_face:923878288869433364>");
-    await pollchannel.react("<:look_of_triumph:891707172319268915>");
-    await pollchannel.react("<:grinning_with_smiling_eye:891707708825288764>");
-    await pollchannel.react("<:frowning_with_open_mouth:891713919540932679>");
-    await pollchannel.react("<:loudly_crying:891714040122974318>");
-    await pollchannel.react("<:smiling_with_heart_eyes:891708293544824882>");
-    await pollchannel.react("<:is_thinking:891709419602210917>");
-    await pollchannel.react("<:is_lying:891707806334451782>");
+    await pollchannel.react("🐇");
+    await pollchannel.react("✔");
+    await pollchannel.react("❌");
+    await pollchannel.react("💌");
+    await pollchannel.react("👋");
+    await pollchannel.react("🥕");
+    await pollchannel.react("❤");
+    await pollchannel.react("🔥");
+    await pollchannel.react("😍");
+    await pollchannel.react("😔");
     }
     } catch (e) {
     console.log(e.stack ? e.stack : e)
@@ -72,7 +72,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

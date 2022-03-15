@@ -19,7 +19,7 @@ module.exports = {
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=I28saraQ9XI&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     const sneezes = ["**Achoo!**", "*chew!*", "Ah... Ah... **A_CHOO!_**", "_Ah..._**CHOOOOOOOOOOOOOOOOOOOO!**", "**Achoo!** Excuse me!"];
     interaction.reply({ content: `${sneezes[Math.floor(Math.random() * Math.floor(sneezes.length))]}`, components: [row] });
@@ -29,7 +29,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

@@ -33,15 +33,15 @@ module.exports = {
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=-GShLdrKqDM&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     message.channel.sendTyping();
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Looking for a puppy...**`,  components: [row] })
+    const m = await message.reply({ content: `🥕 **Looking for a puppy...**`,  components: [row] })
     const response = await fetch("https://nekos.life/api/v2/img/woof");
     const body = await response.json();
     await wait(3000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Found one. Try slash command \`/image dog\`**",
+    content: "**/ Found one. Try slash command \`/image dog\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage(body.url)
@@ -54,7 +54,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

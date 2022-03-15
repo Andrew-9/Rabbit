@@ -20,26 +20,26 @@ module.exports = {
 				const row = new MessageActionRow()
 				.addComponents(
 				new MessageButton()
-				.setURL(client.global.get("global", "invite"))
+				.setLabel('Support Server')
+				.setURL("https://discord.com/invite/MJ5tYb4Jh9")
+				.setStyle('LINK')
+				.setEmoji('✈'),
+	
+				new MessageButton()
+				.setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
 				.setLabel("Invite")
-				.setEmoji('924818034965766215')
+				.setEmoji('💌')
 				.setStyle("LINK"),
 			
 				new MessageButton()
-				.setLabel('Support Server')
-				.setURL(client.global.get("global", "support"))
-				.setStyle('LINK')
-				.setEmoji('924818382908440606'),
-		
-				new MessageButton()
 				.setLabel('Vote')
-				.setURL(client.global.get("global", "vote"))
+				.setURL("https://top.gg/bot/897819791732121621")
 				.setStyle('LINK')
-				.setEmoji('924819119860224082'),
+				.setEmoji('🐰'),
 				)
 			    if (!channel) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/audiomack queue\`**",
+				content: "**/ Try this with slash command \`/audiomack queue\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setDescription(`You have to be in a voice channel to use this command!`)
@@ -51,7 +51,7 @@ module.exports = {
 				//if user is not in the same voice channel as the bot
 				if (channel.guild.me.voice.channel && channel.guild.me.voice.channel.id != channel.id) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/audiomack queue\`**",
+				content: "**/ Try this with slash command \`/audiomack queue\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setDescription(`You must be in the same voice channel as me - <#${guild.me.voice.channel.id}>`)
@@ -64,7 +64,7 @@ module.exports = {
 				let newQueue = client.distube.getQueue(guildId);
 				if (!newQueue || !newQueue.songs || newQueue.songs.length == 0){
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/audiomack queue\`**",
+				content: "**/ Try this with slash command \`/audiomack queue\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setDescription(`There's currently nothing playing right now`)
@@ -111,13 +111,13 @@ module.exports = {
 				Obj.label = `Page ${index}`
 				Obj.value = `${index}`;
 				Obj.description = `Shows the ${index}/${pages.length - 1} Page!`
-				Obj.emoji = `928936515810234388`
+				Obj.emoji = `🎵`
 				return Obj;
 				})
 				])
 				const qrow = new MessageActionRow().addComponents([Menu])
 				const m = await message.reply({
-	            content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/audiomack queue\`**",
+	            content: "**/ Try this with slash command \`/audiomack queue\`**",
 				embeds: [embeds[0]],
 				components: [qrow],
 				});
@@ -133,7 +133,7 @@ module.exports = {
 				})
 				}
 				} else {
-				i.reply({ content: `<:attention:924255783695314964> **You can't use this \`menu\` because you did not ask for it...**`, ephemeral: true, components: [row] });
+				i.reply({ content: `🔊 **You can't use this \`menu\` because you did not ask for it...**`, ephemeral: true, components: [row] });
 				}
 				});
 				collector.on('end', async () => {
@@ -157,7 +157,7 @@ module.exports = {
 				embeds: [
 				new MessageEmbed()
 				.setColor("#e63064")
-				.setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+				.setTitle("❌ AN ERROR OCCURED!")
 				.setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
 				.setFooter("Error in code: Report this error to kotlin0427")
 				],

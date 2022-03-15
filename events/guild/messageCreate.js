@@ -1,6 +1,5 @@
 const config = require(`../../botconfig/config.json`);
 const settings = require(`../../botconfig/settings.json`);
-const websettings = require("../../../dashboard/settings.json");
 const { onCoolDown, replacemsg } = require(`../../handlers/functions`);
 const { MessageEmbed } = require(`discord.js`);
 const ms = require("parse-ms");
@@ -15,15 +14,10 @@ module.exports = async (client, message) => {
     ////// Settings Databasing //////////////
     client.settings.ensure(message.guild.id, {
       djroles: [],
-      botchannel: [],
-      updates: "",
       defaultvolume: 50,
-      defaultmute: "1m",
-      slashcommands: true,
       prefix: config.prefix,
       defaultautoplay: false,
       defaultfilters: [`bassboost6`, `clear`],
-      setupointer: ">",
       helppointer: ">",
       color: "#2F3136",
       homecolor: "#00B1F9",
@@ -38,23 +32,16 @@ module.exports = async (client, message) => {
       giveawaycolor: "#E62E52",
       audiomack: "#00b7ff",
       equalizercolor: "#4170FF",
-      economycolor: "#07A461",
-      emoji: "<:R_rabbit:924819119860224082>",
-      SlashEmoji: "<:thinkingkatana:913429281353371719>",
-      SlashDrinking: "<:drinkingthinking:914230665443155978>",
-      rabbitsmirk: "<:rabbitsmirk:868230245176713266>",
-      smug: "<:finesmug:914226329073909830>",
-      react: "<:R_rabbit:924819119860224082>",
-      pointer: "<:rabbitpoint:897844154258841620>",
-      audioemoji: "<:Audiomack:928030855560060988>",
+      emoji: "🐰",
+      SlashEmoji: "🤔",
+      SlashDrinking: "😛",
+      rabbitsmirk: "😏",
+      smug: "🧐",
+      react: "🐰",
+      pointer: ">",
+      audioemoji: "🎵",
     });
-  
-    client.infos.ensure(message.guild.id, { songs: 0, commands: 0 });
-    client.infos.ensure("global", { songs: 0, commands: 0 });
-    let error = "<:xvector:869193619318382602>"
     let prefix = client.settings.get(message.guild.id, `prefix`);
-    let color = client.settings.get(message.guild.id, `color`);
-    let pointer = client.settings.get(message.guild.id, `pointer`);
     const prefixRegex = new RegExp(`^(<@!?${client.user.id}>|${escapeRegex(prefix)})`);
     if(!prefixRegex.test(message.content)) return;
     const [, mPrefix] = message.content.match(prefixRegex);
@@ -64,10 +51,10 @@ module.exports = async (client, message) => {
         if(mPrefix.includes(client.user.id)){
             message.reply({
               embeds: [new MessageEmbed()
-                .setColor(color)
+                .setColor("#2F3136")
                 .setDescription(`
-                ${pointer} My prefix in this server is \`${prefix}\`
-                ${pointer} To see all  my commands please type \`${prefix}help\`
+                > My prefix in this server is \`${prefix}\`
+                > To see all  my commands please type \`${prefix}help\`
                 `)
               ]})
         }
@@ -76,24 +63,8 @@ module.exports = async (client, message) => {
     let command = client.commands.get(cmd);
     if(!command) command = client.commands.get(client.aliases.get(cmd));
     if (command) {
-      client.infos.set("global", Number(client.infos.get("global", "commands")) + 1, "commands");
-      let botchannels = client.settings.get(message.guild.id, `botchannel`);
-      if(!botchannels || !Array.isArray(botchannels)) botchannels = [];
-        if (botchannels.length > 0) {
-            if (!botchannels.includes(message.channel.id) && !message.member.permissions.has("ADMINISTRATOR")) {
-               return message.reply({
-                content: `**${emoji} This channel is not a bot channel.**`,
-                embeds: [new MessageEmbed()
-                .setColor("#ff0079")
-                .setTitle(`COMMANDS NOT ALLOWED HERE`)
-                .setDescription(`
-                **${message.author.username}** You are not allowed to use this command here
-                Please do it in one of this channels: ${botchannels.map(c=>`<#${c}>`).join(", ")}
-                `)
-                ]
-               });
-            }
-        }
+        client.infos.ensure("global", { songs: 0, commands: 0 });
+        client.infos.set("global", Number(client.infos.get("global", "commands")) + 1, "commands");
         if (onCoolDown(message, command)) {
         return message.reply(replacemsg(settings.messages.cooldown, { prefix: prefix, command: command, timeLeft: onCoolDown(message, command) }));
         }

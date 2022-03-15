@@ -18,21 +18,21 @@ module.exports = {
     let emoji = client.settings.get(guild.id, "SlashEmoji");
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+        new MessageButton()
+        .setLabel('Vote')
+        .setURL("https://top.gg/bot/897819791732121621")
+        .setStyle('LINK')
+        .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=55unNKP2DBE&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('🐇')
     )
     async function waifu() {
     const GIF = await neko.sfw.waifu();
-    interaction.reply({ content: `<a:is_loading:923892698782511125> **Looking for a waifu...**`,  components: [row] })
+    interaction.reply({ content: `🥕 **Looking for a waifu...**`,  components: [row] })
     await wait(2000);
     interaction.editReply({
     content: `**${emoji} Found one. Try \`${prefix}waifu\`**`,
@@ -50,7 +50,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

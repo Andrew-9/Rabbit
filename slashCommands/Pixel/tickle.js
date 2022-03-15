@@ -27,23 +27,23 @@ module.exports = {
     let friend = options.getUser("friend");
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setURL(client.global.get("global", "invite"))
-    .setLabel("Invite")
-    .setEmoji('924818034965766215')
-    .setStyle("LINK"),
-
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
+  
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=ifz-mai8pL4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('🐇')
     )
     if (!friend) {
     return interaction.reply({
@@ -103,7 +103,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

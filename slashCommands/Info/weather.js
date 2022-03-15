@@ -28,29 +28,29 @@ module.exports = {
 
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Support Server')
-    .setURL(client.global.get("global", "support"))
-    .setStyle('LINK')
-    .setEmoji('924818382908440606'),
-
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
+  
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     )
     weather.find({ search: location, degreeType: "C" },
     function (error, result) {
     if (error) {
     return interaction.reply({
-    content: `<:attention:924255783695314964>\n${error}`,
+    content: `🔊\n${error}`,
     components: [row]
     });
     }
     if (result === undefined || result.length === 0) {
     return interaction.reply({
-    content: `<:attention:924255783695314964> The location your provided is not valid...`,
+    content: `🔊 The location your provided is not valid...`,
     components: [row]
     });
     }
@@ -63,7 +63,7 @@ module.exports = {
     .setThumbnail(current.imageUrl)
     .setColor(color)
     .setDescription(`
-    > <:megaphone:925484563952709653> **Information**
+    > 🔊 **Information**
     > Loaction - \`${current.observationpoint}\`
     > Degree Type - \`Celsius\`
     > The Wind - \`${current.winddisplay}\`
@@ -83,7 +83,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

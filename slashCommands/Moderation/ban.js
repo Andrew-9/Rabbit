@@ -34,22 +34,22 @@ module.exports = {
         const row = new MessageActionRow()
         .addComponents(
           new MessageButton()
-          .setURL(client.global.get("global", "invite"))
+          .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
           .setLabel("Invite")
-          .setEmoji('924818034965766215')
+          .setEmoji('💌')
           .setStyle("LINK"),
-    
+      
           new MessageButton()
-          .setURL("https://www.instagram.com/fumigramapp/")
-          .setLabel("Instagram")
-          .setEmoji('924819412505223188')
-          .setStyle("LINK"),
+          .setLabel('Vote')
+          .setURL("https://top.gg/bot/897819791732121621")
+          .setStyle('LINK')
+          .setEmoji('🐰'),
     
           new MessageButton()
           .setLabel('Facebook')
           .setURL('https://web.facebook.com/fumigram')
           .setStyle('LINK')
-          .setEmoji('924927819610456124')
+          .setEmoji('✔')
         )
         if (Target.id === interaction.member.id) {
         interaction.reply({
@@ -125,7 +125,7 @@ module.exports = {
         embeds: [
         new MessageEmbed()
         .setColor("#ff0079")
-        .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+        .setTitle(`❌ AN ERROR OCCURED!`)
         .setFooter("Error in code: Report this error to kotlin#0427")
         .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
         ],

@@ -15,31 +15,31 @@ module.exports = {
             let pointer = client.settings.get(message.guild.id, `pointer`);
             const row = new MessageActionRow()
             .addComponents(
-            new MessageButton()
-            .setURL(client.global.get("global", "invite"))
-            .setLabel("Invite")
-            .setEmoji('924818034965766215')
-            .setStyle("LINK"),
-
-            new MessageButton()
-            .setLabel('Support Server')
-            .setURL(client.global.get("global", "support"))
-            .setStyle('LINK')
-            .setEmoji('924818382908440606'),
-            
-            new MessageButton()
-            .setLabel('Vote')
-            .setURL(client.global.get("global", "vote"))
-            .setStyle('LINK')
-            .setEmoji('924819119860224082')
+              new MessageButton()
+              .setLabel('Support Server')
+              .setURL("https://discord.com/invite/MJ5tYb4Jh9")
+              .setStyle('LINK')
+              .setEmoji('✈'),
+  
+              new MessageButton()
+              .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+              .setLabel("Invite")
+              .setEmoji('💌')
+              .setStyle("LINK"),
+          
+              new MessageButton()
+              .setLabel('Vote')
+              .setURL("https://top.gg/bot/897819791732121621")
+              .setStyle('LINK')
+              .setEmoji('🐰'),
             )
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> You can try this with slash command \`/info support\`**",
+            content: "**/ You can try this with slash command \`/info support\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle(`${client.user.username.toUpperCase()} SUPPORT SERVER`)
             .setDescription(`
-            ${pointer} **Support Server** - [Rabbit Official™](${client.global.get("global", "support")})
+            ${pointer} **Support Server** - [Rabbit Official™](https://discord.com/invite/MJ5tYb4Jh9)
             ${pointer} **Development Server** - [Bot Development™](https://discord.gg/Mr3q3dR26b)
             ${pointer} **Pathner Server** - [Tranix Support | Uptime](https://discord.com/invite/zstbC5ftPR)
             `)
@@ -52,7 +52,7 @@ module.exports = {
          return message.reply({
             embeds: [new MessageEmbed()
               .setColor("#ff0079")
-              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setTitle(`❌ AN ERROR OCCURED!`)
               .setFooter("Error in code: Report this error to kotlin#0427")
               .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
             ]

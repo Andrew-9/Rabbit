@@ -18,33 +18,33 @@ module.exports = {
 			let emoji = client.settings.get(message.guild.id, `emoji`);
 			const row = new MessageActionRow()
 			.addComponents(
-			new MessageButton()
-			.setURL(client.global.get("global", "invite"))
-			.setLabel("Invite")
-			.setEmoji('924818034965766215')
-			.setStyle("LINK"),
-		
-			new MessageButton()
-			.setLabel('Support Server')
-			.setURL(client.global.get("global", "support"))
-			.setStyle('LINK')
-			.setEmoji('924818382908440606'),
+				new MessageButton()
+				.setLabel('Support Server')
+				.setURL("https://discord.com/invite/MJ5tYb4Jh9")
+				.setStyle('LINK')
+				.setEmoji('✈'),
 	
-			new MessageButton()
-			.setLabel('Vote')
-			.setURL(client.global.get("global", "vote"))
-			.setStyle('LINK')
-			.setEmoji('924819119860224082'),
+				new MessageButton()
+				.setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+				.setLabel("Invite")
+				.setEmoji('💌')
+				.setStyle("LINK"),
+			
+				new MessageButton()
+				.setLabel('Vote')
+				.setURL("https://top.gg/bot/897819791732121621")
+				.setStyle('LINK')
+				.setEmoji('🐰'),
 
 			new MessageButton()
 			.setLabel('Instagram')
 			.setURL("https://www.instagram.com/fumigramapp")
 			.setStyle('LINK')
-			.setEmoji('924819412505223188'),
+			.setEmoji('🥰'),
 			)
 			if (!channel) {
 			return message.reply({
-			content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+			content: "**/ Try slash command \`/equalizer remove-filter\`**",
 			embeds: [new MessageEmbed()
 			.setColor(color)
 			.setDescription(`You have to be in a voice channel to use this command!`)
@@ -55,7 +55,7 @@ module.exports = {
 			}
 			if (channel.guild.me.voice.channel && channel.guild.me.voice.channel.id != channel.id) {
 			return message.reply({
-			content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+			content: "**/ Try slash command \`/equalizer remove-filter\`**",
 			embeds: [new MessageEmbed()
 			.setColor(color)
 			.setDescription(`You must be in the same voice channel as me - <#${guild.me.voice.channel.id}>`)
@@ -68,7 +68,7 @@ module.exports = {
 				let newQueue = client.distube.getQueue(guildId);
 				if (!newQueue || !newQueue.songs || newQueue.songs.length == 0) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+				content: "**/ Try slash command \`/equalizer remove-filter\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setDescription(`There's currently nothing playing right now`)
@@ -79,7 +79,7 @@ module.exports = {
 				}
 				if (check_if_dj(client, member, newQueue.songs[0])) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+				content: "**/ Try slash command \`/equalizer remove-filter\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setTitle(`NOT THE SONG AUTHOR!`)
@@ -94,7 +94,7 @@ module.exports = {
 				let filters = args;
 				if (filters.some(a => !FiltersSettings[a])) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+				content: "**/ Try slash command \`/equalizer remove-filter\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setTitle(`NOT THE SONG AUTHOR!`)
@@ -114,7 +114,7 @@ module.exports = {
 				})
 				if (!toRemove || toRemove.length == 0) {
 				return message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try slash command \`/equalizer remove-filter\`**",
+				content: "**/ Try slash command \`/equalizer remove-filter\`**",
 				embeds: [
 				new MessageEmbed()
 				.setColor(color)
@@ -136,7 +136,7 @@ module.exports = {
 				}
 				await newQueue.setFilter(toRemove);
 				message.reply({
-				content: "**<:rabbitslash:913423874182500352> Try \`/equalizer remove-filter\`**",
+				content: "**/ Try \`/equalizer remove-filter\`**",
 				embeds: [new MessageEmbed()
 				.setColor(color)
 				.setTitle(`FILTER REMOVED`)
@@ -149,7 +149,7 @@ module.exports = {
 			embeds: [
 			new MessageEmbed()
 			.setColor("#e63064")
-			.setTitle("<:errorcode:868245243357712384> AN ERROR OCCURED!")
+			.setTitle("❌ AN ERROR OCCURED!")
 			.setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
 			.setFooter("Error in code: Report this error to kotlin#0427")
 			],

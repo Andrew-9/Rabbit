@@ -19,39 +19,39 @@ module.exports = {
     let user = (await message.mentions.members.first()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find((r) => r.user.username.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.guild.members.cache.find((r) => r.displayName.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.member;
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setURL(client.global.get("global", "invite"))
-    .setLabel("Invite")
-    .setEmoji('924818034965766215')
-    .setStyle("LINK"),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
 
     new MessageButton()
     .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
+    .setURL("https://top.gg/bot/897819791732121621")
     .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+    .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=BQMTb-S60l4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     const pixelize = args[0] || 50;
     if (isNaN(args[0])) {
-    message.reply({ content: `<:attention:924255783695314964> **The pixelizer must be a number... Try again...**`,  components: [row] })
+    message.reply({ content: `⚔ **The pixelizer must be a number... Try again...**`,  components: [row] })
     } else if (args[0] < 2) {
-    message.reply({ content: `<:attention:924255783695314964> **The pixelizer must be higher than \`2\`... Try again...**`,  components: [row] })
+    message.reply({ content: `⚔ **The pixelizer must be higher than \`2\`... Try again...**`,  components: [row] })
     } else if (args[0] > 50) {
-    message.reply({ content: `<:attention:924255783695314964> **The pixelizer must be lower than \`50\`... Try again...**`,  components: [row] })
+    message.reply({ content: `⚔ **The pixelizer must be lower than \`50\`... Try again...**`,  components: [row] })
     } else {
     message.channel.sendTyping();
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Generating Pixels... Hold On...**`,  components: [row] })
+    const m = await message.reply({ content: `🚈 **Generating Pixels... Hold On...**`,  components: [row] })
     const buffer = await AmeAPI.generate("pixelize", { url: user.user.displayAvatarURL({ format: "png", size: 2048 }), pixelize: pixelize });
     const attachment = new MessageAttachment(buffer, "pixelize.png");
     await wait(3000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/pixel pixelize\`**",
+    content: "**/ Try this with slash command \`/pixel pixelize\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage('attachment://pixelize.png')
@@ -66,7 +66,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

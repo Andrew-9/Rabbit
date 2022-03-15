@@ -20,9 +20,9 @@ module.exports = {
     .addComponents(
       new MessageButton()
       .setLabel('Vote')
-      .setURL(client.global.get("global", "vote"))
+      .setURL("https://top.gg/bot/897819791732121621")
       .setStyle('LINK')
-      .setEmoji('924819119860224082'),
+      .setEmoji('🐰'),
     )
     message.channel.sendTyping();
     let text = await neko.sfw.catText();
@@ -36,7 +36,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

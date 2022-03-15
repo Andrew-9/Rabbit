@@ -19,27 +19,27 @@ module.exports = {
             if (reason.length > 1024) reason = reason.slice(0, 1021) + "...";
             const row = new MessageActionRow()
             .addComponents(
-            new MessageButton()
-            .setURL(client.global.get("global", "invite"))
-            .setLabel("Invite")
-            .setEmoji('924818034965766215')
-            .setStyle("LINK"),
-      
-            new MessageButton()
-            .setURL("https://www.instagram.com/fumigramapp/")
-            .setLabel("Instagram")
-            .setEmoji('924819412505223188')
-            .setStyle("LINK"),
-      
-            new MessageButton()
-            .setLabel('Facebook')
-            .setURL('https://web.facebook.com/fumigram')
-            .setStyle('LINK')
-            .setEmoji('924927819610456124')
+              new MessageButton()
+              .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+              .setLabel("Invite")
+              .setEmoji('💌')
+              .setStyle("LINK"),
+          
+              new MessageButton()
+              .setLabel('Vote')
+              .setURL("https://top.gg/bot/897819791732121621")
+              .setStyle('LINK')
+              .setEmoji('🐰'),
+        
+              new MessageButton()
+              .setLabel('Facebook')
+              .setURL('https://web.facebook.com/fumigram')
+              .setStyle('LINK')
+              .setEmoji('✔')
             )
             if (!target) {
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> Try slash command \`/moderation ban\`**",
+            content: "**/ Try slash command \`/moderation ban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("NOT A VALID USER")
@@ -49,7 +49,7 @@ module.exports = {
             }); 
             } else if (target.id === message.author.id) {
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> Try slash command \`/moderation ban\`**",
+            content: "**/ Try slash command \`/moderation ban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("CANNOT BAN YOURSELF")
@@ -61,7 +61,7 @@ module.exports = {
             const targetMember = message.guild.members.cache.get(target.id);
             if (targetMember.permissions.has("ADMINISTRATOR")){
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> try this with slash command \`/moderation ban\`**",
+            content: "**/ try this with slash command \`/moderation ban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("CANNOT BAN ADMINISTRATOR")
@@ -105,7 +105,7 @@ module.exports = {
          return message.reply({
             embeds: [new MessageEmbed()
               .setColor("#ff0079")
-              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setTitle(`❌ AN ERROR OCCURED!`)
               .setFooter("Error in code: Report this error to kotlin#0427")
               .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
             ]

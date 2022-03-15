@@ -19,7 +19,7 @@ module.exports = {
       .setLabel('ABOUT')
       .setURL('https://about.fumigram.com')
       .setStyle('LINK')
-      .setEmoji('885984580660772934'),
+      .setEmoji('💌'),
 
       // new MessageButton()
       // .setLabel('DISCORD')
@@ -31,17 +31,17 @@ module.exports = {
       .setLabel('INSTAGRAM')
       .setURL("https://www.instagram.com/fumigramapp")
       .setStyle('LINK')
-      .setEmoji('924819412505223188'),
+      .setEmoji('🐇'),
 
       new MessageButton()
       .setLabel('FACEBOOK')
       .setURL("https://web.facebook.com/fumigram")
       .setStyle('LINK')
-      .setEmoji('924927819610456124'),
+      .setEmoji('🤩'),
     );
 
     message.reply({
-      content: "**<:rabbitslash:913423874182500352> You can try this with slash command \`/info fumigram\`**",
+      content: "**/ You can try this with slash command \`/info fumigram\`**",
       embeds: [
         new MessageEmbed()
         .setTitle("FUMIGRAM IMAGE SHARING COMMUNITY")

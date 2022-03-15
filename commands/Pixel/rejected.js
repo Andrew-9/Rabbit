@@ -19,34 +19,34 @@ module.exports = {
     let user = (await message.mentions.members.first()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find((r) => r.user.username.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.guild.members.cache.find((r) => r.displayName.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.member;
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setURL(client.global.get("global", "invite"))
-    .setLabel("Invite")
-    .setEmoji('924818034965766215')
-    .setStyle("LINK"),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
 
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=xsjgpj2AtTM&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     message.channel.sendTyping();
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Requesting to reject user... Be Chill...**`,  components: [row] })
+    const m = await message.reply({ content: `🥕 **Requesting to reject user... Be Chill...**`,  components: [row] })
     const buffer = await AmeAPI.generate("rejected", { url: user.user.displayAvatarURL({ format: "png", size: 2048 }) });
     const attachment = new MessageAttachment(buffer, "rejected.png");
     const wait = require('util').promisify(setTimeout);
     await wait(2000);
-    m.edit({ content: `<a:is_loading:923892698782511125> **Request approved... Rejecting...**`,  components: [row] })
+    m.edit({ content: `🤣 **Request approved... Rejecting...**`,  components: [row] })
     await wait(2000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/pixel rejected\`**",
+    content: "**/ Try this with slash command \`/pixel rejected\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage('attachment://rejected.png')
@@ -60,7 +60,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

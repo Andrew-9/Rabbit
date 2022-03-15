@@ -18,26 +18,26 @@ module.exports = {
             const row = new MessageActionRow()
             .addComponents(
               new MessageButton()
-              .setURL(client.global.get("global", "invite"))
+              .setLabel('Support Server')
+              .setURL("https://discord.com/invite/MJ5tYb4Jh9")
+              .setStyle('LINK')
+              .setEmoji('✈'),
+  
+              new MessageButton()
+              .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
               .setLabel("Invite")
-              .setEmoji('924818034965766215')
+              .setEmoji('💌')
               .setStyle("LINK"),
-
-            new MessageButton()
-            .setURL("https://www.instagram.com/fumigramapp/")
-            .setLabel("Instagram")
-            .setEmoji('924819412505223188')
-            .setStyle("LINK"),
-      
-            new MessageButton()
-            .setLabel('Facebook')
-            .setURL('https://web.facebook.com/fumigram')
-            .setStyle('LINK')
-            .setEmoji('924927819610456124')
+          
+              new MessageButton()
+              .setLabel('Vote')
+              .setURL("https://top.gg/bot/897819791732121621")
+              .setStyle('LINK')
+              .setEmoji('🐰'),
             )
             if (!target) {
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> Try slash command \`/moderation unban\`**",
+            content: "**/ Try slash command \`/moderation unban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("PROVIDE USER ID")
@@ -47,7 +47,7 @@ module.exports = {
             }); 
             } else if (!rgx.test(target))  {
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> Try slash command \`/moderation unban\`**",
+            content: "**/ Try slash command \`/moderation unban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("PROVIDE VALID USER ID")
@@ -60,7 +60,7 @@ module.exports = {
             const user = bannedUsers.get(target).user;
             if (!user) {
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> try this with slash command \`/moderation unban\`**",
+            content: "**/ try this with slash command \`/moderation unban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("USER NOT FOUND")
@@ -74,7 +74,7 @@ module.exports = {
             if (reason.length > 1024) reason = reason.slice(0, 1021) + "...";
             await message.guild.members.unban(user, reason);
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> try this with slash command \`/moderation unban\`**",
+            content: "**/ try this with slash command \`/moderation unban\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setTitle("TARGET UNBANNED")
@@ -100,7 +100,7 @@ module.exports = {
             });
             } catch (e){
             message.channel.send({
-            content: `<:thinkingkatana:913429281353371719> I could not DM **${user.tag}** about the unbanned`,
+            content: `🤔 I could not DM **${user.tag}** about the unbanned`,
             components: [row]
             })
             }
@@ -111,7 +111,7 @@ module.exports = {
          return message.reply({
             embeds: [new MessageEmbed()
               .setColor("#ff0079")
-              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setTitle(`❌ AN ERROR OCCURED!`)
               .setFooter("Error in code: Report this error to kotlin#0427")
               .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
             ]

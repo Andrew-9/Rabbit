@@ -16,23 +16,23 @@ module.exports = {
     let emoji = client.settings.get(guild.id, "SlashEmoji");
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setURL(client.global.get("global", "invite"))
-    .setLabel("Invite")
-    .setEmoji('924818034965766215')
-    .setStyle("LINK"),
-
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+        new MessageButton()
+        .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+        .setLabel("Invite")
+        .setEmoji('💌')
+        .setStyle("LINK"),
+    
+        new MessageButton()
+        .setLabel('Vote')
+        .setURL("https://top.gg/bot/897819791732121621")
+        .setStyle('LINK')
+        .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Fumigram')
     .setURL('https://fumigram.com')
     .setStyle('LINK')
-    .setEmoji('885984580660772934')
+    .setEmoji('🥰')
     )
     const options = {
     method: "GET",
@@ -44,7 +44,7 @@ module.exports = {
     embeds: [new MessageEmbed()
     .setColor(color)
     .setTitle("BOT TOKEN")
-    .setDescription(`<a:checkmark:923609365737537556> Bot token: \`${response.data.token}\`\n||Note: This token is propabbly fake||`)
+    .setDescription(`✔ Bot token: \`${response.data.token}\`\n||Note: This token is propabbly fake||`)
     ]
     }); 
     });      
@@ -54,7 +54,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

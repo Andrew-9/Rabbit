@@ -27,22 +27,22 @@ module.exports = {
       const row = new MessageActionRow()
       .addComponents(
         new MessageButton()
+        .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+        .setLabel("Invite")
+        .setEmoji('🐰')
+        .setStyle("LINK"),
+
+        new MessageButton()
         .setLabel('Support Server')
-        .setURL(client.global.get("global", "support"))
+        .setURL("https://discord.com/invite/MJ5tYb4Jh9")
         .setStyle('LINK')
-        .setEmoji('924818382908440606'),
-  
+        .setEmoji('💌'),
+
         new MessageButton()
         .setLabel('Vote')
-        .setURL(client.global.get("global", "vote"))
+        .setURL("https://top.gg/bot/897819791732121621")
         .setStyle('LINK')
-        .setEmoji('924819119860224082'),
-  
-        new MessageButton()
-        .setLabel('Instagram')
-        .setURL("https://www.instagram.com/fumigramapp")
-        .setStyle('LINK')
-        .setEmoji('924819412505223188'),
+        .setEmoji('❤'),
       )
       client.settings.ensure(guild.id, {
         djroles: []

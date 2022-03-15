@@ -28,7 +28,7 @@ module.exports = {
       }
       let newReact = args[0];
       client.settings.ensure(guild.id, {
-        react: "<:R_rabbit:924819119860224082>"
+        react: "🐰"
       });
       client.settings.set(guild.id, newReact, "react");
       let BnewReact = client.settings.get(guild.id, `react`);

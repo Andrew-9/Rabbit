@@ -17,27 +17,27 @@ module.exports = {
     const user = message.mentions.users.first();
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setURL(client.global.get("global", "invite"))
-    .setLabel("Invite")
-    .setEmoji('924818034965766215')
-    .setStyle("LINK"),
-
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+      .setLabel("Invite")
+      .setEmoji('💌')
+      .setStyle("LINK"),
+  
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=ifz-mai8pL4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     if (!user) {
     return message.reply({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun kiss\`**",
+    content: "**/ Try this with slash command \`/fun kiss\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setTitle("TAG A LOVER")
@@ -47,7 +47,7 @@ module.exports = {
     });
     } else if (user == message.author){
     return message.reply({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun kiss\`**",
+    content: "**/ Try this with slash command \`/fun kiss\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setTitle("NOPE NOPE NOPE")
@@ -60,7 +60,7 @@ module.exports = {
     let response = await fetch("https://nekos.life/api/v2/img/kiss");
     let body = await response.json();
     return message.reply({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun kiss\`**",
+    content: "**/ Try this with slash command \`/fun kiss\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setAuthor(client.user.username, client.user.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
@@ -75,7 +75,7 @@ module.exports = {
     let response = await fetch("https://nekos.life/api/v2/img/kiss");
     let body = await response.json();
     return message.reply({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/fun kiss\`**",
+    content: "**/ Try this with slash command \`/fun kiss\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setAuthor(message.author.tag, message.author.displayAvatarURL({dynamic: true, format: "png", size: 2048}))
@@ -90,7 +90,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

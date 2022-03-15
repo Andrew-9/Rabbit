@@ -35,63 +35,24 @@ module.exports = {
         let reason = options.getString("reason") || "No reason provided";
         const row = new MessageActionRow()
         .addComponents(
-        new MessageButton()
-        .setURL(client.global.get("global", "invite"))
-        .setLabel("Invite")
-        .setEmoji('924818034965766215')
-        .setStyle("LINK"),
+            new MessageButton()
+            .setLabel('Support Server')
+            .setURL("https://discord.com/invite/MJ5tYb4Jh9")
+            .setStyle('LINK')
+            .setEmoji('✈'),
 
-        new MessageButton()
-        .setLabel('Support Server')
-        .setURL(client.global.get("global", "support"))
-        .setStyle('LINK')
-        .setEmoji('924818382908440606'),
-
-        new MessageButton()
-        .setLabel('Vote')
-        .setURL(client.global.get("global", "vote"))
-        .setStyle('LINK')
-        .setEmoji('924819119860224082'),
-
-        new MessageButton()
-        .setLabel('Instagram')
-        .setURL("https://www.instagram.com/fumigramapp")
-        .setStyle('LINK')
-        .setEmoji('924819412505223188'),
+            new MessageButton()
+            .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=1533303193591&scope=bot%20applications.commands`)
+            .setLabel("Invite")
+            .setEmoji('💌')
+            .setStyle("LINK"),
+        
+            new MessageButton()
+            .setLabel('Vote')
+            .setURL("https://top.gg/bot/897819791732121621")
+            .setStyle('LINK')
+            .setEmoji('🐰'),
         )
-
-        // const button = new MessageActionRow()
-        // .addComponents(
-        // new MessageButton()
-        // .setCustomId('mute')
-        // .setLabel('Mute')
-        // .setStyle('SECONDARY')
-        // .setEmoji('🔇'),
-
-        // new MessageButton()
-        // .setCustomId('kick')
-        // .setLabel('Kick')
-        // .setStyle('SECONDARY')
-        // .setEmoji('🦵'),
-
-        // new MessageButton()
-        // .setCustomId('ban')
-        // .setLabel('Ban')
-        // .setStyle('SECONDARY')
-        // .setEmoji('🔨'),
-
-        // new MessageButton()
-        // .setCustomId('pardon')
-        // .setLabel('Pardon')
-        // .setStyle('SECONDARY')
-        // .setEmoji('🤝'),
-
-        // new MessageButton()
-        // .setLabel('Vote')
-        // .setURL(client.global.get("global", "vote"))
-        // .setStyle('LINK')
-        // .setEmoji('868230223961919548')
-        // )
         client.warning.ensure(Target.id, {  userId: "", userTag: "", guildId: "", moderatorId: "", reason: "", timestamp: "" });
         client.warning.set(Target.id, Target.id, "userId");
         client.warning.set(Target.id, Target.tag, "userTag");
@@ -99,7 +60,7 @@ module.exports = {
         client.warning.set(Target.id, interaction.user.tag, "moderatorId");
         client.warning.set(Target.id, reason, "reason");
         client.warning.set(Target.id, Date.now(), "timestamp");
-        await interaction.reply({ content: `<:checkinginformation:914230628516519937> **Collecting the user's information...**`,  components: [row] });
+        await interaction.reply({ content: `🧐 **Collecting the user's information...**`,  components: [row] });
         const wait = require('util').promisify(setTimeout);
         await wait(4000);
         await interaction.editReply({ content: `${smug} **Warning the user... Hold on...**`,  components: [row] });
@@ -122,7 +83,7 @@ module.exports = {
         embeds: [
         new MessageEmbed()
         .setColor("#ff0079")
-        .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+        .setTitle(`❌ AN ERROR OCCURED!`)
         .setFooter("Error in code: Report this error to kotlin#0427")
         .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
         ],

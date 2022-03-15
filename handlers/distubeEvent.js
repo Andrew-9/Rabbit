@@ -15,6 +15,12 @@ module.exports = (client) => {
           console.log(error)
         }
         try {
+          var newQueue = client.distube.getQueue(queue.id)
+          var data = receiveQueueData(newQueue, track)
+          let currentSongPlayMsg = await queue.textChannel.send(data).then(msg => {
+            PlayerMap.set(`currentmsg`, msg.id);
+            return msg;
+          })
           //create a collector for the thing
           var collector = currentSongPlayMsg.createMessageComponentCollector({
             filter: (i) => i.isButton() && i.user && i.message.author.id == client.user.id,
@@ -49,17 +55,7 @@ module.exports = (client) => {
                 You need this **dj roles:** ${check_if_dj(client, i.member, client.distube.getQueue(i.guild.id).songs[0])}
                 `)
               ],
-              ephemeral: true}).then(interaction => {
-                if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-                  setTimeout(()=>{
-                    try {
-                      i.deleteReply().catch(console.log);
-                    }catch(e){
-                      console.log(e)
-                    }
-                  }, 3000)
-                }
-              })
+              ephemeral: true})
             }
             lastEdited = true;
             setTimeout(() => {
@@ -72,59 +68,15 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               const queue = client.distube.getQueue(i.guild.id);
               if (!queue || !newQueue.songs || newQueue.songs.length == 0) {
               return i.reply({ content: `${emoji} **There's currently nothing playing**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               }
               if (channel.id !== newQueue.voiceChannel.id)
              // if (channel.guild.me.voice.channel && channel.guild.me.voice.channel.id != channel.id)
               return i.reply({ content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               if (newQueue.songs.length == 0) {
               i.reply({ content: `${emoji} **Stopped playing and left the channel**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               clearInterval(songEditInterval);
               await client.distube.stop(i.guild.id)
               return
@@ -135,17 +87,6 @@ module.exports = (client) => {
               content: `${emoji} **Skipped to the next song!**`,
               ephemeral: true
               })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
             }
             //stop
             if (i.customId == `2`) {
@@ -154,30 +95,8 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({ content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //stop the track
               i.reply({
               embeds: [new MessageEmbed()
@@ -185,17 +104,6 @@ module.exports = (client) => {
               .setTitle("MUSIC HAS STOPPED")
               .setDescription(`Stopped playing and left the channel`)
               ]
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               clearInterval(songEditInterval);
               //edit the current song message
@@ -208,32 +116,10 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
               content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
               ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               if (newQueue.playing) {
                 await client.distube.pause(i.guild.id);
@@ -247,17 +133,6 @@ module.exports = (client) => {
                   .setTitle(`MUSIC PAUSED`)
                   .setDescription(`The music has been paused by DJ **${member.user.username}**`)
                 ]
-                })
-                .then(interaction => {
-                if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-                setTimeout(()=>{
-                try {
-                i.deleteReply().catch(console.log);
-                }catch(e){
-                console.log(e)
-                }
-                }, 3000)
-                }
                 })
               } else {
                 //pause the player
@@ -273,17 +148,6 @@ module.exports = (client) => {
                   .setDescription(`The music was resumed by DJ **${member.user.username}**`)
                   ]
                 })
-                .then(interaction => {
-                if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-                setTimeout(()=>{
-                try {
-                i.deleteReply().catch(console.log);
-                }catch(e){
-                console.log(e)
-                }
-                }, 3000)
-                }
-                })
               }
             }
             //autoplay
@@ -293,32 +157,10 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
               content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
               ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               //pause the player
               await newQueue.toggleAutoplay()
@@ -342,17 +184,6 @@ module.exports = (client) => {
                 ],
                 ephemeral: true
                 })
-                .then(interaction => {
-                if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-                setTimeout(()=>{
-                try {
-                i.deleteReply().catch(console.log);
-                }catch(e){
-                console.log(e)
-                }
-                }, 3000)
-                }
-                })
             }
             //Shuffle
             if(i.customId == `5`){
@@ -362,33 +193,11 @@ module.exports = (client) => {
               let color = client.settings.get(member.guild.id, `audiomack`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //if not in the same channel as the player, return Error
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
               content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
               ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               await newQueue.shuffle()
               i.reply({
@@ -399,17 +208,6 @@ module.exports = (client) => {
                 ],
                 ephemeral: true
               })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
             }
             //Songloop
             if(i.customId == `6`){
@@ -418,33 +216,11 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //if not in the same channel as the player, return Error
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
                 content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
                 ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               //Disable the Repeatmode
               if(newQueue.repeatMode == 1){
@@ -460,17 +236,6 @@ module.exports = (client) => {
                 .setTitle(`SONG LOOP MODE!`)
                 .setDescription(`${newQueue.repeatMode == 1 ? `Enabled song Loop Mode!` : `Disabled song Loop Mode!`}`)
                 ],
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               var data = receiveQueueData(client.distube.getQueue(queue.id), newQueue.songs[0])
               currentSongPlayMsg.edit(data).catch((e) => {
@@ -490,17 +255,6 @@ module.exports = (client) => {
                 content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
                 ephemeral: true
               })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //Disable the Repeatmode
               if(newQueue.repeatMode == 2){
                 await newQueue.setRepeatMode(0)
@@ -516,17 +270,6 @@ module.exports = (client) => {
                 .setDescription(`${newQueue.repeatMode == 2 ? `Enabled queue loop Mode!` : `Disabled queue loop Mode!`}`)
                 ],
                 })
-                .then(interaction => {
-                if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-                setTimeout(()=>{
-                try {
-                i.deleteReply().catch(console.log);
-                }catch(e){
-                console.log(e)
-                }
-                }, 3000)
-                }
-                })
               var data = receiveQueueData(client.distube.getQueue(queue.id), newQueue.songs[0])
               currentSongPlayMsg.edit(data).catch((e) => {
                 //console.log(e.stack ? String(e.stack).grey : String(e).grey)
@@ -539,33 +282,11 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //if not in the same channel as the player, return Error
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
                 content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
                 ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               let seektime = newQueue.currentTime + 10;
               if (seektime >= newQueue.songs[0].duration) seektime = newQueue.songs[0].duration - 1;
@@ -577,17 +298,6 @@ module.exports = (client) => {
                 .setTitle(`SONG FORWARD!`)
                 .setDescription(`Forwarded the song by \`10 seconds\``)
                 ],
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               var data = receiveQueueData(client.distube.getQueue(queue.id), newQueue.songs[0])
               currentSongPlayMsg.edit(data).catch((e) => {
@@ -601,33 +311,11 @@ module.exports = (client) => {
               let emoji = client.settings.get(member.guild.id, `audioemoji`);
               if (!channel)
               return i.reply({ content: `${emoji} **You have to be in a voice channel first**`, ephemeral: true })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               //if not in the same channel as the player, return Error
               if (channel.id !== newQueue.voiceChannel.id)
               return i.reply({
                 content: `${emoji} **You must be in the same voice channel as me <#${channel.id}>**`,
                 ephemeral: true
-              })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
               })
               let seektime = newQueue.currentTime - 10;
               if (seektime < 0) seektime = 0;
@@ -641,17 +329,6 @@ module.exports = (client) => {
                 .setDescription(`Rewinded the song by \`10 seconds\``)
                 ],
               })
-              .then(interaction => {
-              if(newQueue.textChannel.id === client.settings.get(newQueue.id, `music.channel`)){
-              setTimeout(()=>{
-              try {
-              i.deleteReply().catch(console.log);
-              }catch(e){
-              console.log(e)
-              }
-              }, 3000)
-              }
-              })
               var data = receiveQueueData(client.distube.getQueue(queue.id), newQueue.songs[0])
               currentSongPlayMsg.edit(data).catch((e) => {
               return;
@@ -663,7 +340,6 @@ module.exports = (client) => {
         }
       })
       .on(`addSong`, (queue, song) => {
-        updateMusicSystem(queue);
         queue.textChannel.send({
         embeds: [
           new MessageEmbed()
@@ -680,22 +356,8 @@ module.exports = (client) => {
           .setFooter(`Song For ${song.user.tag}`, song.user.displayAvatarURL({dynamic: true}))
         ]
       })
-      .then(msg => {
-          if(queue.textChannel.id === client.settings.get(queue.id, `music.channel`)){
-            setTimeout(() =>{
-              try{
-                if(!msg.deleted){
-                  msg.delete().catch(() => {});
-                }
-              }catch (e) {
-
-              }
-            }, 6000)
-          }
-        })
       })
       .on(`addList`, (queue, playlist) => {
-        updateMusicSystem(queue);
         queue.textChannel.send({
         embeds: [
           new MessageEmbed()
@@ -712,19 +374,6 @@ module.exports = (client) => {
           .setFooter(`Playlist For ${playlist.user.tag}`, playlist.user.displayAvatarURL({dynamic: true}))
         ]
       })
-      .then(msg => {
-        if(queue.textChannel.id === client.settings.get(queue.id, `music.channel`)){
-          setTimeout(() =>{
-            try{
-              if(!msg.deleted){
-                msg.delete().catch(() => {});
-              }
-            }catch (e) {
-
-            }
-          }, 3000)
-        }
-      })
     })
       // DisTubeOptions.searchSongs = true
       .on(`searchResult`, (message, result) => {
@@ -734,7 +383,7 @@ module.exports = (client) => {
       // DisTubeOptions.searchSongs = true
       .on(`searchCancel`, message => message.channel.send(`${client.settings.get(message.guild.id, `audioemoji`)} Searching canceled`).catch((e)=>console.log(e)))
       .on(`error`, (channel, e) => {
-        channel.send(`${client.settings.get(channel.id, `audioemoji`)} **An error encountered:** \`${e}\``).catch((e)=>console.log(e))
+        channel.send(`🎵 **An error encountered:** \`${e}\``).catch((e)=>console.log(e))
         console.error(e)
       })
       .on(`empty`, channel => channel.send(`**Voice channel is empty! Leaving the channel...**`).catch((e)=>console.log(e)))

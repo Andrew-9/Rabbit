@@ -14,7 +14,7 @@ module.exports = {
             let prefix = client.settings.get(message.guild.id, "prefix");
             let color = client.settings.get(message.guild.id, `colorlike`);
             message.reply({
-            content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/info avatar\`**",
+            content: "**/ Try this with slash command \`/info avatar\`**",
             embeds: [new MessageEmbed()
             .setColor(color)
             .setImage(message.guild.iconURL({dynamic: true, format: "png", size: 2048 }))
@@ -26,7 +26,7 @@ module.exports = {
          return message.reply({
             embeds: [new MessageEmbed()
               .setColor("#ff0079")
-              .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+              .setTitle(`❌ AN ERROR OCCURED!`)
               .setFooter("Error in code: Report this error to kotlin#0427")
               .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
             ]

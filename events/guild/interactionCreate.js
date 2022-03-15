@@ -3,21 +3,16 @@ const ms = require("parse-ms");
 const mstime = require("ms");
 const config = require(`../../botconfig/config.json`);
 const settings = require(`../../botconfig/settings.json`);
-const websettings = require("../../../dashboard/settings.json");
 const { onCoolDown, replacemsg } = require("../../handlers/functions");
 const { MessageEmbed } = require("discord.js");
 module.exports = (client, interaction) => {
 	const CategoryName = interaction.commandName;
   client.settings.ensure(interaction.guildId, {
       djroles: [],
-      botchannel: [],
-      updates: "",
       defaultvolume: 50,
-      defaultmute: "1m",
       prefix: config.prefix,
       defaultautoplay: false,
       defaultfilters: [`bassboost6`, `clear`],
-      setupointer: ">",
       helppointer: ">",
       color: "#2F3136",
       homecolor: "#00B1F9",
@@ -30,19 +25,16 @@ module.exports = (client, interaction) => {
       pixelcolor: "#4B61FF",
       audiomack: "#00b7ff",
       equalizercolor: "#4170FF",
-      economycolor: "#07A461",
-      emoji: "<:R_rabbit:924819119860224082>",
-      SlashEmoji: "<:thinkingkatana:913429281353371719>",
-      SlashDrinking: "<:drinkingthinking:914230665443155978>",
-      rabbitsmirk: "<:R_rabbit:924819119860224082>",
-      smug: "<:finesmug:914226329073909830>",
-      react: "<:R_rabbit:924819119860224082>",
-      pointer: "<:rabbitpoint:897844154258841620>",
-      audioemoji: "<:Audiomack:928030855560060988>",
+      emoji: "🐰",
+      SlashEmoji: "🤔",
+      SlashDrinking: "😛",
+      rabbitsmirk: "😏",
+      smug: "🧐",
+      react: "🐰",
+      pointer: ">",
+      audioemoji: "🎵",
   });
-  client.infos.ensure("global", { songs: 0, commands: 0 });
   let prefix = client.settings.get(interaction.guildId)
-  let emoji = client.settings.get(interaction.guildId, `emoji`);
   let color = client.settings.get(interaction.guildId, `color`);
 	let command = false;
 	try{
@@ -55,25 +47,8 @@ module.exports = (client, interaction) => {
    	}
 	}
 	if (command) {
+    client.infos.ensure("global", { songs: 0, commands: 0 });
     client.infos.set("global", Number(client.infos.get("global", "commands")) + 1, "commands");
-    let botchannels = client.settings.get(interaction.guildId, `botchannel`);
-    if(!botchannels || !Array.isArray(botchannels)) botchannels = [];
-    if (botchannels.length > 0) {
-        if (!botchannels.includes(interaction.channelId) && !interaction.member.permissions.has("ADMINISTRATOR")) {
-           return interaction.reply({
-            content: `**${emoji} This channel is not a bot channel.**`,
-            ephemeral: true,
-             embeds: [new MessageEmbed()
-              .setColor(color)
-              .setTitle(`COMMANDS NOT ALLOWED HERE`)
-              .setDescription(`
-              Hey you are not allowed to use this command here
-              Please do it in one of this channels: ${botchannels.map(c=>`<#${c}>`).join(", ")}
-              `)
-            ]
-           })
-        }
-    }
 		if (onCoolDown(interaction, command)) {
 			  return interaction.reply({ephemeral: true,
 				embeds: [new MessageEmbed()

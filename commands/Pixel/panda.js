@@ -17,26 +17,26 @@ module.exports = {
     let color = client.settings.get(message.guild.id, `pixelcolor`);
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=BQMTb-S60l4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     message.channel.sendTyping();
     const options = {
     method: "GET", url: "https://some-random-api.ml/img/panda" };
     axios.request(options).then(async (response) => {
-    const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Looking for a panda...**`,  components: [row] })
+    const m = await message.reply({ content: `🥕 **Looking for a panda...**`,  components: [row] })
     await wait(2000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Found one. Try slash command \`/pixel panda\`**",
+    content: "**/ Found one. Try slash command \`/pixel panda\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage(response.data.link)
@@ -50,7 +50,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],

@@ -18,17 +18,17 @@ module.exports = {
     let user = (await message.mentions.members.first()) || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find((r) => r.user.username.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.guild.members.cache.find((r) => r.displayName.toLowerCase().includes() === args.join(" ").toLocaleLowerCase()) || message.member;
     const row = new MessageActionRow()
     .addComponents(
-    new MessageButton()
-    .setLabel('Vote')
-    .setURL(client.global.get("global", "vote"))
-    .setStyle('LINK')
-    .setEmoji('924819119860224082'),
+      new MessageButton()
+      .setLabel('Vote')
+      .setURL("https://top.gg/bot/897819791732121621")
+      .setStyle('LINK')
+      .setEmoji('🐰'),
     
     new MessageButton()
     .setLabel('Bunny')
     .setURL('https://www.youtube.com/watch?v=BQMTb-S60l4&ab_channel=PeterRabbit')
     .setStyle('LINK')
-    .setEmoji('916090320758915102')
+    .setEmoji('📺')
     )
     message.channel.sendTyping();
     const m = await message.reply({ content: `<a:is_loading:923892698782511125> **Generating Pixels...**`,  components: [row] })
@@ -36,7 +36,7 @@ module.exports = {
     const attachment = new MessageAttachment(wasted, "wasted.png");
     await wait(2000);
     m.edit({
-    content: "**<:rabbitslash:913423874182500352> Try this with slash command \`/pixel wasted\`**",
+    content: "**/ Try this with slash command \`/pixel wasted\`**",
     embeds: [new MessageEmbed()
     .setColor(color)
     .setImage('attachment://wasted.png')
@@ -50,7 +50,7 @@ module.exports = {
     embeds: [
     new MessageEmbed()
     .setColor("#ff0079")
-    .setTitle(`<:errorcode:868245243357712384> AN ERROR OCCURED!`)
+    .setTitle(`❌ AN ERROR OCCURED!`)
     .setFooter("Error in code: Report this error to kotlin#0427")
     .setDescription(`\`\`\`${e.stack.toString().substr(0, 800)}\`\`\``)
     ],
